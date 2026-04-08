@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(wsl bash:*)",
+      "Bash(dir \"D:\\\\\\\\opencode projects\\\\\\\\dSibp\\\\\\\\codebubble\\\\\\\\\")",
+      "Bash(dir \"D:\\\\\\\\opencode projects\\\\\\\\dSibp\\\\\\\\codebubble\\\\\\\\kira_bubble\\\\\\\\\")",
+      "Bash(dir \"D:\\\\\\\\opencode projects\\\\\\\\dSibp\\\\\\\\codebubble\\\\\\\\kira_bubble\\\\\\\\userSystem\\\\\\\\\")",
+      "Bash(where wolframscript:*)",
+      "Bash(where math:*)",
+      "Bash(where MathKernel)",
+      "Bash(grep -c \"-> $\" \"D:/opencode projects/dSibp/codebubble/kira_bubble/results/kira_list.m\")",
+      "Bash(grep -c \"^0$\" \"D:/opencode projects/dSibp/codebubble/kira_bubble/results/kira_list.m\")",
+      "Bash(grep -v \"^0$\" \"D:/opencode projects/dSibp/codebubble/kira_bubble/results/kira_list.m\")",
+      "Bash(grep -v \"^{$\\\\|^}$\\\\|^,$\\\\|Tuserweight\\\\|^$\")",
+      "Bash(wolframscript -code ':*)",
+      "Bash(wolframscript -file bubble_ibp_sym.m)",
+      "Bash(sed -n '1,3p' \"D:/opencode projects/dSibp/codebubble/kira_bubble/userSystem/ibp.kira\")",
+      "Bash(sed -n '13830,13860p' \"D:/opencode projects/dSibp/codebubble/kira_bubble/userSystem/ibp.kira\")",
+      "Bash(wolframscript -file bubble_de.m)"
+    ]
+  }
+}

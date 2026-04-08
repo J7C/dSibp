@@ -1,0 +1,613 @@
+\pdfoutput=1
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{framed}
+
+\usepackage[medium]{titlesec}
+\usepackage{bm}
+\usepackage{cite}
+
+\usepackage[normalem]{ulem}
+\usepackage{extarrows}
+\usepackage{slashed}
+\usepackage{isodateo}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[bookmarksnumbered=true,bookmarksopen=true]{hyperref}
+ \hypersetup{colorlinks,%
+             linkcolor=NavyBlue, %
+             citecolor=PineGreen, %
+             urlcolor=PineGreen}
+\usepackage[hmargin=.7in,vmargin=1.1in]{geometry}
+\usepackage{indentfirst}
+\usepackage{booktabs}
+
+\usepackage{bbm}
+
+\linespread{1.1}
+
+\newcommand{\FR}[2]{\displaystyle\frac{\,{#1}\,}{#2}}
+\newcommand{\fr}[2]{\mbox{$\frac{\,{#1}\,}{#2}$}}
+\newcommand{\n}{\nonumber}
+\renewcommand{\rm}{\mathrm}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\graphicspath{{fig/}}
+
+
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\gray}{\color{gray}}
+
+\def\bge{\begin{equation}}
+\def\ede{\end{equation}}
+\def\bga{\begin{aligned}}
+\def\eda{\end{aligned}}
+\def\ie{\begin{equation}\begin{aligned}}
+\def\fe{\end{aligned}\end{equation}}
+\def\bgb{\begin{bmatrix}}
+\def\edb{\end{bmatrix}}
+\def\bgp{\begin{pmatrix}}
+\def\edp{\end{pmatrix}}
+\def\bgm{\begin{matrix}}
+\def\edm{\end{matrix}}
+\def\bgs{\begin{subequations}}
+\def\eds{\end{subequations}}
+\newcommand{\order}[1]{\mathcal{O}({#1})}
+\def\di{{\mathrm{d}}}
+\def\D{{\mathrm{D}}}
+\def\Di{{\mathcal{D}}}
+
+\def\T{\mathcal{T}}
+\def\mb{\mathbf}
+\def\ms{\mathscr}
+\def\mf{\mathfrak}
+\def\mc{\mathcal}
+\def\cl{\mathrm{cl}}
+\def\pd{\partial}
+\def\ld{{\mathscr{L}}}
+\def\hd{{\mathscr{H}}}
+\def\z{{\bar{z}}}
+\def\la{\langle}\def\ra{\rangle}
+\def\sla{\slashed}
+\def\const{\mathrm{const.}}
+\setlength\unitlength{1mm}
+\def\tr{\mathrm{\,tr\,}}
+\def\Tr{\mathrm{\,Tr\,}}
+\def\Det{\mathrm{\,Det\,}}
+
+
+\def\To{\Rightarrow}
+\def\ii{\mathrm{i}}
+
+\def\al{\alpha}
+\def\be{\beta}
+\def\ga{\gamma}
+\def\de{\delta}
+\def\ep{\epsilon}
+\def\ka{\kappa}
+\def\lam{\lambda}
+\def\rh{\rho}
+\def\si{\sigma}
+\def\ze{\zeta}
+
+\def\Wh{\mathrm{W}}
+
+
+\def\aa{\mathsf{a}}
+\def\bb{\mathsf{b}}
+\def\cc{\mathsf{c}}
+\def\dd{\mathsf{d}}
+
+\def\C{\mathbb{C}}
+\def\R{\mathbb{R}}
+
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\mK}{\mathcal{K}}
+\def\to{\rightarrow}
+
+\def\Mp{M_{\text{Pl}}}
+
+
+\def\Re{\mathrm{Re}\,}
+\def\Im{\mathrm{Im}\,}
+
+\def\ad{\mathrm{\,ad\,}}
+
+\def\2F1{{}_2\mathrm{F}_1}
+\def\3F2{{}_3\mathrm{F}_2}
+
+\def\nut{\wt{\nu}}
+%\newcommand{\nut}{\widetilde{\nu}}
+
+
+\def\tf{{\tau_0}}
+
+\usepackage{mdframed} 
+                   
+
+\newmdenv[skipabove=0pt,%
+          skipbelow=5pt,%
+          leftmargin=0pt,%
+          rightmargin=0pt,%
+          innertopmargin=-5pt,%
+          innerbottommargin=7pt,%
+          innerleftmargin=2pt,%
+          innerrightmargin=2pt,%
+          splittopskip=0pt,%
+          splitbottomskip=0pt,%
+          linewidth=0pt,%
+          nobreak=true]%
+          {keyeqn2}                   
+                   
+                   
+\newmdenv[backgroundcolor=gray!15,%
+          skipabove=0pt,%
+          skipbelow=5pt,%
+          leftmargin=0pt,%
+          rightmargin=0pt,%
+          innertopmargin=-5pt,%
+          innerbottommargin=7pt,%
+          innerleftmargin=2pt,%
+          innerrightmargin=2pt,%
+          splittopskip=0pt,%
+          splitbottomskip=0pt,%
+          linewidth=0pt,%
+          nobreak=true]%
+          {keyeqn}
+          
+
+\usepackage{titlesec}          
+\titleformat{\section}
+{\normalfont\fontsize{15}{20}\bfseries}{\thesection}{1em}{}
+
+\newcommand{\ob}[1]{\mkern 2mu \overline{\mkern -2mu #1 \mkern -2mu}\mkern 2mu}
+\newcommand{\wt}[1]{\mkern 2mu \widetilde{\mkern -2mu #1 \mkern -2mu}\mkern 2mu}
+\newcommand{\wh}[1]{\mkern 2mu \widehat{\mkern-2mu#1\mkern-2mu}\mkern 2mu}
+
+\newcommand{\fnemail}[1]{\footnote{Email: \href{mailto:#1}{\nolinkurl{#1}}}}
+
+
+
+
+\newcommand{\zq}[1]{{\color[rgb]{.1,.6,.3}{[{ZQ:} #1]}}}
+\newcommand{\cjq}[1]{{\color[rgb]{.1,.6,.3}{[{CJQ:} #1]}}}
+\newcommand{\tyx}[1]{{\color[rgb]{.1,.6,.3}{[{YT:} #1]}}}
+\begin{document}
+
+\title{\Large\textbf{IBP for Bubble\\[2mm]}}
+
+\author{Zhehan Qin$^{\,a,b\,}$\fnemail{qzh21@mails.tsinghua.edu.cn}\\[5mm]
+$^a\,$\normalsize{\emph{Department of Physics, Tsinghua University, Beijing 100084, China} }\\
+$^b\,$\normalsize{\emph{Department of Applied Mathematics and Theoretical Physics, University of Cambridge,}}\\\normalsize{\emph{Wilberforce Road, Cambridge, CB3 0WA, UK}}\\
+}
+
+\date{}
+\maketitle
+
+\vspace{20mm}
+
+\begin{abstract}
+In this note we construct IBP relations for bubble-like cosmological correlators.
+\vspace{10mm}
+\end{abstract}
+
+\newpage
+\tableofcontents
+
+
+\paragraph{Notations} The metric reads: $\di s^2=a^2(-\di\tau^2+\di \mb x^2)$, where the scale factor is $a(\tau) = -1/(H\tau)$. We set $H\equiv 1$ throughout this note.
+
+\section{Integrand}
+We define:
+\bge
+h_\nu^{(1)}(x) \equiv x^{-\nu}\mathrm H_{\nu}^{(1)}(x),\qquad h_\nu^{(2)}(x) \equiv x^{-\nu}\mathrm H_{\nu^*}^{(2)}(x),\qquad \nu\in\mathbb C,\quad x>0.
+\ede
+It is easy to check that $h_\nu^{(1,2)}(x)$ are the two (linearly independent) solutions to:
+\bge
+\label{eq_hdef}
+h''(x) + \FR{2\nu+1}{x}h'(x) + h(x) = 0.
+\ede
+We can use $h^{(1,2)}_\nu(-k\tau)$ and power function of $k$ and $-\tau$ to express the mode function and its conjugate of a scalar field with mass $m^2=9/4-\nu^2$. For convenience, let us further define:
+\bge
+h_{\nu,0}(x)\equiv h_\nu(x),\qquad h_{\nu,n} (x)  \equiv  \FR{\di^n}{\di x^n}h(x),
+\ede
+
+ It is straightforward that in general, the $n$-point correlator is the sum of several integrals as the following:
+\bge
+\int_{-\infty}^0 \di\tau_i \int \FR{\di^d \mb k_i}{(2\pi)^d}\, \FR{\mathcal P(\tau_i,p_i)}{\prod p_i^{n_i}} \times \prod e^{\pm \ii P_i \tau_i} \times \prod h_n^{(1,2)}(-p_i\tau_i) \times \prod \theta(\tau_i-\tau_j).
+\ede
+Here $\bm k_i$ denotes the loop momenta, and $\bm p_i$ could be either loop momenta or external momenta, $p_i \equiv |\mb p_i|$, and $P_i$ denotes the external energies.
+
+\section{Tadpole}
+Let us consider:
+\begin{align}
+G[\{n_1,n_2\},\{a\},\{b\}] \equiv&~ \int_{-\infty}^0 \di\tau\int\FR{\di^3\bm q}{(2\pi)^3}\, e^{\ii P\tau} \frac{(-\tau)^{a}}{|\bm q|^{b}}
+\times h_{n_1}(-q\tau)h_{n_2}(-q\tau).
+\end{align}
+
+\subsection{Time IBP}
+$\int \pd_{\tau}[ \cdots ]=0$ implies:
+\begin{align}
+0 =& \ii P G[\{n_1,n_2\},\{a\},\{b\}] - a G[\{n_1,n_2\},\{a-1\},\{b\}]\n\\
+&- G[\{n_1+1,n_2\},\{a\},\{b-1\}] - G[\{n_1,n_2+1\},\{a\},\{b-1\}].
+\end{align}
+or
+\begin{align}
+0 =& \ii P G[\{n_1,n_2\},\{a\},\{b+1\}] - a G[\{n_1,n_2\},\{a-1\},\{b+1\}]\n\\
+&- G[\{n_1+1,n_2\},\{a\},\{b\}] - G[\{n_1,n_2+1\},\{a\},\{b\}].
+\end{align}
+\subsection{Momentum IBP}
+Using that
+\bge
+\bm q^i \pd_{\bm q^i}|\bm q|^b = \bm q^i \times b|\bm q|^{b-1} \times \pd_{\bm q^i}|\bm q| = \bm q^i  \times b|\bm q|^{b-1} \times \FR{\bm q^i}{|\bm q|} = b|\bm q|^b,
+\ede
+we find $\int \pd_{\bm q^i}[\bm q^i \cdots ]$ implies: \zq{in general $3$ should be spatial dimension $d$}:
+\begin{align}
+&~0 =  D G[\{n_1,n_2\},\{a\},\{b\}] - b G[\{n_1,n_2\},\{a\},\{b\}] \n\\
+&+G[\{n_1+1,n_2\},\{a+1\},\{b-1\}] + G[\{n_1,n_2+1\},\{a+1\},\{b-1\}].
+\end{align}
+or
+\begin{align}
+&~0 =  D G[\{n_1,n_2\},\{a-1\},\{b+1\}] - (b+1) G[\{n_1,n_2\},\{a-1\},\{b+1\}] \n\\
+&+G[\{n_1+1,n_2\},\{a\},\{b\}] + G[\{n_1,n_2+1\},\{a\},\{b\}].
+\end{align}
+Together with identity \eqref{eq_hdef}:
+\begin{align}
+G[\{2,n_2\},\{a\},\{b\}] =& -G[\{0,n_2\},\{a\},\{b\}]-(2\nu+1)G[\{1,n_2\},\{a-1\},\{b+1\}],\\
+G[\{n_1,2\},\{a\},\{b\}] =& -G[\{n_1,0\},\{a\},\{b\}]-(2\nu+1)G[\{n_1,1\},\{a-1\},\{b+1\}],
+\end{align}
+we have completed the IBP relations for tadpoles.
+
+Solving the ibp, we have
+\ie
+\ii P G[\{n_1,n_2\},\{a+1\},\{b\}] +(2-b- a) G[\{n_1,n_2\},\{a\},\{b\}]=0
+\fe
+\ie
+ \partial_PG[\{n_1,n_2\},\{a\},\{b\}] =\frac{2-b- a}{P} G[\{n_1,n_2\},\{a\},\{b\}]\to \text{d} G=(2-b-a)(\text{d}\log P) G
+\fe
+\section{Bubble}
+Let us consider:
+\begin{align}
+G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]& \equiv~ \int_{-\infty}^0 \di\tau_1\di\tau_2\int\FR{\di^3\bm q}{(2\pi)^3}\, e^{-\ii P_1\tau_1 - \ii P_2 \tau_2}    \frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}} \n\\
+&\times h_{n_1}(-q\tau_1)h_{n_2}(-q\tau_2)h_{n_3}(-|\bm q+\bm k_s|\tau_1)h_{n_4}(-|\bm q+\bm k_s|\tau_2).
+\end{align}
+From the Feynman rules, the natural $a_i+\nu_1+\nu_2$ and $b_i+\nu_1+\nu_2$ are half-integer or integer.
+
+\subsection{Time IBP}
+$\int \pd_{\tau_1}[ \cdots ]=0$ implies:
+\begin{align}
+0 =& - \ii P_1 G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] - a_1G[\{n_1,n_2,n_3,n_4\},\{a_1-1,a_2\},\{b_1,b_2\}]\n\\
+&- G[\{n_1+1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1-1,b_2\}] - G[\{n_1,n_2,n_3+1,n_4\},\{a_1,a_2\},\{b_1,b_2-1\}].
+\end{align}
+Similarly, $\int \pd_{\tau_2}[ \cdots ]=0$ implies:
+\begin{align}
+0 =& - \ii P_2 G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] - a_2G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2-1\},\{b_1,b_2\}]\n\\
+&- G[\{n_1,n_2+1,n_3,n_4\},\{a_1,a_2\},\{b_1-1,b_2\}] - G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2\},\{b_1,b_2-1\}].
+\end{align}
+\cjq{notice the property: if people use these 2 eqs for $b_i+1\to b_i$ (for k), we have $a_i\to a_i-1$ (for $\tau$). This is  due to that k and $\tau$ is a pair of conjugate variables.
+
+so we redefine $b_i$ as $-b_i$ later, and I suggest to rewrite all $b_i$ as $-b_i$ at the beginning.
+
+also notice that after the redefinition, this 2 IBPs could be used as iterative reduction relation, for lowering the total power $a_1+a_2+b_1+b_2$, and keep the total power and lowering arbitrary one of the indices (but raising others)}
+
+
+\subsection{Momentum IBP}
+Using that:
+\begin{align}
+&~\bm q^i \pd_{\bm q^i}|\bm q|^b = \bm q^i \times b|\bm q|^{b-1} \times \pd_{\bm q^i}|\bm q| = \bm q^i  \times b|\bm q|^{b-1} \times \FR{\bm q^i}{|\bm q|} = b|\bm q|^b,\\
+&~\bm q^i \pd_{\bm q^i} |\bm q+\bm k_s|^b 
+= \bm q^i  \times b|\bm q+\bm k_s|^{b-1} \times \FR{\bm q^i+\bm k_s^i}{|\bm q+\bm k_s|} = \FR12 b|\bm q+\bm k_s|^{b-2}(q^2+|\bm q+\bm k_s|^2 - k_s^2),
+\end{align}
+we find $\int \pd_{\bm q^i}[\bm q^i \cdots ]$ implies: \zq{in general $3$ should be spatial dimension $d$}
+\begin{align}
+&~0 =  D G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\n\\
+& - b_1 G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\n\\
+& - \FR12 b_2\Big( G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] + G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1-2,b_2+2\}] \n\\
+&-k_s^2 G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2+2\}] \Big)\n\\
+&+G[\{n_1+1,n_2,n_3,n_4\},\{a_1+1,a_2\},\{b_1-1,b_2\}]\n\\
+& + G[\{n_1,n_2+1,n_3,n_4\},\{a_1,a_2+1\},\{b_1-1,b_2\}]\n\\
+&+\FR12 \Big( G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1,b_2-1\}] + G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1+2,b_2+1\}]\n\\
+& -k_s^2 G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1,b_2+1\}] \Big)\n\\
+&+\FR12\Big( G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1,b_2-1\}] + G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1-2,b_2+1\}]\n\\
+& -k_s^2 G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1,b_2+1\}] \Big).
+\end{align}
+Similarly, $\int \pd_{\bm q^i}[(\bm q^i+\bm k_s^i) \cdots ]$ implies $(\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\} \to \{n_3,n_4,n_1,n_2\},\{a_1,a_2\},\{b_2,b_1\})$:
+\begin{align}
+&~0 =  D G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\n\\
+&- \FR12 b_1\Big(G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] + G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1+2,b_2-2\}]\n\\
+&-k_s^2 G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1+2,b_2\}] 
+\Big)\n\\
+& - b_2  G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\n\\
+&+\FR12\Big( G[\{n_1+1,n_2,n_3,n_4\},\{a_1+1,a_2\},\{b_1-1,b_2\}] + G[\{n_1+1,n_2,n_3,n_4\},\{a_1+1,a_2\},\{b_1+1,b_2-2\}]\n\\
+& -k_s^2 G[\{n_1+1,n_2,n_3,n_4\},\{a_1+1,a_2\},\{b_1+1,b_2\}] \Big)\n\\
+&+\FR12\Big( G[\{n_1,n_2+1,n_3,n_4\},\{a_1,a_2+1\},\{b_1-1,b_2\}] + G[\{n_1,n_2+1,n_3,n_4\},\{a_1,a_2+1\},\{b_1+1,b_2-2\}]\n\\
+& -k_s^2 G[\{n_1,n_2+1,n_3,n_4\},\{a_1,a_2+1\},\{b_1+1,b_2\}] \Big)\n\\
+&+G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1,b_2-1\}]\n\\
+& + G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1,b_2-1\}].
+\end{align}
+Together with identity \eqref{eq_hdef}:
+\begin{align}
+G[\{2,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] =& - G[\{0,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\n\\
+& - (2\nu+1) G[\{1,n_2,n_3,n_4\},\{a_1-1,a_2\},\{b_1+1,b_2\}],\\
+G[\{n_1,2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] =& - G[\{n_1,0,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\n\\
+& - (2\nu+1) G[\{n_1,1,n_3,n_4\},\{a_1,a_2-1\},\{b_1+1,b_2\}],\\
+G[\{n_1,n_2,2,n_4\},\{a_1,a_2\},\{b_1,b_2\}] =& - G[\{n_1,n_2,0,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\n\\
+& - (2\nu+1) G[\{n_1,n_2,1,n_4\},\{a_1-1,a_2\},\{b_1,b_2+1\}],\\
+G[\{n_1,n_2,n_3,2\},\{a_1,a_2\},\{b_1,b_2\}] =& - G[\{n_1,n_2,n_3,0\},\{a_1,a_2\},\{b_1,b_2\}]\n\\
+& - (2\nu+1) G[\{n_1,n_2,n_3,1\},\{a_1,a_2-1\},\{b_1,b_2+1\}],
+\end{align}
+we have completed the IBP relations for the (factorized) bubble.
+
+\subsection{symmetry of the IBPs}
+
+
+\subsection{Indices of the IBPs}
+In the code, we redefine $G[\{\cdots\},\{a_1,a_2\},\{b_1,b_2\}]$, The new $G[\{\cdots\},\{a_1,a_2\},\{b_1,b_2\}]$ equals the original $G[\{\cdots\},{a_0+a_1,a_0+a_2},{-b_0-b_1,-b_0-b_2}]$
+Then, the $a_1,a_2,b_1,b_2$ appear in the 4 IBPs
+\begin{align}
+\left(
+\begin{array}{cccc}
+ \{-1,0\} & \{0\} & \{-1,0\} & \{-1,0\} \\
+ \{0\} & \{-1,0\} & \{-1,0\} & \{-1,0\} \\
+ \{0,1\} & \{0,1\} & \{-2\sim0\} & \{-1\sim2\} \\
+ \{0,1\} & \{0,1\} & \{-1\sim2\} & \{-2\sim0\} \\
+\end{array}
+\right)
+\end{align}
+
+\subsection{bubbles with $G_{++}$}
+Let us consider:
+\begin{align}
+G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]& \equiv~ \int_{-\infty}^0 \di\tau_1\di\tau_2\int\FR{\di^3\bm q}{(2\pi)^3}\, e^{-\ii P_1\tau_1 - \ii P_2 \tau_2}    \frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}} \n\\
+&\times h_{n_1}(-q\tau_1)\theta_{12}^{1,1}h_{n_2}(-q\tau_2)h_{n_3}(-|\bm q+\bm k_s|\tau_1)\theta_{12}^{2,2}h_{n_4}(-|\bm q+\bm k_s|\tau_2).
+\end{align}
+\cjq{defination of the $\theta$ is needed}
+and define the remaining term:
+\begin{align}
+&R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] \equiv~ \\
+&e^{\pi \Im [\nu_{12}]}\frac{4i}{\pi}\int_{-\infty}^0 \di\tau\int\FR{\di^3\bm q}{(2\pi)^3}\, e^{-\ii (P_1+P_2)\tau}    \frac{(-\tau)^{a}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}}h_{n_3}(-|\bm q+\bm k_s|\tau)\theta_{12}^{1,1}(0)h_{n_4}(-|\bm q+\bm k_s|\tau)\\
+&R_2[\{n_1,n_2\},\{a\},\{b_1,b_2\}] \equiv~ \\
+&e^{\pi \Im [\nu_{34}]}\frac{4i}{\pi}\int_{-\infty}^0 \di\tau\int\FR{\di^3\bm q}{(2\pi)^3}\, e^{-\ii (P_1+P_2)\tau}    \frac{(-\tau)^{a}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}}h_{n_1}(-q\tau)\theta_{12}^{1,1}(0)h_{n_2}(-q\tau)
+\end{align}
+where $\nu_{12}$ labels the mass of the propagator labeled by $n_1$ and $n_2$. The $k$-IBP is the same as before. The $\tau$
+-IBP becomes:
+\begin{align}
+0 =& - \ii P_1 G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] - a_1G[\{n_1,n_2,n_3,n_4\},\{a_1-1,a_2\},\{b_1,b_2\}]\n\\
+&- G[\{n_1+1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1-1,b_2\}] - G[\{n_1,n_2,n_3+1,n_4\},\{a_1,a_2\},\{b_1,b_2-1\}]\\
+&+\delta_{n_1+n_2,1}(-1)^{n_1+1}R_1[\{n_3,n_4\},\{a_1+a_2-2\nu_{12}-1\},\{b_1+2\nu_{12}+1,b_2\}]\\
+&+\delta_{n_3+n_4,1}(-1)^{n_3+1}R_2[\{n_1,n_2\},\{a_1+a_2-2\nu_{34}-1\},\{b_1,b_2+2\nu_{34}+1\}].
+\end{align}
+and
+\begin{align}
+0 =& - \ii P_2 G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] - a_2G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2-1\},\{b_1,b_2\}]\n\\
+&- G[\{n_1,n_2+1,n_3,n_4\},\{a_1,a_2\},\{b_1-1,b_2\}] - G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2\},\{b_1,b_2-1\}]\\
+&+\delta_{n_1+n_2,1}(-1)^{n_2+1}R_1[\{n_3,n_4\},\{a_1+a_2-2\nu_{12}-1\},\{b_1+2\nu_{12}+1,b_2\}]\\
+&+\delta_{n_3+n_4,1}(-1)^{n_4+1}R_2[\{n_3,n_4\},\{a_1+a_2-2\nu_{34}-1\},\{b_1,b_2+2\nu_{34}+1\}].
+\end{align}.
+where we have use $\theta(0)=1/2$
+
+
+
+
+\section{Differential equations for bubbles}
+Not hard to find
+\ie
+&\partial_{P_1}G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]=-iG[\{n_1,n_2,n_3,n_4\},\{a_1+1,a_2\},\{b_1,b_2\}]  \\
+&\partial_{P_2}G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]=-iG[\{n_1,n_2,n_3,n_4\},\{a_1,a_2+1\},\{b_1,b_2\}] 
+\fe
+If $P_1=P_2=P$, then
+\ie
+\partial_{P}G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]=&-iG[\{n_1,n_2,n_3,n_4\},\{a_1+1,a_2\},\{b_1,b_2\}]\\
+&-iG[\{n_1,n_2,n_3,n_4\},\{a_1,a_2+1\},\{b_1,b_2\}]  
+\fe
+For the $K_s$ derivative, we need to consider
+\ie
+\partial_{k_s}|\bm q+\bm k_s|=\frac{k_s^2+k_s\cdot q}{k_s|\bm q+\bm k_s|}=\frac{k_s^2+|\bm q+\bm k_s|^2-q^2}{2k_s|\bm q+\bm k_s|}
+\fe
+Then
+\ie
+&\partial_{k_s}G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]= - \frac{b_2}{2k_s}\bigg(k_s^2G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2+2\}]\\
+&+G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]-G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1-2,b_2+2\}]\bigg)\\
+&+\frac{1}{2k_s}\bigg(k_s^2G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1,b_2+1\}]\\
+&+G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1,b_2-1\}]-G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1-2,b_2+1\}]\bigg)\\
+&+\frac{1}{2k_s}\bigg(k_s^2G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1,b_2+1\}]\\
+&+G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1,b_2-1\}]-G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1-2,b_2+1\}]\bigg)
+\fe
+
+for $\partial_{k_s}$, it acts on two parts: first, propagators $|q|$ and $|q+k_s|$; second, h functions.
+for the first part, even power term is the same as flat propagators, for example $q^2$. Thus, $\partial_{k_s^2}$ act on it is nearly the same as flat cases, which only yield even power terms. For
+h function, 
+\ie
+&  \partial_{k_s}h(0;z)\sim \tau h(1;z)\n\\
+&  \partial_{k_s}h(1;z)\sim \tau h(2;z)
+\fe
+if we re-define $h=z^{1/2} H$ to satisfy
+\ie
+h''(z)+  \left(1+\frac{v^2-1/4}{z^2}\right) h = 0
+\fe
+which do not involve odd power z terms.
+So, if we define the even or odd power in this system by the odevity of $a_1+n_1+n_2$, $a_2+n_3+n_4$, $b_1$ and $b_2$, then, l-IBP and $\partial_{k_s}$ will not change the odevity of these four indices. On the contrary, in the original definition of h, one could also define the even-odd indices, but due to the $h'/z$ term in the differential equation of h (typically, $z=|q|\tau$), the q power is changed by 1, thus the odevity of $b_i$ is not invariant, only the odevity of $a_1+a_2+b_1+b_2+n_1+n_2+n_3+n_4$ is kept. Thus, in the new definition, the odevity property is better.
+
+\section{Odevity}
+There are two ways to classify the master integrals: 
+\begin{enumerate}
+\item For $\di q$-IBP and $\di \tau$-IBP, $n_1+n_2+b_1$ odd (even) and $n_3+n_4+b_2$ odd (even), $a_1$ and $a_2$ arbitrary.
+\item For $\di q$-IBP, $n_1+n_3+a_1$ odd (even) and $n_2+n_4+a_2$ odd (even), $b_1$ and $b_2$ arbitrary.
+\end{enumerate}
+The first classification is closed under the $k_s$ differential equation, while the second classification is closed under the $P_i$ differential equations. As $P_i$ differential equations are simpler, we first consider the second one.
+
+
+\section{dim-shift relation}
+With generalized Sylvester's determinant identity, it is easy to prove
+\begin{align}
+|\partial_{x_{ij}}|_{i,j\leq n_1} |x_{ij}|^\gamma = |x_{ij}|_{i,j> n_1}  \left(\prod_{i=0}^{n_1-1} \gamma+i \right)   |x_{ij}|^{\gamma-1}
+\end{align}
+and for symmetric matrix $x_{ij}=x_{ji}$,  it is easy to prove
+\begin{align}
+&|a_{ij} \partial_{x_{ij}}|_{i,j\leq n_1} |x_{ij}|^\gamma = |x_{ij}|_{i,j> n_1}  \left(\prod_{i=0}^{n_1-1} \gamma+\frac{i}{2}\right)   |x_{ij}|^{\gamma-1}  \n\\
+&a_{ij}=\frac{1}{2} ~~\text{for}~~i\neq j,  ~~a_{ij}=1 ~~\text{for}~~i=j
+\end{align}
+
+
+Take 
+\begin{align}
+&x_{ij}=q_i \cdotp q_j,\quad  n_1=L \n\\
+&q_i=l_1,l_2,\cdots,l_L,p_1,p_2,\cdots,p_E.
+\end{align}
+(here the notation of x is not the same as sec2, be careful) we have $|x_{ij}|=\mG$, $|x_{ij}|_{i,j> n_1}=\mK$. So we have dim-raising relation:
+\begin{align}
+&~~~~ C_{\gamma-1} \int    Q   \frac{ \mG^{\gamma-1} }{\mK^{\gamma-1+L/2}}  \prod dz_i\n\\
+&=\frac{ \left(\prod_{i=0}^{L-1} \gamma+\frac{i}{2}\right)  C_\gamma}{C_{\gamma-1}} C_{\gamma-1} \int    Q   \frac{\mG^{\gamma-1}}{\mK^{\gamma-1+L/2}} \prod dz_i\n\\
+&=C_{\gamma}\int  Q |\partial_{x_{ij}}|_{i,j\leq L} \frac{\mG^\gamma}{\mK^{\gamma+L/2}}  \prod dz_i\n\\
+&=C_{\gamma}\int  (-1)^L Q |\mathop{ \partial_{x_{ij}}  }\limits ^{\leftarrow}|_{i,j\leq L} \frac{\mG^\gamma}{\mK^{\gamma+L/2}} \prod dz_i\n\\
+&Q=\frac{1}{\prod_i z_i^{a_i}}, ~~~\gamma=\frac{d-E-L-1}{2}
+\end{align}
+the left hand of this equation is d-2 dim integral, the right hand is the result after raising its dim.
+
+
+\section{canonical-like basis}
+
+For notational simplicity, in this section we shift the indices 
+a and b, where $a_i, b_i$ are integers.
+\begin{align}
+G[\{\bm{n}\},\{a_0+a_1,a_0+a_2\},\{b_0+b_1,b_0+b_2\}] \to G[\{\bm{n}\},\{a_1,a_2\},\{b_1,b_2\}]
+\end{align}
+
+Define
+\begin{align}
+&z_1=x_1^2=q^2  \,, ~~ z_2=x_2^2=(q+k_s)^2  \,.
+\end{align}
+The transformation for Baikov representation is 
+\begin{align}
+&\di q^d \to C_{d } ~  \mG^{\frac{d-3}{2}}\mK^{-\frac{d-2}{2} } \di z_1 \di z_2 \, ,  \n\\
+&\mG=\frac{1}{4} \left(2 z_1 k_s^2+2 z_2 k_s^2-k_s^4-z_1^2-z_2^2+2 z_1 z_2\right)\,,~~ \mK=k_s^2 \,, ~~C_{d} = \frac{ \pi^{ - 1 / 2}}{ \Gamma[(d - 1)/2]}  \,.
+\end{align}
+So, we have 
+\begin{align}
+G[\{\bm{n}\},\{a_1,a_2\},\{b_1+1,b_2+1\}]\sim \cdots \times \frac{\di z_1}{x_1^{b_0+b_1+1}}\frac{\di z_2}{x_2^{b_0+b_2+1}} = \cdots \times 4\frac{\di x_1}{x_1^{b_0+b_1}}\frac{\di x_2}{x_2^{b_0+b_2}}
+\end{align}
+
+
+By intersection theory, people have proved the differential equations for master integrals $\phi_i u$  is $\di \log$-form differential equations when $\phi$ is $\di \log$-form integrands  and $u$ satisfying $ \di u = (\di \log  u) * u $.  
+Here we consider a generalization of that. In the framework of fibration intersection theory, 
+we consider master integrals $\Phi_i . U$ with $\Phi_i$ and $U$ are both vector. Choosing the $U$ to satisfy \( \di U = \di \Omega \cdot U \), 
+and we construct the $\di \log$-form integrand $\Phi_i$ as master integral, we guess such selection of the master integral will satisfy $\di \log$-form differential equations.
+
+Before define the $U$, let's notice that the DE of $\int \di \tau$ part, which is a 2-vertex tree-level-like integral family and has $2^4$ master integrals and satisfy $\di \log$-form DE:
+\begin{align}
+I_{\bm{n}} \equiv&~ \int_{-\infty}^0 \di\tau_1\di\tau_2 e^{-\ii P_1\tau_1 - \ii P_2\tau_2}(-\tau_1)^{a_0}(-\tau_2)^{a_0} \n\\
+&\times h_{n_1}(-q\tau_1)h_{n_2}(-q\tau_2)h_{n_3}(-|\bm q+\bm k_s|\tau_1)h_{n_4}(-|\bm q+\bm k_s|\tau_2). \n\\
+\di I_{\bm{m}} =& (\di \Omega_{ \bm{m}\bm{n} } ) I_{\bm{n}}   \, ,~~~~\bm{n}\equiv n_1,n_2,n_3,n_4  \,, \n\\
+ \di \Omega=&\di \Omega_{x_1}+\di \Omega_{x_2}+\di \Omega_{ex}
+\end{align}
+where $\di \Omega_{x_i}$ is $\di \log$-form with only $\log x_i$, and  $\Omega_{ex}$ is composed of  $\di \log (P_i\pm x_1 \pm x_2)$ with constant coefficients, including $\nu$ and $a_0$.
+
+Here we could select the $U$ to be
+\begin{align}
+& U = x_1^{-b_0} x_2^{-b_0} \mG^{-\ep} \mK^\ep I_{\bm{n}}  \,, \n \\
+&\di U = -b_0(\di \log x_1 + \di \log x_2)  -\ep (\di \log \mG - \di \log \mK) + \di \Omega
+\end{align}
+
+
+There are building blocks of $\di \log$-form integrand:
+\begin{align}
+&\di\log z_1=2\di\log x_1 \,, ~~ \di \log z_2=2\di\log x_2 \,, \n\\ 
+&\frac{\sqrt{z_2 k_s^2} \di z_1}{ \mG} = - \di \log \left(\frac{2 \sqrt{z_2 k_s^2}+k_s^2-z_1+z_2}{-2 \sqrt{z_2 k_s^2}+k_s^2-z_1+z_2}\right)   \,, ~~ z_1\leftrightarrow z_2  \,.
+\end{align}
+
+
+
+
+
+Since $\di \int \di x_i / (P_i \pm x_1 \pm x_2) $ is a  $\di \log$-form, we have another two building blocks of $\di \log$-form
+\begin{align}
+&\partial_{P_j} \Omega_{ex} \di x_i =\partial_{P_j} \Omega \di x_i \n\\
+&\partial_{x_j} \Omega_{ex} \di x_i =(\partial_{x_j} \Omega- \partial_{x_j} \Omega_{x_j}) \di x_i
+\end{align} 
+Notice that
+\begin{align}
+&G[\{\bm{n}\},\{a_1+1,a_2\},\{b_1,b_2\}]=\partial_{P_1}G[\{\bm{n}\},\{a_1,a_2\},\{b_1,b_2\}]\n\\
+&~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+=\left( \partial_{P_1}\Omega_{ \bm{n}\bm{m}} \right)   G[\{\bm{m}\},\{a_1,a_2\},\{b_1,b_2\}]  \, ,\n\\
+&G[\{\bm{n}\},\{a_1,a_2\},\{b_1,b_2\}]=\frac{1}{b_0+b_1-1} \left( \partial_{x_1}\Omega_{ \bm{n}\bm{m} } \right) G[\{\bm{m} \},\{a_1,a_2\},\{b_1-1,b_2\}]  \, .
+\end{align}
+we have
+\begin{align}
+&\partial_{P_j} \Omega \di x_i \sim \tau_j \di x_i \, , \n\\
+& \partial_{x_j} \Omega \di x_i \sim \frac{b_0 + b_1 - 1}{ x_j} \di x_j  \, .
+\end{align} 
+could serves as a building block of $\di \log$-form integrand.
+
+
+Construction of $\di \log$-form integrand :
+\begin{align}
+&k_s G[\{n_i\},\{0,0\},\{2,2\};d=3]\sim 
+\frac{\di x_1 \di x_2}{x_1 x_2} \times x_1^{-b_0} x_2^{-b_0}  I_{\bm{n}} \mG^{-\ep} \mK^\ep \\
+&k_s G[\{n_i\},\{1,0\},\{2,1\};d=3]\sim 
+\frac{\di x_1}{x_1 } \tau_1 \di x_2 \times x_1^{-b_0} x_2^{-b_0}  I_{\bm{n}} \mG^{-\ep}\mK^\ep \\
+& k_s G[\{n_i\},\{1,1\},\{1,1\};d=3]\sim 
+\tau_1 \di x_1 \tau_2 \di x_2 \times x_1^{-b_0} x_2^{-b_0}  I_{\bm{n}} \mG^{-\ep}\mK^\ep ~~~ \text{\cjq{wrong, double pole}} \n\\
+&G[\{n_i\},\{0,0\},\{1,0\};d=1]
+\sim \frac{\di z_1}{z_1 }\frac{ k_s\sqrt{z_1} \di z_2}{ \mG } \times z_1^{-b_0/2} z_2^{-b_0/2} I_{\bm{n}} \mG^{-\ep} \mK^\ep  \\
+&G[\{n_i\},\{1,0\},\{0,0\};d=1]
+\sim \tau_1 \di x_1 \frac{ k_s\sqrt{z_1} \di z_2}{ \mG } \times z_1^{-b_0/2} z_2^{-b_0/2} I_{\bm{n}} \mG^{-\ep} \mK^\ep  \\
+&(\partial_{x_2} \Omega_{ex} \di x_1)\frac{\di x_2}{x_2} \times x_1^{-b_0} x_2^{-b_0} I_{\bm{n}} \mG^{-\ep} \mK^{\ep} \\
+&(\partial_{x_2} \Omega_{ex} \di x_1) \frac{ k_s\sqrt{z_1} \di z_2}{ \mG } \times z_1^{-b_0/2} z_2^{-b_0/2} I_{\bm{n}} \mG^{-\ep} \mK^\ep
+\end{align}
+
+
+
+To raise the dimension of $G[\{n_i\},\{a_1,a_2\},\{b_1,b_2\};d=1]$
+\begin{align}
+&  G[\{n_i\},\{a_1,a_2\},\{b_1,b_2\};d=1]
+=  \di z_1 \di z_2 z_1^{-(b_0+b_1)/2} z_2^{-(b_0+b_2)/2} I_{\bm{n}}  (-\tau_1)^{a_1}(-\tau_2)^{a_2} C_{1-2\ep} \mG^{-\ep-1} \mK^{\ep+1/2}\n\\
+&= \di z_1  \di z_2  z_1^{-(b_0+b_1)/2} z_2^{-(b_0+b_2)/2} I_{\bm{n}}  (-\tau_1)^{a_1}(-\tau_2)^{a_2}  \partial_{q^2} \left[ C_{3-2\ep} \mK^{-\frac{1}{2}+\ep} \mG^{-\ep}     \right]    \n\\
+& =- \di z_1  \di z_2 C_{3-2\ep} \mK^{-\frac{1}{2}+\ep} \mG^{-\ep} \partial_{q^2} \left[  (-\tau_1)^{a_1}(-\tau_2)^{a_2}    z_1^{-(b_0+b_1)/2} z_2^{-(b_0+b_2)/2}  I_{\bm{n}} \right]    \n\\
+&   =   \di z_1  \di z_2 \left[ \left( \frac{b_{0}+b_1}{2 z_1} +\frac{b_{0}+b_2}{2 z_2}\right)  I_{\bm{n}} 
+-  \left(\partial_{z_1}+ \partial_{z_2} \right)I_{\bm{n}} \right] \n\\
+& ~~~~ \times (-\tau_1)^{a_1}(-\tau_2)^{a_2}    z_1^{-(b_0+b_1)/2} z_2^{-(b_0+b_2)/2}  C_{3-2\ep}  \mG^{-\ep} \mK^{-\frac{1}{2}+\ep}   \n\\
+&=  2 \di x_1  \di x_2 \left[ \left( \frac{b_{0}+b_1}{x_1^2} +\frac{b_{0}+b_2}{x_2^2}\right)  I_{\bm{n}} 
+-\left( \frac{1}{x_1}\partial_{x_1}+ \frac{1}{x_2}\partial_{x_2} \right)I_{\bm{n}} \right]  \n\\
+& ~~~~ \times (-\tau_1)^{a_1}(-\tau_2)^{a_2} x_1^{-(b_0+b_1-1)} x_2^{-(b_0+b_2-1)}  C_{3-2\ep}  \mG^{-\ep} \mK^{-\frac{1}{2}+\ep}
+\end{align}
+where we have used $\partial_{q^2}=\partial_{z_1}+\partial_{z_2}=\frac{1}{2x_1}\partial_{x_1}+ \frac{1}{2x_2}\partial_{x_2}$ . 
+Then, we have
+\begin{align}
+& G[\{n_i\},\{0,0\},\{1,0\};d=1]
+\sim \di z_1 \di z_2 z_1^{-b_0/2-1/2} z_2^{-b_0/2} I_{\bm{n}} \mG^{-\ep-1} \mK^{\ep+1/2}\n\\
+&=2 \di x_1  \di x_2 \left[ \left( \frac{b_{0}+1}{x_1^2} +\frac{b_{0}}{x_2^2}\right)  I_{\bm{n}} 
+-\left( \frac{1}{x_1}\partial_{x_1}+ \frac{1}{x_2}\partial_{x_2} \right)I_{\bm{n}} \right] x_1^{-b_0} x_2^{-b_0+1}   \mG^{-\ep}\mK^{-\frac{1}{2}+\ep}
+\end{align}
+\begin{align}
+&G[\{n_i\},\{1,0\},\{0,0\};d=1] \n\\
+&=2 \di x_1  \di x_2 \left[ b_0 \left( \frac{1}{x_1^2} +\frac{1}{x_2^2}\right)  I_{\bm{n}} 
+- \left( \frac{1}{x_1}\partial_{x_1}+ \frac{1}{x_2}\partial_{x_2} \right) I_{\bm{n}} \right] (-\tau_1) x_1^{-b_0+1} x_2^{-b_0+1}   \mG^{-\ep}\mK^{-\frac{1}{2}+\ep}   \n\\
+\end{align}
+\begin{align}
+&(\partial_{x_2} \Omega_{ex} \di x_1)\frac{\di x_2}{x_2} x_1^{-b_0} x_2^{-b_0} I_{\bm{n}} \mG^{-\ep} \mK^{\ep} \n\\
+=&(\partial_{x_2} \Omega- \partial_{x_2} \Omega_{x_2}) \di x_1\frac{\di x_2}{x_2} x_1^{-b_0} x_2^{-b_0} I_{\bm{n}} \mG^{-\ep}  \mK^{\ep} \n\\
+=&\di x_1 \di x_2 (\partial_{x_2}I_{\bm{n}}) x_1^{-b_0} x_2^{-b_0-1}\mG^{-\ep}  \mK^{\ep}  - \di x_1 \di x_2 (\partial_{x_2} \Omega_{x_2}) x_1^{-b_0} x_2^{-b_0-1}I_{\bm{n}}\mG^{-\ep}  \mK^{\ep} \n\\
+=& \di x_1 (\di I_{\bm{n}}) x_1^{-b_0} x_2^{-b_0-1}\mG^{-\ep}  \mK^{\ep}  - \di x_1 \di x_2 (\partial_{x_2} \Omega_{x_2}) x_1^{-b_0} x_2^{-b_0-1}I_{\bm{n}}\mG^{-\ep}  \mK^{\ep}  \n \\
+=& - \di x_1 I_{\bm{n}} \di  \left( x_1^{-b_0} x_2^{-b_0-1} \mG^{-\ep}  \mK^{\ep} \right) - \di x_1 \di x_2 (\partial_{x_2} \Omega_{x_2}) x_1^{-b_0} x_2^{-b_0-1} I_{\bm{n}} \mG^{-\ep}  \mK^{\ep} \n\\
+=& \left(\frac{b_0+1}{x_2} - \partial_{x_2} \Omega_{x_2}  \right) k_s    x_1^{-b_0} x_2^{-b_0-1} I_{\bm{n}} \mG^{-\ep}  \mK^{\ep-1/2} \di x_1 \di x_2
+\end{align}
+
+\begin{align}
+&(\partial_{x_2} \Omega_{ex} \di x_1) \frac{ k_s\sqrt{z_1} \di z_2}{ \mG } \times z_1^{-b_0/2} z_2^{-b_0/2} I_{\bm{n}} \mG^{-\ep} \mK^\ep  \n \\
+=& \left( \frac{b_0-1}{x_2} - \partial_{x_2} \Omega_{x_2}  \right)     x_1^{-b_0+1} x_2^{-b_0+1} I_{\bm{n}} \mG^{-\ep-1}  \mK^{\ep+1/2} \di x_1 \di x_2
+\end{align}
+
+
+
+\newpage
+\bibliography{CosmoCollider} 
+\bibliographystyle{utphys}
+
+
+\end{document}

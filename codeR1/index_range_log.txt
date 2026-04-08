@@ -1,0 +1,8 @@
+【R1 指标范围试探日志】
+
+说明：
+- 范围记作 (aMin,aMax;bMin,bMax)
+- 截断积分编号 n：定义为 masters.final 中出现“下一行编号 = 3×上一行编号”时取该行编号，否则 n=0
+- 下述 masters_count 指 masters.final 行数
+
+

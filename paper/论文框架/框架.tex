@@ -1,0 +1,133 @@
+\documentclass[UTF8,a4paper,11pt]{ctexart}
+\usepackage[a4paper,margin=2.2cm]{geometry}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{physics}
+\setlist[itemize]{leftmargin=2em}
+\setlist[enumerate]{leftmargin=2.4em}
+
+\title{IBP Relations for de Sitter Massive Bubble with V++ Vertices\\[2mm]
+\normalsize 论文框架（短文版）}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{定位与目标（参照 Intersection theory rules symbology 短文风格）}
+\begin{itemize}
+  \item \textbf{研究对象：}de Sitter（dS）时空中的 massive one-loop two-point bubble（V++ 时间排序），及 time-ordering 诱导的 tadpole 子族（$R_1$, $R_2$）。
+  \item \textbf{核心目标：}建立 V++ massive bubble 的完整 IBP 系统，并作为一个 toy model 验证基于 fibration intersection theory 猜想的 dlog 微分方程构造方法。
+  \item \textbf{写作风格：}参照 Science China Physics 短文格式，双栏排版，简洁叙事，每节聚焦一个核心点。
+\end{itemize}
+
+\section*{主要创新点}
+\begin{enumerate}
+  \item \textbf{dS Massive One-Loop 约化的首次实践：}虽然 IBP 系统在文献 \cite{} 中已有提及，但本文首次针对 V++ massive bubble 实现了完整的、改变 $\tau$ 幂次而不引入额外分母的约化方案，解决了实际计算中的关键技术障碍。
+    \begin{itemize}
+        \item \textbf{奇偶性选择规则（Odevity selection rules）：}作为实现上述约化的关键技术突破，发现 IBP 系统中的奇偶性守恒，通过选取特定奇偶子系统显著降低了约化复杂度，使得计算可行。
+    \end{itemize}
+  \item \textbf{Fibration Intersection Theory 推广验证：}受 fibration intersection theory 启发，提出并验证了一种新的 dlog 微分方程构造方法，在 top sector 成功构建了 dlog 形式的主积分基。
+\end{enumerate}
+
+\section*{论文结构（5+附录，约 8-10 页）}
+
+\section{Introduction}
+\subsection*{内容要点}
+\begin{itemize}
+  \item \textbf{物理背景：}dS correlator 在 cosmological collider 中的重要性；massive exchange 的理论需求。
+  \item \textbf{现有挑战：}平直时空 IBP$\to$DE 管线的成功与 dS 弯曲时空（Hankel、$\theta$ 函数）带来的新挑战。
+  \item \textbf{本文贡献：}
+    \begin{itemize}
+        \item 针对 V++ massive bubble 建立实用的 IBP 系统（采用改变 $\tau$ 幂次的策略），并利用奇偶性选择规则优化约化。
+        \item 以 top sector 为 toy model，测试并验证基于 fibration intersection theory 的 dlog 构造猜想。
+    \end{itemize}
+\end{itemize}
+\subsection*{篇幅}
+约 1 页（双栏）。
+
+\section{Integral families and IBP system}
+\subsection*{内容要点}
+\begin{itemize}
+  \item \textbf{约定与积分族定义：}
+    \begin{itemize}
+        \item 度规、Hankel 重标度 $h(\nu,a;-k\tau)$。
+        \item \textbf{V++ 传播子选择：}明确指出在 in-in formalism 的各类传播子中，为了不失一般性并处理最具挑战性的情形，我们选择包含 $\theta$ 函数的 V++（G++）情况作为研究对象。
+        \item \textbf{统一积分族：}直接定义包含两个 $\theta$ 项求和的物理积分族 $B$，不再区分 $B^{(12)}$ 与 $B^{(21)}$。
+        \item Tadpole 家族 $R_1, R_2$：由 time IBP 边界项诱导产生。
+    \end{itemize}
+  \item \textbf{Time IBP 与 Tadpole 生成：}说明 $\partial_\tau$ 作用于 $\theta$ 函数产生 $\delta(\tau_1-\tau_2)$，进而利用 Wronskian 坍缩为单时间积分（Tadpole）。
+  \item \textbf{Momentum IBP 与约化策略：}
+    \begin{itemize}
+        \item 指出与文献 \cite{} 中策略的区别：文献 \cite{} 保持 $\tau$ 幂次不变但引入额外分母（$\tau$ 微分方程），本文策略改变 $\tau$ 幂次但避免引入额外分母，更利于实际计算。
+        \item 仅列出核心动量 IBP 算符形式（$\mathcal{O}_1, \mathcal{O}_2$）。
+    \end{itemize}
+  \item \textbf{奇偶性选择规则（Odevity selection rules）：}
+    \begin{itemize}
+        \item 定义守恒量（如 $n_1+n_2+b_1$ 与 $n_3+n_4+b_2$ 的奇偶性）。
+        \item 明确指出我们选取的特定奇偶子系统（如全偶扇区），并说明这如何封闭 IBP 系统并降低计算规模。
+        \item 说明 Tadpole 家族在子系统中的对应奇偶性要求。
+    \end{itemize}
+\end{itemize}
+\subsection*{篇幅}
+约 2.5-3 页（双栏）。
+
+\section{Baikov representation and dimension shift}
+\subsection*{内容要点}
+\begin{itemize}
+  \item \textbf{Baikov 变量：}简要引入 $z_1=x_1^2, z_2=x_2^2$ 变量及 Gram determinant $\mathcal{G}$。
+  \item \textbf{维度升降公式：}快速带过维度变换公式（Dimension shift relations），指出其在连接不同维度 dlog 积分基中的作用。
+  \item \textbf{细节处理：}具体的 Baikov 变量变换细节与公式推导放入附录，正文仅保留核心结论。
+\end{itemize}
+\subsection*{篇幅}
+约 1 页（双栏）。
+
+\section{Differential equations and Symbol (Toy Model Test)}
+\subsection*{内容要点}
+\begin{itemize}
+  \item \textbf{动机与定位：}明确说明本节旨在以 V++ bubble 的 top sector 为 toy model，验证受 fibration intersection theory 启发的 dlog 构造猜想。
+  \item \textbf{dlog 构造方法：}
+    \begin{itemize}
+        \item 简述构造思路：将主积分视为向量 $\Phi \cdot U$，构造满足 $dU = d\Omega \cdot U$ 的 twist $U$。
+        \item 给出 dlog 积分类型的具体形式（如 $k_s \hat{B}[\{n\},\{0,0\},\{2,2\}] \sim d\log x_1 d\log x_2$ 等）。
+    \end{itemize}
+  \item \textbf{主积分列表：}列出落在所选奇偶子系统内的 14 个 dlog 主积分（具体列表见 \texttt{MIdlog.m}）。
+  \item \textbf{Symbol 字母表与平直时空对比：}
+    \begin{itemize}
+        \item 给出计算得到的字母表（Alphabet）。
+        \item \textbf{讨论区别：}强调与平直时空的显著差异——dS 字母表包含维数正则化参数 $\epsilon$ 和质量参数 $\nu$ 的根式结构（如 $\sqrt{1+2\epsilon}, \sqrt{3+4\epsilon+4\nu(1+\nu)}$），而平直时空 Symbol 通常仅包含动力学变量。这反映了 dS 时空特殊的几何与质量依赖。
+    \end{itemize}
+  \item \textbf{附件微分方程说明：}
+    \begin{itemize}
+        \item 明确指出完整的微分方程矩阵及 Symbol 系数矩阵因过于复杂，仅在附件（Ancillary files）中提供。
+        \item \textbf{分支取值说明：}需列出附件中的微分方程是基于何种取值（如 $\epsilon, \nu$ 的特定数值区域或根号分支的选择）进行化简的，以消除根号多值性带来的歧义。
+    \end{itemize}
+\end{itemize}
+\subsection*{篇幅}
+约 2 页（双栏）。
+
+\section{Summary and outlook}
+\subsection*{内容要点}
+\begin{itemize}
+  \item \textbf{下一步工作：}基于本文验证的 IBP 与 DE 方法在 dS 圈图的可行性，未来的核心任务是确定边界条件，从而实现对任意 dS 带质量圈图的系统性快速数值计算。
+  \item \textbf{理论探究：}深入探究所发现的数学结构（如 Symbol 中 $\epsilon, \nu$ 依赖）与平直时空的本质区别及其物理起源。
+\end{itemize}
+\subsection*{篇幅}
+约 0.5 页（双栏）。
+
+\section*{附录结构}
+\begin{enumerate}[label=\Alph*.]
+  \item \textbf{Conventions and notations：}约定与符号表。
+  \item \textbf{Full IBP relations：}列出完整的 Time IBP 和 Momentum IBP 关系（对于对称关系，仅说明变换规则，不重复列出）。
+  \item \textbf{Baikov representation details：}Baikov 变量变换与维度升降公式的详细推导。
+  \item \textbf{Derivation of Odevity selection rules：}奇偶性选择规则的简要推导。
+\end{enumerate}
+
+\section*{参考文献风格}
+\begin{itemize}
+  \item 引用风格参照 Intersection theory rules symbology（Science China Physics 格式）。
+  \item 关键引用：\cite{}（dS IBP 早期工作）、\cite{}（Intersection theory）、\cite{}（dS correlator 综述）。
+\end{itemize}
+
+\end{document}

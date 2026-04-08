@@ -1,0 +1,737 @@
+%\pdfoutput=1
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{framed}
+
+\usepackage[medium]{titlesec}
+\usepackage{bm}
+\usepackage{cite}
+
+\usepackage[normalem]{ulem}
+\usepackage{extarrows}
+\usepackage{slashed}
+\usepackage{isodateo}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[bookmarksnumbered=true,bookmarksopen=true]{hyperref}
+ \hypersetup{colorlinks,%
+             linkcolor=NavyBlue, %
+             citecolor=PineGreen, %
+             urlcolor=PineGreen}
+\usepackage[hmargin=.7in,vmargin=1.1in]{geometry}
+\usepackage{indentfirst}
+\usepackage{booktabs}
+
+\usepackage{bbm}
+
+\linespread{1.1}
+
+\newcommand{\FR}[2]{\displaystyle\frac{\,{#1}\,}{#2}}
+\newcommand{\fr}[2]{\mbox{$\frac{\,{#1}\,}{#2}$}}
+\newcommand{\n}{\nonumber}
+\renewcommand{\rm}{\mathrm}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\graphicspath{{fig/}}
+
+
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\gray}{\color{gray}}
+
+\def\bge{\begin{equation}}
+\def\ede{\end{equation}}
+\def\bga{\begin{aligned}}
+\def\eda{\end{aligned}}
+\def\ie{\begin{equation}\begin{aligned}}
+\def\fe{\end{aligned}\end{equation}}
+\def\bgb{\begin{bmatrix}}
+\def\edb{\end{bmatrix}}
+\def\bgp{\begin{pmatrix}}
+\def\edp{\end{pmatrix}}
+\def\bgm{\begin{matrix}}
+\def\edm{\end{matrix}}
+\def\bgs{\begin{subequations}}
+\def\eds{\end{subequations}}
+\newcommand{\order}[1]{\mathcal{O}({#1})}
+\def\di{{\mathrm{d}}}
+\def\D{{\mathrm{D}}}
+\def\Di{{\mathcal{D}}}
+
+\def\T{\mathcal{T}}
+\def\mb{\mathbf}
+\def\ms{\mathscr}
+\def\mf{\mathfrak}
+\def\mc{\mathcal}
+\def\cl{\mathrm{cl}}
+\def\pd{\partial}
+\def\ld{{\mathscr{L}}}
+\def\hd{{\mathscr{H}}}
+\def\z{{\bar{z}}}
+\def\la{\langle}\def\ra{\rangle}
+\def\sla{\slashed}
+\def\const{\mathrm{const.}}
+\setlength\unitlength{1mm}
+\def\tr{\mathrm{\,tr\,}}
+\def\Tr{\mathrm{\,Tr\,}}
+\def\Det{\mathrm{\,Det\,}}
+
+
+\def\To{\Rightarrow}
+\def\ii{\mathrm{i}}
+
+\def\al{\alpha}
+\def\be{\beta}
+\def\ga{\gamma}
+\def\de{\delta}
+\def\ep{\epsilon}
+\def\ka{\kappa}
+\def\lam{\lambda}
+\def\rh{\rho}
+\def\si{\sigma}
+\def\ze{\zeta}
+
+\def\Wh{\mathrm{W}}
+
+
+\def\aa{\mathsf{a}}
+\def\bb{\mathsf{b}}
+\def\cc{\mathsf{c}}
+\def\dd{\mathsf{d}}
+
+\def\C{\mathbb{C}}
+\def\R{\mathbb{R}}
+
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\mK}{\mathcal{K}}
+\def\to{\rightarrow}
+
+\def\Mp{M_{\text{Pl}}}
+
+
+\def\Re{\mathrm{Re}\,}
+\def\Im{\mathrm{Im}\,}
+
+\def\ad{\mathrm{\,ad\,}}
+
+\def\2F1{{}_2\mathrm{F}_1}
+\def\3F2{{}_3\mathrm{F}_2}
+
+\def\nut{\wt{\nu}}
+%\newcommand{\nut}{\widetilde{\nu}}
+
+
+\def\tf{{\tau_0}}
+
+\usepackage{mdframed} 
+                   
+
+\newmdenv[skipabove=0pt,%
+          skipbelow=5pt,%
+          leftmargin=0pt,%
+          rightmargin=0pt,%
+          innertopmargin=-5pt,%
+          innerbottommargin=7pt,%
+          innerleftmargin=2pt,%
+          innerrightmargin=2pt,%
+          splittopskip=0pt,%
+          splitbottomskip=0pt,%
+          linewidth=0pt,%
+          nobreak=true]%
+          {keyeqn2}                   
+                   
+                   
+\newmdenv[backgroundcolor=gray!15,%
+          skipabove=0pt,%
+          skipbelow=5pt,%
+          leftmargin=0pt,%
+          rightmargin=0pt,%
+          innertopmargin=-5pt,%
+          innerbottommargin=7pt,%
+          innerleftmargin=2pt,%
+          innerrightmargin=2pt,%
+          splittopskip=0pt,%
+          splitbottomskip=0pt,%
+          linewidth=0pt,%
+          nobreak=true]%
+          {keyeqn}
+          
+
+\usepackage{titlesec}          
+\titleformat{\section}
+{\normalfont\fontsize{15}{20}\bfseries}{\thesection}{1em}{}
+
+\newcommand{\ob}[1]{\mkern 2mu \overline{\mkern -2mu #1 \mkern -2mu}\mkern 2mu}
+\newcommand{\wt}[1]{\mkern 2mu \widetilde{\mkern -2mu #1 \mkern -2mu}\mkern 2mu}
+\newcommand{\wh}[1]{\mkern 2mu \widehat{\mkern-2mu#1\mkern-2mu}\mkern 2mu}
+
+\newcommand{\fnemail}[1]{\footnote{Email: \href{mailto:#1}{\nolinkurl{#1}}}}
+
+
+
+
+\newcommand{\zq}[1]{{\color[rgb]{.1,.6,.3}{[{ZQ:} #1]}}}
+\newcommand{\cjq}[1]{{\color[rgb]{.1,.6,.3}{[{CJQ:} #1]}}}
+\newcommand{\tyx}[1]{{\color[rgb]{.1,.6,.3}{[{YT:} #1]}}}
+\begin{document}
+
+\title{\Large\textbf{IBP for Bubble\\[2mm]}}
+\author{Opencode}
+%  \author{Zhehan Qin$^{\,a,b\,}$\fnemail{qzh21@mails.tsinghua.edu.cn}\\[5mm]
+% 	$^a\,$\normalsize{\emph{Department of Physics, Tsinghua University, Beijing 100084, China} }\\
+% 	$^b\,$\normalsize{\emph{Department of Applied Mathematics and Theoretical Physics, University of Cambridge,}}\\\normalsize{\emph{Wilberforce Road, Cambridge, CB3 0WA, UK}}\\
+%  }
+
+\date{}
+\maketitle
+
+\vspace{20mm}
+
+\begin{abstract}
+	In this note we construct IBP relations for bubble-like cosmological correlators.
+	\vspace{10mm}
+\end{abstract}
+
+\newpage
+\tableofcontents
+
+
+\paragraph{Notations} The metric reads: $\di s^2=a^2(-\di\tau^2+\di \mb x^2)$, where the scale factor is $a(\tau) = -1/(H\tau)$. We set $H\equiv 1$ throughout this note.
+
+\section{Massless Case in de Sitter Space}
+
+For a massless scalar field in de Sitter space, the mode functions simplify significantly compared to the massive case. The equation of motion for a massless scalar field $\phi$ in de Sitter background is:
+\bge
+\phi'' + 2\mathcal{H}\phi' - \nabla^2\phi = 0,
+\ede
+where $\mathcal{H} = a'/a = -1/\tau$ is the conformal Hubble parameter.
+
+In Fourier space, the mode equation becomes:
+\bge
+u_k'' + \left(k^2 - \frac{2}{\tau^2}\right)u_k = 0.
+\ede
+The two independent solutions are:
+\bge
+u_k(\tau) = \frac{e^{-ik\tau}}{\sqrt{2k}}\left(1 - \frac{i}{k\tau}\right), \qquad
+u_k^*(\tau) = \frac{e^{ik\tau}}{\sqrt{2k}}\left(1 + \frac{i}{k\tau}\right).
+\ede
+These correspond to the Bunch-Davies vacuum.
+
+For the massless case ($m=0$, which corresponds to $\nu = 3/2$ in the massive notation), the Hankel functions simplify to elementary functions:
+\bge
+h_{3/2}^{(1)}(x) = -\sqrt{\frac{2}{\pi}} x^{-3/2} e^{ix}(1 + ix), \qquad
+h_{3/2}^{(2)}(x) = -\sqrt{\frac{2}{\pi}} x^{-3/2} e^{-ix}(1 - ix).
+\ede
+
+\subsection{Feynman Rules for Massless Scalar Field}
+
+The Feynman rules for a massless scalar field in de Sitter space are:
+
+1. \textbf{Propagators:} In the in-in (Schwinger-Keldysh) formalism, there are four bulk-to-bulk propagators corresponding to different time-orderings on the closed time path. We denote $u_k(\tau)$ as the positive-frequency solution and $u_k^*(\tau)$ as its complex conjugate, representing negative frequency. The four propagators are:
+
+\begin{align}
+	G_{++}(k;\tau_1,\tau_2) & = u_k(\tau_1)u_k^*(\tau_2)\theta(\tau_1-\tau_2)
+	+ u_k^*(\tau_1)u_k(\tau_2)\theta(\tau_2-\tau_1)
+	= \langle T \phi(\tau_1)\phi(\tau_2) \rangle,                             \\
+	G_{--}(k;\tau_1,\tau_2) & = u_k^*(\tau_1)u_k(\tau_2)\theta(\tau_1-\tau_2)
+	+ u_k(\tau_1)u_k^*(\tau_2)\theta(\tau_2-\tau_1)
+	= \langle \tilde{T} \phi(\tau_1)\phi(\tau_2) \rangle,                     \\
+	G_{+-}(k;\tau_1,\tau_2) & = u_k(\tau_1)u_k^*(\tau_2)
+	= \langle \phi(\tau_1)\phi(\tau_2) \rangle,                               \\
+	G_{-+}(k;\tau_1,\tau_2) & = u_k^*(\tau_1)u_k(\tau_2)
+	= \langle \phi(\tau_2)\phi(\tau_1) \rangle,
+\end{align}
+where $T$ denotes time-ordering and $\tilde{T}$ anti-time-ordering. Note that $G_{--} = G_{++}^*$ and $G_{-+} = G_{+-}^*$. For the bubble diagram calculation, only $G_{++}$ propagators appear when both vertices are on the $+$ branch of the time contour.
+
+2. \textbf{Vertex:} Each vertex comes with a factor of $(-\tau)^n$ where $n$ depends on the interaction. For a $\lambda\phi^4$ interaction, $n=4$.
+
+3. \textbf{Time integration:} Each vertex is integrated over conformal time $\tau$ from $-\infty$ to $0$.
+
+4. \textbf{Momentum conservation:} At each vertex, the sum of incoming momenta equals the sum of outgoing momenta.
+
+\subsection{One-Loop Two-Point Function for Massless Case}
+
+For the massless case, we can define a simpler integral family. Consider the one-loop two-point function (bubble diagram) for a massless scalar field:
+
+\begin{equation}
+	\begin{split}
+		\mathcal{G}[\{a_1,a_2\},\{b_1,b_2\}] \equiv & \int_{-\infty}^0 \di\tau_1\di\tau_2 \int \frac{\di^3\bm q}{(2\pi)^3} \,
+		e^{-iP_1\tau_1 - iP_2\tau_2} \frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}}                                      \\
+		                                            & \times u_q(-\tau_1)u_q^*(-\tau_2) u_{|\bm q+\bm k_s|}(-\tau_1)u_{|\bm q+\bm k_s|}^*(-\tau_2).
+	\end{split}
+\end{equation}
+
+Alternatively, we can write this in a more symmetric form using the mode functions explicitly:
+
+\begin{equation}
+	\begin{split}
+		\mathcal{G}[\{a_1,a_2\},\{b_1,b_2\}] = & \int_{-\infty}^0 \di\tau_1\di\tau_2 \int \frac{\di^3\bm q}{(2\pi)^3} \,
+		e^{-iP_1\tau_1 - iP_2\tau_2} \frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}}                                                                             \\
+		                                       & \times \frac{e^{iq\tau_1}}{\sqrt{2q}}\left(1 - \frac{i}{q\tau_1}\right) \frac{e^{-iq\tau_2}}{\sqrt{2q}}\left(1 + \frac{i}{q\tau_2}\right) \\
+		                                       & \times \frac{e^{i|\bm q+\bm k_s|\tau_1}}{\sqrt{2|\bm q+\bm k_s|}}\left(1 - \frac{i}{|\bm q+\bm k_s|\tau_1}\right)
+		\frac{e^{-i|\bm q+\bm k_s|\tau_2}}{\sqrt{2|\bm q+\bm k_s|}}\left(1 + \frac{i}{|\bm q+\bm k_s|\tau_2}\right).
+	\end{split}
+\end{equation}
+
+This can be simplified to:
+
+\begin{equation}
+	\begin{split}
+		\mathcal{G}[\{a_1,a_2\},\{b_1,b_2\}] = & \frac{1}{4} \int_{-\infty}^0 \di\tau_1\di\tau_2 \int \frac{\di^3\bm q}{(2\pi)^3} \,
+		\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\bm q|^{b_1+1}|\bm k_s+\bm q|^{b_2+1}}                                                \\
+		                                       & \times e^{i(q+|\bm q+\bm k_s|-P_1)\tau_1} e^{-i(q+|\bm q+\bm k_s|+P_2)\tau_2}       \\
+		                                       & \times \left(1 - \frac{i}{q\tau_1}\right)\left(1 + \frac{i}{q\tau_2}\right)
+		\left(1 - \frac{i}{|\bm q+\bm k_s|\tau_1}\right)\left(1 + \frac{i}{|\bm q+\bm k_s|\tau_2}\right).
+	\end{split}
+\end{equation}
+
+\subsection{Integral Family for IBP Analysis}
+
+For integration-by-parts (IBP) analysis, we need a general integral family that captures all possible structures arising from time and momentum derivatives. The simplified form below corresponds to a $G_{+-}$-type correlator without $\theta$-function time-ordering, obtained by absorbing the mode-function products $u^{(1)}u^{(2)}$ from two $G_{+-}$ propagators into exponential and denominator factors:
+
+\begin{equation}
+	\begin{split}
+		G[\{a_1,a_2\},\{b_1,b_2\}] \equiv & \int_{-\infty}^0 \di\tau_1\di\tau_2 \int \frac{\di^3\bm q}{(2\pi)^3} \,
+		\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}}                                          \\
+		                                  & \times e^{i(q+|\bm q+\bm k_s|-P_1)\tau_1} e^{-i(q+|\bm q+\bm k_s|+P_2)\tau_2}.
+	\end{split}
+\end{equation}
+This simplified integral family captures the essential algebraic structure for IBP reduction while avoiding the complications of $\theta$-functions. The full vertex++ case with time-ordering is treated in Section~2.
+
+
+\subsection{IBP Relations}
+
+The IBP relations for this family come from:
+\begin{enumerate}
+	\item \textbf{Time derivatives:} $\int \pd_{\tau_i} [\cdots] = 0$
+	\item \textbf{Momentum derivatives:} $\int \pd_{\bm q^i} [\bm q^i \cdots] = 0$ and $\int \pd_{\bm q^i} [(\bm q^i+\bm k_s^i) \cdots] = 0$
+\end{enumerate}
+
+The time IBP generates relations between integrals with different $(a_i, b_{i+2})$. Consider the derivative with respect to $\tau_1$:
+
+\begin{equation}
+	\begin{split}
+		0 = & \int_{-\infty}^0 \pd_{\tau_1} \left[ e^{i(q+|\bm q+\bm k_s|-P_1)\tau_1} (-\tau_1)^{a_1} \right] \cdots                                \\
+		=   & \int_{-\infty}^0 \left[ i(q+|\bm q+\bm k_s|-P_1) e^{iE_1\tau_1} (-\tau_1)^{a_1} - a_1 e^{iE_1\tau_1} (-\tau_1)^{a_1-1} \right] \cdots \\
+		=   & i(q+|\bm q+\bm k_s|-P_1) G[\{a_1,a_2\},\{b_1,b_2\}] - a_1 G[\{a_1-1,a_2\},\{b_1,b_2\}],
+	\end{split}
+\end{equation}
+where $E_1 = q+|\bm q+\bm k_s|-P_1$. Note that the factor $(q+|\bm q+\bm k_s|-P_1)$ remains in the integrand as a momentum-dependent coefficient.
+
+Similarly, for $\tau_2$:
+\begin{equation}
+	\begin{split}
+		0 = & \int_{-\infty}^0 \pd_{\tau_2} \left[ e^{-i(q+|\bm q+\bm k_s|+P_2)\tau_2} (-\tau_2)^{a_2} \right] \cdots                                  \\
+		=   & \int_{-\infty}^0 \left[ -i(q+|\bm q+\bm k_s|+P_2) e^{-iE_2\tau_2} (-\tau_2)^{a_2} - a_2 e^{-iE_2\tau_2} (-\tau_2)^{a_2-1} \right] \cdots \\
+		=   & -i(q+|\bm q+\bm k_s|+P_2) G[\{a_1,a_2\},\{b_1,b_2\}] - a_2 G[\{a_1,a_2-1\},\{b_1,b_2\}],
+	\end{split}
+\end{equation}
+where $E_2 = q+|\bm q+\bm k_s|+P_2$ and the minus sign comes from $\pd_{\tau} e^{-iE\tau} = -iE e^{-iE\tau}$.
+
+Momentum IBP generates relations involving shifts in $b_i$ and $a_i$ due to the chain rule when differentiating $|\bm q|$ and $|\bm k_s+\bm q|$.
+
+\subsection{Momentum IBP Relations}
+
+Following the notation from the massive case, we denote:
+\begin{equation}
+	x_1 \equiv q = |\bm q|, \qquad x_2 \equiv |\bm q+\bm k_s|.
+\end{equation}
+
+The energies are:
+\begin{equation}
+	E_1 = x_1 + x_2 - P_1, \qquad E_2 = x_1 + x_2 + P_2.
+\end{equation}
+
+\subsection{Momentum IBP Relations}
+
+The momentum IBP relations come from the identities $\int \pd_{\bm q^i} [\bm q^i \cdots] = 0$ and $\int \pd_{\bm q^i} [(\bm q^i + \bm k_s^i) \cdots] = 0$. To derive these relations systematically, we need the action of the derivative operators on the variables $x_1 = q$ and $x_2 = |\bm q + \bm k_s|$.
+
+Define the derivative operators:
+\begin{align}
+	\mathcal{O}_1 & \equiv \bm q^i \pd_{\bm q^i},               \\
+	\mathcal{O}_2 & \equiv (\bm q^i + \bm k_s^i) \pd_{\bm q^i}.
+\end{align}
+
+These operators act on $x_1$ and $x_2$ as:
+\begin{align}
+	\mathcal{O}_1 x_1 & = x_1,                                        \\
+	\mathcal{O}_1 x_2 & = \frac{1}{2}x_2^{-1}(x_1^2 + x_2^2 - k_s^2), \\
+	\mathcal{O}_2 x_1 & = \frac{1}{2}x_1^{-1}(x_1^2 + x_2^2 - k_s^2), \\
+	\mathcal{O}_2 x_2 & = x_2.
+\end{align}
+
+For the energy parameters $E_1 = x_1 + x_2 - P_1$ and $E_2 = x_1 + x_2 + P_2$, we have:
+\begin{align}
+	\mathcal{O}_1 E_1 & = \mathcal{O}_1 E_2 = x_1 + \frac{1}{2}x_2^{-1}(x_1^2 + x_2^2 - k_s^2), \\
+	\mathcal{O}_2 E_1 & = \mathcal{O}_2 E_2 = \frac{1}{2}x_1^{-1}(x_1^2 + x_2^2 - k_s^2) + x_2.
+\end{align}
+
+The full momentum IBP relations involve applying these derivative operators to all factors in the integrand and then integrating by parts. The resulting expressions are lengthy and will be derived and verified through code implementation. For now, we note that the IBP relations take the general form:
+
+\begin{align}
+	0 = & \; D\, G[\{a_1,a_2\},\{b_1,b_2\}] \nonumber        \\
+	    & - \Big[ \frac{b_1}{x_1} - i\tau_1 + i\tau_2 \Big]
+	(\mathcal{O}_1 x_1) G[\{a_1,a_2\},\{b_1,b_2\}] \nonumber \\
+	    & - \Big[ \frac{b_2}{x_2} - i\tau_1 + i\tau_2 \Big]
+	(\mathcal{O}_1 x_2) G[\{a_1,a_2\},\{b_1,b_2\}],
+\end{align}
+
+and a similar relation for $\mathcal{O}_2$, where $D$ is the spacetime dimension.
+
+The explicit form of these relations in terms of shifted $G$ integrals will be provided after code verification, as the expressions are complex and best handled computationally.
+
+\subsection{Symmetry Relations Under Propagator Exchange}
+
+The bubble integral exhibits an important symmetry under the exchange of the two propagators. Consider the original bubble integral definition:
+
+\begin{equation}
+	\begin{split}
+		G[\{a_1,a_2\},\{b_1,b_2\}] \equiv & \int_{-\infty}^0 \di\tau_1\di\tau_2 \int \frac{\di^3\bm q}{(2\pi)^3} \,
+		\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}}                                          \\
+		                                  & \times e^{i(q+|\bm q+\bm k_s|-P_1)\tau_1} e^{-i(q+|\bm q+\bm k_s|+P_2)\tau_2}.
+	\end{split}
+\end{equation}
+
+Under the transformation $\bm q \to -\bm q - \bm k_s$, which exchanges the two propagators $|\bm q| \leftrightarrow |\bm q+\bm k_s|$, we have:
+
+\begin{equation}
+	q = |\bm q| \to |-\bm q - \bm k_s| = |\bm q+\bm k_s| = x_2,
+\end{equation}
+\begin{equation}
+	|\bm q+\bm k_s| \to |-\bm q| = |\bm q| = x_1.
+\end{equation}
+
+The energy combinations remain invariant under this transformation:
+\begin{equation}
+	q + |\bm q+\bm k_s| \to |\bm q+\bm k_s| + |\bm q| = x_2 + x_1,
+\end{equation}
+so $E_1 = x_1 + x_2 - P_1$ and $E_2 = x_1 + x_2 + P_2$ are also invariant.
+
+The integration measure $\di^3\bm q$ is invariant under this transformation. Therefore, the integral satisfies the following symmetry relation:
+
+\begin{equation}
+	G[\{a_1,a_2\},\{b_1,b_2\}] = G[\{a_1,a_2\},\{b_2,b_1\}].
+\end{equation}
+
+This symmetry expresses the fact that the bubble diagram is symmetric under the exchange of the two internal propagators. In terms of the physical interpretation, this corresponds to the invariance of the one-loop two-point function under relabeling of the two internal lines in the bubble diagram.
+
+
+
+
+
+
+\subsection{Complete IBP System}
+
+The complete integration-by-parts system comprises four classes of relations, which together enable systematic reduction of any $G[\{a_1,a_2\},\{b_1,b_2\}]$ integral.
+
+\subsubsection{Time IBP Relations}
+From vanishing surface terms $\int \pd_{\tau_i}[\cdots]=0$:
+\begin{align}
+	i(q+|\bm q+\bm k_s|-P_1) G[\{a_1,a_2\},\{b_1,b_2\}] - a_1 G[\{a_1-1,a_2\},\{b_1,b_2\}]  & =0, \\
+	-i(q+|\bm q+\bm k_s|+P_2) G[\{a_1,a_2\},\{b_1,b_2\}] - a_2 G[\{a_1,a_2-1\},\{b_1,b_2\}] & =0.
+\end{align}
+
+\subsubsection{Momentum IBP Relations}
+From $\int \pd_{\bm q^i}[\bm q^i \cdots]=0$ and $\int \pd_{\bm q^i}[(\bm q^i+\bm k_s^i) \cdots]=0$:
+\begin{align}
+	0 = & \; D\, G[\{a_1,a_2\},\{b_1,b_2\}] \nonumber        \\
+	    & - \Big[ \frac{b_1}{x_1} - i\tau_1 + i\tau_2 \Big]
+	(\mathcal{O}_1 x_1) G[\{a_1,a_2\},\{b_1,b_2\}] \nonumber \\
+	    & - \Big[ \frac{b_2}{x_2} - i\tau_1 + i\tau_2 \Big]
+	(\mathcal{O}_1 x_2) G[\{a_1,a_2\},\{b_1,b_2\}],
+\end{align}
+and an analogous relation for $\mathcal{O}_2$, where $D=3$ is the spacetime dimension, $x_1=q$, $x_2=|\bm q+\bm k_s|$, $E_1=x_1+x_2-P_1$, $E_2=x_1+x_2+P_2$, and the derivative actions are
+\begin{align*}
+	\mathcal{O}_1 x_1 = x_1, \qquad \mathcal{O}_1 x_2 = \frac{1}{2}x_2^{-1}(x_1^2+x_2^2-k_s^2), \\
+	\mathcal{O}_2 x_1 = \frac{1}{2}x_1^{-1}(x_1^2+x_2^2-k_s^2), \qquad \mathcal{O}_2 x_2 = x_2.
+\end{align*}
+
+
+
+\subsubsection{Symmetry Relations}
+The integral family exhibits two discrete symmetries:
+\begin{align}
+	G[\{a_1,a_2\},\{b_1,b_2\}] & = G[\{a_1,a_2\},\{b_2,b_1\}].
+\end{align}
+
+
+
+\newpage
+
+\section{Vertex++ IBP Relations}
+
+Section~1 presented IBP relations for the simplified $G_{+-}$-type bubble integral, which lacks $\theta$-function time-ordering. For the physical vertex++ correlator containing $\theta$-functions, the IBP relations require careful treatment of boundary terms arising from derivatives of step functions. This section derives the complete IBP system for the genuine vertex++ case, denoted as $V_{++}$ to avoid confusion with propagators.
+
+\textbf{Strategy choice:} Although the physical observable is the sum $\mathcal{V}_{++} = V_{++}^{(1)} + V_{++}^{(2)}$, we choose to derive IBP relations for $V_{++}^{(1)}$ and $V_{++}^{(2)}$ separately rather than for their sum directly. The reason is that the time-derivative IBP relations for the sum would involve terms with opposite signs from the exponential factors ($iE_1^{(1)}$ for $V_{++}^{(1)}$ and $-iE_1^{(2)}$ for $V_{++}^{(2)}$), preventing systematic pairing in the reduction process. By handling each time-ordering independently and allowing for relabeling of external energies $P_1\leftrightarrow -P_2$ when needed, we maintain a consistent algebraic structure that mirrors the $G_{+-}$ case, with boundary terms $\pm H$ as the only additional complexity. This separate-treatment approach simplifies the reduction procedure while retaining the option to reconstruct the sum $\mathcal{V}_{++}$ after reduction.
+
+\subsection{Definition of Vertex++ Integrals}
+
+The vertex++ bubble integral naturally decomposes into two $\theta$-ordered pieces:
+\begin{equation}
+	\mathcal{V}_{++} = V_{++}^{(1)} + V_{++}^{(2)},
+\end{equation}
+where $V_{++}^{(1)}$ contains $\theta(\tau_1-\tau_2)$ and $V_{++}^{(2)}$ contains $\theta(\tau_2-\tau_1)$. Writing out the explicit form after absorbing the mode-function products into exponential factors as in Section~1.3:
+
+\begin{align}
+	V_{++}^{(1)}[\{a_1,a_2\},\{b_1,b_2\}] & = \int_{-\infty}^0 \di\tau_1\di\tau_2 \int \frac{\di^3\bm q}{(2\pi)^3} \,
+	\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}}                                          \nonumber                                                \\
+	                                      & \quad \times e^{i(q+|\bm q+\bm k_s|-P_1)\tau_1} e^{-i(q+|\bm q+\bm k_s|+P_2)\tau_2} \cdot \theta(\tau_1-\tau_2), \label{eq:Vpp1def} \\[6pt]
+	V_{++}^{(2)}[\{a_1,a_2\},\{b_1,b_2\}] & = \int_{-\infty}^0 \di\tau_1\di\tau_2 \int \frac{\di^3\bm q}{(2\pi)^3} \,
+	\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\bm q|^{b_1}|\bm k_s+\bm q|^{b_2}}                                          \nonumber                                                \\
+	                                      & \quad \times e^{-i(q+|\bm q+\bm k_s|+P_1)\tau_1} e^{i(q+|\bm q+\bm k_s|-P_2)\tau_2} \cdot \theta(\tau_2-\tau_1). \label{eq:Vpp2def}
+\end{align}
+
+The two definitions differ in two respects:
+\begin{enumerate}
+	\item The exponential factors: $V_{++}^{(1)}$ has $e^{iE_1^{(1)}\tau_1}e^{-iE_2^{(1)}\tau_2}$ while $V_{++}^{(2)}$ has $e^{-iE_1^{(2)}\tau_1}e^{iE_2^{(2)}\tau_2}$, where $E_1^{(1)} = q+|\bm q+\bm k_s|-P_1$, $E_2^{(1)} = q+|\bm q+\bm k_s|+P_2$, $E_1^{(2)} = q+|\bm q+\bm k_s|+P_1$, and $E_2^{(2)} = q+|\bm q+\bm k_s|-P_2$.
+	\item The $\theta$-functions: $\theta(\tau_1-\tau_2)$ vs $\theta(\tau_2-\tau_1)$.
+\end{enumerate}
+
+Note that $V_{++}^{(1)}$ corresponds to the product $u_q(\tau_1)u_q^*(\tau_2)u_{|\bm q+\bm k_s|}(\tau_1)u_{|\bm q+\bm k_s|}^*(\tau_2)$ while $V_{++}^{(2)}$ corresponds to the conjugate product $u_q^*(\tau_1)u_q(\tau_2)u_{|\bm q+\bm k_s|}^*(\tau_1)u_{|\bm q+\bm k_s|}(\tau_2)$. For IBP analysis, we keep the $\theta$-functions outside the integration; they affect only the time-derivative IBP relations, as we now discuss.
+
+\subsection{Boundary Terms from Time Derivatives}
+
+When applying a time derivative $\partial_{\tau_i}$ to $V_{++}^{(1)}$ or $V_{++}^{(2)}$, the derivative acts both on the smooth exponential factors and on the $\theta$-function. The action on the smooth part generates IBP relations similar to those in Section~1.4, while the derivative of the $\theta$-function generates $\delta(\tau_1-\tau_2)$ boundary terms.
+
+Defining the boundary integral family
+\begin{equation}
+	H[c, \{b_1,b_2\}] \equiv \int_{-\infty}^0 \di\tau \int \frac{\di^3\bm q}{(2\pi)^3} \,
+	e^{-i(P_1+P_2)\tau} (-\tau)^{c}
+	\frac{1}{x_1^{b_1}x_2^{b_2}},
+\end{equation}
+which corresponds to collapsing the two time vertices to $\tau_1=\tau_2\equiv\tau$. This represents the contribution from $\delta(\tau_1-\tau_2)$ where the exponential factors simplify to $e^{-i(P_1+P_2)\tau}$.
+
+For $V_{++}^{(1)}$, applying $\partial_{\tau_1}$ gives:
+\begin{align}
+	 & \int \partial_{\tau_1} \left[ e^{iE_1^{(1)}\tau_1}(-\tau_1)^{a_1} \theta(\tau_1-\tau_2) \cdots \right] \nonumber                                                       \\
+	 & = \int \left[ iE_1^{(1)} e^{iE_1^{(1)}\tau_1}(-\tau_1)^{a_1} \theta(\tau_1-\tau_2) - a_1 e^{iE_1^{(1)}\tau_1}(-\tau_1)^{a_1-1} \theta(\tau_1-\tau_2) \right. \nonumber \\
+	 & \quad \left. + e^{iE_1\tau_1}(-\tau_1)^{a_1} \delta(\tau_1-\tau_2) \right] \cdots
+\end{align}
+The $\delta$-function term collapses the time integration to $\tau_1=\tau_2\equiv\tau$, producing $H[a_1+a_2, \{b_1,b_2\}]$. Thus we obtain:
+\begin{equation}
+	iE_1^{(1)} V_{++}^{(1)}[\{a_1,a_2\},\{b_1,b_2\}] - a_1 V_{++}^{(1)}[\{a_1-1,a_2\},\{b_1,b_2\}] + H[a_1+a_2, \{b_1,b_2\}] = 0. \label{eq:Vpp1timeIBP}
+\end{equation}
+
+For $V_{++}^{(2)}$, applying $\partial_{\tau_1}$ to $e^{-iE_1^{(2)}\tau_1}(-\tau_1)^{a_1}\theta(\tau_2-\tau_1)$ gives:
+\begin{align}
+	 & \int \partial_{\tau_1} \left[ e^{-iE_2\tau_1}(-\tau_1)^{a_1} \theta(\tau_2-\tau_1) \cdots \right] \nonumber                                                               \\
+	 & = \int \left[ -iE_1^{(2)} e^{-iE_1^{(2)}\tau_1}(-\tau_1)^{a_1} \theta(\tau_2-\tau_1) - a_1 e^{-iE_1^{(2)}\tau_1}(-\tau_1)^{a_1-1} \theta(\tau_2-\tau_1) \right. \nonumber \\
+	 & \quad \left. - e^{-iE_1^{(2)}\tau_1}(-\tau_1)^{a_1} \delta(\tau_1-\tau_2) \right] \cdots
+\end{align}
+Note the minus sign from $\partial_{\tau_1}\theta(\tau_2-\tau_1) = -\delta(\tau_1-\tau_2)$. The $\delta$-function term again produces $H[a_1+a_2, \{b_1,b_2\}]$, yielding:
+\begin{equation}
+	-iE_1^{(2)} V_{++}^{(2)}[\{a_1,a_2\},\{b_1,b_2\}] - a_1 V_{++}^{(2)}[\{a_1-1,a_2\},\{b_1,b_2\}] - H[a_1+a_2, \{b_1,b_2\}] = 0. \label{eq:Vpp2timeIBP}
+\end{equation}
+
+Similar relations can be derived from $\partial_{\tau_2}$, but they provide redundant information due to the symmetry between the two time variables.
+
+Comparing with the $G_{+-}$ time IBP (Eqs.~(1.6)--(1.7)), the only new ingredients are the boundary terms $\pm H$, which originate from derivatives of the $\theta$-functions. The coefficients $iE_1^{(1)}$ and $-iE_1^{(2)}$ appear naturally from differentiating the exponential factors.
+\subsection{Reduction of Boundary Integrals $H$}
+
+The boundary integrals $H[c,\{b_1,b_2\}]$ defined in Eq.~(2.2) are single‑time integrals that appear in the time IBP relations for $V_{++}^{(1)}$ and $V_{++}^{(2)}$. To complete the reduction system, we need IBP relations for $H$ itself. These integrals are simpler than the double‑time $V_{++}$ integrals because they contain only one time variable $\tau$.
+
+\subsubsection{Time IBP for $H$}
+
+Applying a time derivative to the integrand of $H$ gives:
+\begin{equation}
+	\partial_\tau \left[ e^{-i(P_1+P_2)\tau} (-\tau)^c \right] = -i(P_1+P_2) e^{-i(P_1+P_2)\tau} (-\tau)^c - c e^{-i(P_1+P_2)\tau} (-\tau)^{c-1}.
+\end{equation}
+Assuming the surface terms vanish at $\tau=-\infty$ and $\tau=0$ (which holds for appropriate analytic continuations of $P_1+P_2$), we obtain the time IBP relation:
+\begin{equation}
+	-i(P_1+P_2) H[c,\{b_1,b_2\}] - c H[c-1,\{b_1,b_2\}] = 0. \label{eq:HtimeIBP}
+\end{equation}
+This relation reduces the time exponent $c$ at the cost of introducing a factor of $1/(P_1+P_2)$.
+
+\subsubsection{Momentum IBP for $H$}
+
+Momentum derivatives act only on the denominator $1/(x_1^{b_1}x_2^{b_2})$. Applying the operators $\mathcal{O}_1 = \bm q^i\partial_{\bm q^i}$ and $\mathcal{O}_2 = (\bm q^i+\bm k_s^i)\partial_{\bm q^i}$ to the integrand yields:
+\begin{align}
+	\mathcal{O}_1 \frac{1}{x_1^{b_1}x_2^{b_2}} & = -\frac{b_1}{x_1^{b_1}x_2^{b_2}} - \frac{b_2}{x_2^{b_2+1}} \mathcal{O}_1 x_2, \\
+	\mathcal{O}_2 \frac{1}{x_1^{b_1}x_2^{b_2}} & = -\frac{b_1}{x_1^{b_1+1}} \mathcal{O}_2 x_1 - \frac{b_2}{x_2^{b_2}x_2^{b_2}}.
+\end{align}
+Using $\int \partial_{\bm q^i} [\bm q^i \cdots] = 0$ and $\int \partial_{\bm q^i} [(\bm q^i+\bm k_s^i) \cdots] = 0$, and noting that the exponential factor is independent of $\bm q$, we obtain the momentum IBP relations:
+\begin{align}
+	0 & = D\, H[c,\{b_1,b_2\}] - \frac{b_1}{x_1} (\mathcal{O}_1 x_1) H[c,\{b_1,b_2\}] - \frac{b_2}{x_2} (\mathcal{O}_1 x_2) H[c,\{b_1,b_2\}], \label{eq:HmomIBP1} \\
+	0 & = D\, H[c,\{b_1,b_2\}] - \frac{b_1}{x_1} (\mathcal{O}_2 x_1) H[c,\{b_1,b_2\}] - \frac{b_2}{x_2} (\mathcal{O}_2 x_2) H[c,\{b_1,b_2\}], \label{eq:HmomIBP2}
+\end{align}
+where $D=3$ is the spatial dimension and the derivative actions $\mathcal{O}_i x_j$ are the same as in Eqs.~(1.8)--(1.9). Since $H$ contains no factors of $\tau_1,\tau_2$, the coefficients $-i\tau_1+i\tau_2$ that appear in the $G_{+-}$ momentum IBP are absent here.
+
+\subsubsection{Symmetry Relations}
+
+The $H$ integrals inherit the symmetry under exchange of the two propagators from the original bubble diagram:
+\begin{equation}
+	H[c,\{b_1,b_2\}] = H[c,\{b_2,b_1\}]. \label{eq:Hsym}
+\end{equation}
+This follows from the invariance of $x_1x_2$ under $x_1\leftrightarrow x_2$ and the invariance of the measure $\di^3\bm q$.
+
+\subsubsection{Reduction Strategy}
+
+The IBP system for $H$ is simpler than that for $V_{++}$ because:
+\begin{enumerate}
+	\item Only one time variable appears, so time IBP involves only a single relation (Eq.~\ref{eq:HtimeIBP}).
+	\item The momentum IBP relations (Eqs.~\ref{eq:HmomIBP1}--\ref{eq:HmomIBP2}) lack the $\tau$-dependent terms, making them algebraic in the $b_i$ indices.
+	\item The symmetry (Eq.~\ref{eq:Hsym}) reduces the number of independent integrals by a factor of two when $b_1\neq b_2$.
+\end{enumerate}
+In practice, one can reduce any $H[c,\{b_1,b_2\}]$ to a set of master integrals (e.g., $H[0,\{0,0\}]$, $H[0,\{1,0\}]$, etc.) using the above relations. Since $H$ integrals appear only as inhomogeneous terms in the $V_{++}$ IBP system, their reduction can be performed once and the results substituted into the $V_{++}$ reduction.
+\subsection{Momentum IBP Relations}
+
+Since momentum derivatives commute with the $\theta$-functions, the momentum IBP relations for $V_{++}^{(1)}$ and $V_{++}^{(2)}$ are identical to those for the $G_{+-}$ family $G[\{a_i\},\{b_i\}]$ derived in Section~1.6. One simply replaces $G$ by $V_{++}^{(1)}$ or $V_{++}^{(2)}$ in Eqs.~(1.10)--(1.11). Explicitly,
+\begin{align}
+	0 = & \; D\, V_{++}^{(1)}[\{a_i\},\{b_i\}] \nonumber        \\
+	    & - \Big[ \frac{b_1}{x_1} - i\tau_1 + i\tau_2 \Big]
+	(\mathcal{O}_1 x_1) V_{++}^{(1)}[\{a_i\},\{b_i\}] \nonumber \\
+	    & - \Big[ \frac{b_2}{x_2} - i\tau_1 + i\tau_2 \Big]
+	(\mathcal{O}_1 x_2) V_{++}^{(1)}[\{a_i\},\{b_i\}], \label{eq:Vpp1momIBP}
+\end{align}
+and analogously for $V_{++}^{(2)}$ (with the same coefficients, as discussed below) and for the operator $\mathcal{O}_2$. The derivative actions $\mathcal{O}_1 x_1$, $\mathcal{O}_1 x_2$, etc., are exactly as in Section~1.6. Remarkably, the momentum IBP relations for both $V_{++}^{(1)}$ and $V_{++}^{(2)}$ are identical to those for $G_{+-}$ (Eq.~(1.10)), despite the different exponential factors.
+
+\subsection{Algebraic Relations and Symmetries}
+
+The discrete symmetries are inherited from the structure of the integrands. Both $V_{++}^{(1)}$ and $V_{++}^{(2)}$ are invariant under exchange of the two propagators $x_1\leftrightarrow x_2$, which corresponds to the transformation $\bm q \to -\bm q - \bm k_s$:
+\begin{align}
+	V_{++}^{(1)}[\{a_1,a_2\},\{b_1,b_2\}] & = V_{++}^{(1)}[\{a_1,a_2\},\{b_2,b_1\}], \label{eq:Vpp1sym} \\
+	V_{++}^{(2)}[\{a_1,a_2\},\{b_1,b_2\}] & = V_{++}^{(2)}[\{a_1,a_2\},\{b_2,b_1\}]. \label{eq:Vpp2sym}
+\end{align}
+This symmetry follows from the invariance of $x_1+x_2$ under $x_1\leftrightarrow x_2$ and the invariance of the measure $\di^3\bm q$.
+
+When $a_1 = a_2$, there is a relation between the two time-orderings via simultaneous exchange of time variables and a sign flip of the external energies. Performing the transformations $\tau_1\leftrightarrow\tau_2$ and $P_1\leftrightarrow -P_2$ maps $V_{++}^{(2)}$ to $V_{++}^{(1)}$:
+\begin{align}
+	V_{++}^{(2)}[\{a,a\},\{b_1,b_2\}; P_1, P_2] & = V_{++}^{(1)}[\{a,a\},\{b_1,b_2\}; -P_2, -P_1], \qquad (a_1=a_2=a). \label{eq:Vpp12sym}
+\end{align}
+For general $a_1\neq a_2$, no simple relation connects $V_{++}^{(1)}$ and $V_{++}^{(2)}$ due to the different dependence on $\tau_1$ and $\tau_2$ in the time exponents.
+
+\subsection{Complete IBP System for $V_{++}$}
+
+Collecting the results above, the IBP system for the $V_{++}$ bubble integrals is obtained from the $G_{+-}$ system of Section~1 with the sole addition of boundary terms coming from derivatives of the $\theta$-functions:
+
+\begin{enumerate}
+	\item \textbf{Time IBP relations:} Eqs.~(2.3)--(2.4), which are the $G_{+-}$ time IBP relations plus the boundary terms $+H$ for $V_{++}^{(1)}$ and $-H$ for $V_{++}^{(2)}$.
+	\item \textbf{Momentum IBP relations:} Identical to Eqs.~(1.10)--(1.11) with $G$ replaced by $V_{++}^{(1)}$ or $V_{++}^{(2)}$.
+	\item \textbf{Symmetry relations:} Eqs.~(\ref{eq:Vpp1sym})--(\ref{eq:Vpp12sym}) above.
+\end{enumerate}
+
+The only genuinely new ingredients are the boundary integrals $H[c,\{b_i\}]$ defined in Eq.~(2.2), which couple the two time‑ordered sectors $V_{++}^{(1)}$ and $V_{++}^{(2)}$.
+
+\subsection{Relation to Chapter 1 IBP and Separate Reduction Strategy}
+
+A crucial observation is that the momentum IBP relations for $V_{++}^{(1)}$ and $V_{++}^{(2)}$ are \emph{identical} to those for the $G_{+-}$ family derived in Section~1. Specifically, comparing \eqref{eq:Vpp1momIBP} with Eq.~(1.10), we see:
+
+\begin{equation}
+	\text{Momentum IBP for } V_{++}^{(1)}: \quad 0 = D\, V_{++}^{(1)} - \left[\frac{b_1}{x_1} - i\tau_1 + i\tau_2\right](\mathcal{O}_1 x_1) V_{++}^{(1)} - \left[\frac{b_2}{x_2} - i\tau_1 + i\tau_2\right](\mathcal{O}_1 x_2) V_{++}^{(1)},
+\end{equation}
+\begin{equation}
+	\text{Momentum IBP for } G_{+-}: \quad 0 = D\, G - \left[\frac{b_1}{x_1} - i\tau_1 + i\tau_2\right](\mathcal{O}_1 x_1) G - \left[\frac{b_2}{x_2} - i\tau_1 + i\tau_2\right](\mathcal{O}_1 x_2) G.
+\end{equation}
+
+The mathematical structure is identical, with only the integral symbol ($V_{++}^{(1)}$ vs $G$) differing. This means:
+
+\begin{itemize}
+	\item \textbf{Direct application of Chapter 1 results:} Any algebraic manipulation, reduction formula, or master integral basis derived for $G_{+-}$ in Section~1 applies directly to $V_{++}^{(1)}$ and $V_{++}^{(2)}$ for the momentum-space part of the reduction.
+
+	\item \textbf{Time IBP similarity:} The time IBP relations for $V_{++}^{(1)}$ and $V_{++}^{(2)}$ differ from those of $G_{+-}$ only by the boundary terms $\pm H$. The core differential operators are identical when written in terms of the appropriate energies $E_1^{(1)}$ and $E_1^{(2)}$.
+
+	\item \textbf{Symmetry inheritance:} The symmetry $V_{++}^{(1)}[\{a_1,a_2\},\{b_1,b_2\}] = V_{++}^{(1)}[\{a_1,a_2\},\{b_2,b_1\}]$ is inherited directly from $G_{+-}$.
+\end{itemize}
+
+\subsubsection{Why Separate Reduction is Preferred}
+
+Although the boundary terms $\pm H$ would cancel if we added the time IBP relations for $V_{++}^{(1)}$ and $V_{++}^{(2)}$, this cancellation comes at a cost: the exponential factors in the two time-orderings have opposite signs ($iE_1^{(1)}$ for $V_{++}^{(1)}$ and $-iE_1^{(2)}$ for $V_{++}^{(2)}$). Consequently, the coefficients in the time IBP relations do not pair systematically when considering the sum $\mathcal{V}_{++} = V_{++}^{(1)} + V_{++}^{(2)}$. This lack of pairing complicates the reduction process if one attempts to work directly with the sum.
+
+Instead, we adopt a strategy of reducing $V_{++}^{(1)}$ and $V_{++}^{(2)}$ separately, treating each as an independent integral family with its own IBP system. The two families are coupled only through the common boundary integrals $H$, which appear with opposite signs. This separate-treatment approach maintains the algebraic simplicity of the $G_{+-}$ reduction while cleanly isolating the boundary effects.
+
+\subsubsection{Energy Relabeling as a Simplification Tool}
+
+An important simplification arises from the symmetry relation (\ref{eq:Vpp12sym}), which shows that $V_{++}^{(2)}$ with external energies $(P_1, P_2)$ equals $V_{++}^{(1)}$ with energies $(-P_2, -P_1)$ when $a_1=a_2$. Even for general $a_1\neq a_2$, one can view $V_{++}^{(2)}$ as essentially the same mathematical object as $V_{++}^{(1)}$ but with a different assignment of energies to the time variables. This perspective allows us to:
+
+\begin{enumerate}
+	\item Focus reduction efforts primarily on the $V_{++}^{(1)}$ family, using the results for $V_{++}^{(2)}$ via energy relabeling when $a_1=a_2$.
+	\item Maintain a unified reduction procedure that handles both time-orderings through parameter substitution rather than separate derivations.
+	\item Exploit the fact that the momentum IBP relations are completely independent of the energy assignments $P_1, P_2$.
+\end{enumerate}
+
+The boundary integrals $H$ remain as the only genuinely new structures that cannot be mapped to the $G_{+-}$ system. Their reduction, discussed in Section~2.3, is relatively simple due to their single-time nature.
+
+\subsubsection{Consequences for the Reduction Procedure}
+
+The separate-reduction strategy leads to the following workflow:
+
+\begin{enumerate}
+	\item \textbf{Momentum reduction:} Apply all momentum IBP reductions from Section~1 directly to $V_{++}^{(1)}$ (and similarly to $V_{++}^{(2)}$ if needed), exactly as for $G_{+-}$ integrals.
+
+	\item \textbf{Time reduction with boundary terms:} Use the time IBP relations (2.3)--(2.4) which include the $\pm H$ boundary terms. These relations have the same algebraic form as the $G_{+-}$ time IBP, with the energies $E_1^{(1)}$ or $E_1^{(2)}$ appearing as coefficients.
+
+	\item \textbf{Boundary integral reduction:} Reduce the $H$ integrals using their own IBP system (Section~2.3).
+
+	\item \textbf{Reconstruction of the sum:} After reducing $V_{++}^{(1)}$ and $V_{++}^{(2)}$ to master integrals, add them to obtain the physical observable $\mathcal{V}_{++}$. For $a_1=a_2$, use the relabeling symmetry to obtain $V_{++}^{(2)}$ from $V_{++}^{(1)}$ without separate reduction.
+\end{enumerate}
+
+This approach preserves the systematic structure of the IBP reduction while cleanly handling the boundary terms that distinguish the vertex++ case from the simpler $G_{+-}$ case.
+
+\subsection{Practical Reduction Strategy}
+
+Based on the separate-reduction approach outlined in Section~2.7, the reduction of vertex++ bubble integrals follows a systematic procedure that treats $V_{++}^{(1)}$ and $V_{++}^{(2)}$ as independent integral families coupled through boundary terms. The strategy leverages the structural similarities with the $G_{+-}$ case while cleanly handling the additional complexity introduced by $\theta$-functions.
+
+\subsubsection{Reduction Procedure for Separate Time-Orderings}
+
+The recommended workflow for reducing vertex++ integrals is:
+
+\begin{enumerate}
+	\item \textbf{Momentum reduction:} Apply all momentum IBP reductions from Section~1 directly to $V_{++}^{(1)}$ (and similarly to $V_{++}^{(2)}$ if needed), treating them exactly like $G_{+-}$ integrals. The momentum IBP relations are identical to Eqs.~(1.10)--(1.11).
+
+	\item \textbf{Time reduction with boundary terms:} Use the time IBP relations (2.3)--(2.4), which are the $G_{+-}$ time IBP plus $\pm H$ boundary terms. For $V_{++}^{(1)}$, the coefficient is $iE_1^{(1)} = i(q+|\bm q+\bm k_s|-P_1)$; for $V_{++}^{(2)}$, it is $-iE_1^{(2)} = -i(q+|\bm q+\bm k_s|+P_1)$.
+
+	\item \textbf{Boundary integral reduction:} Reduce the $H$ integrals using their own IBP system (Section~2.3). These single-time integrals are simpler and can be reduced to a small set of master integrals.
+
+	\item \textbf{Symmetry exploitation:} For $a_1=a_2$, use the relabeling symmetry (\ref{eq:Vpp12sym}) to obtain $V_{++}^{(2)}$ from $V_{++}^{(1)}$ without separate reduction:
+	      \[
+		      V_{++}^{(2)}[\{a,a\},\{b_1,b_2\}; P_1, P_2] = V_{++}^{(1)}[\{a,a\},\{b_1,b_2\}; -P_2, -P_1].
+	      \]
+	      This avoids duplicate work and highlights the essential unity of the two time-orderings.
+
+	\item \textbf{Reconstruction of the physical observable:} After reducing both $V_{++}^{(1)}$ and $V_{++}^{(2)}$ to master integrals, sum them to obtain the complete vertex++ correlator:
+	      \[
+		      \mathcal{V}_{++}[\{a_1,a_2\},\{b_1,b_2\}; P_1, P_2] = V_{++}^{(1)}[\{a_1,a_2\},\{b_1,b_2\}; P_1, P_2] + V_{++}^{(2)}[\{a_1,a_2\},\{b_1,b_2\}; P_1, P_2].
+	      \]
+\end{enumerate}
+
+\subsubsection{Key Advantages of the Separate-Reduction Approach}
+
+\begin{itemize}
+	\item \textbf{Systematic pairing:} By keeping $V_{++}^{(1)}$ and $V_{++}^{(2)}$ separate, the coefficients in the time IBP relations maintain consistent signs ($iE_1^{(1)}$ and $-iE_1^{(2)}$), allowing for orderly reduction without sign cancellations that would complicate the algebraic structure.
+
+	\item \textbf{Clean boundary isolation:} The $H$ integrals appear explicitly with opposite signs in the two time-orderings, making their role transparent. This clarity is lost if one attempts to reduce the sum $\mathcal{V}_{++}$ directly.
+
+	\item \textbf{Flexibility:} The approach yields explicit expressions for individual time-orderings when needed, while still providing the sum $\mathcal{V}_{++}$ for physical observables.
+
+	\item \textbf{Computational efficiency:} The momentum reduction reuses all results from Chapter~1, and the time reduction follows the same pattern as $G_{+-}$ except for the addition of $H$ terms. The $H$ integrals themselves are simpler due to their single-time nature.
+
+	\item \textbf{Relabeling symmetry:} The ability to map $V_{++}^{(2)}$ to $V_{++}^{(1)}$ via energy relabeling (when $a_1=a_2$) reduces the effective number of independent integrals by nearly half.
+\end{itemize}
+
+\subsubsection{Implementation Considerations}
+
+In practical implementations (e.g., using IBP reduction software), one can:
+
+\begin{enumerate}
+	\item Define two integral families: one for $V_{++}^{(1)}$ and one for $V_{++}^{(2)}$, with the appropriate energy parameters $E_1^{(1)}$ and $E_1^{(2)}$ in the time IBP relations.
+
+	\item Include the $H$ integrals as auxiliary masters that couple the two families through the boundary terms $\pm H$.
+
+	\item For $a_1=a_2$, exploit the relabeling symmetry to reduce the computational cost.
+
+	\item After reduction, combine the master integrals for $V_{++}^{(1)}$ and $V_{++}^{(2)}$ to obtain the final result for $\mathcal{V}_{++}$.
+\end{enumerate}
+
+This strategy maintains the mathematical rigor of the IBP procedure while providing a clear path from the defining integrals to reduced expressions suitable for numerical evaluation or analytic simplification.
+
+\newpage
+\bibliography{CosmoCollider}
+\bibliographystyle{utphys}
+
+
+\end{document}

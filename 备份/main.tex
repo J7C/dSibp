@@ -1,0 +1,905 @@
+\pdfoutput=1
+\documentclass[a4paper,12pt]{article}
+
+\usepackage{fix-cm}
+\usepackage{amsfonts}
+\usepackage{mathrsfs}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{framed}
+
+\usepackage[medium]{titlesec}
+\usepackage{bm}
+\usepackage{cite}
+
+\usepackage[normalem]{ulem}
+\usepackage{extarrows}
+\usepackage{slashed}
+\usepackage{isodateo}
+\usepackage{graphicx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[bookmarksnumbered=true,bookmarksopen=true]{hyperref}
+ \hypersetup{colorlinks,%
+             linkcolor=NavyBlue, %
+             citecolor=PineGreen, %
+             urlcolor=PineGreen}
+\usepackage[hmargin=.7in,vmargin=1.1in]{geometry}
+\usepackage{indentfirst}
+\usepackage{booktabs}
+
+\usepackage{bbm}
+
+\linespread{1.1}
+
+\newcommand{\FR}[2]{\displaystyle\frac{\,{#1}\,}{#2}}
+\newcommand{\fr}[2]{\mbox{$\frac{\,{#1}\,}{#2}$}}
+\newcommand{\n}{\nonumber}
+\renewcommand{\rm}{\mathrm}
+\renewcommand{\thefootnote}{\arabic{footnote}}
+
+\graphicspath{{fig/}}
+
+
+\newcommand{\red}{\color{red}}
+\newcommand{\blue}{\color{blue}}
+\newcommand{\gray}{\color{gray}}
+
+\def\bge{\begin{equation}}
+\def\ede{\end{equation}}
+\def\bga{\begin{aligned}}
+\def\eda{\end{aligned}}
+\def\ie{\begin{equation}\begin{aligned}}
+\def\fe{\end{aligned}\end{equation}}
+\def\bgb{\begin{bmatrix}}
+\def\edb{\end{bmatrix}}
+\def\bgp{\begin{pmatrix}}
+\def\edp{\end{pmatrix}}
+\def\bgm{\begin{matrix}}
+\def\edm{\end{matrix}}
+\def\bgs{\begin{subequations}}
+\def\eds{\end{subequations}}
+\newcommand{\order}[1]{\mathcal{O}({#1})}
+\def\di{{\mathrm{d}}}
+\def\D{{\mathrm{D}}}
+\def\Di{{\mathcal{D}}}
+
+\def\T{\mathcal{T}}
+\def\mb{\mathbf}
+\def\ms{\mathscr}
+\def\mf{\mathfrak}
+\def\mc{\mathcal}
+\def\cl{\mathrm{cl}}
+\def\pd{\partial}
+\def\ld{{\mathscr{L}}}
+\def\hd{{\mathscr{H}}}
+\def\z{{\bar{z}}}
+\def\la{\langle}\def\ra{\rangle}
+\def\sla{\slashed}
+\def\const{\mathrm{const.}}
+\setlength\unitlength{1mm}
+\def\tr{\mathrm{\,tr\,}}
+\def\Tr{\mathrm{\,Tr\,}}
+\def\Det{\mathrm{\,Det\,}}
+
+
+\def\To{\Rightarrow}
+\def\ii{\mathrm{i}}
+
+\def\al{\alpha}
+\def\be{\beta}
+\def\ga{\gamma}
+\def\de{\delta}
+\def\ep{\epsilon}
+\def\ka{\kappa}
+\def\lam{\lambda}
+\def\rh{\rho}
+\def\si{\sigma}
+\def\ze{\zeta}
+
+\def\Wh{\mathrm{W}}
+
+
+\def\aa{\mathsf{a}}
+\def\bb{\mathsf{b}}
+\def\cc{\mathsf{c}}
+\def\dd{\mathsf{d}}
+
+\def\C{\mathbb{C}}
+\def\R{\mathbb{R}}
+
+\newcommand{\mN}{\mathcal{N}}
+\newcommand{\mG}{\mathcal{G}}
+\newcommand{\mK}{\mathcal{K}}
+\def\to{\rightarrow}
+
+\def\Mp{M_{\text{Pl}}}
+
+
+\def\Re{\mathrm{Re}\,}
+\def\Im{\mathrm{Im}\,}
+
+\def\ad{\mathrm{\,ad\,}}
+
+\def\2F1{{}_2\mathrm{F}_1}
+\def\3F2{{}_3\mathrm{F}_2}
+
+\def\nut{\wt{\nu}}
+%\newcommand{\nut}{\widetilde{\nu}}
+
+
+\def\tf{{\tau_0}}
+
+\usepackage{mdframed} 
+                   
+
+\newmdenv[skipabove=0pt,%
+          skipbelow=5pt,%
+          leftmargin=0pt,%
+          rightmargin=0pt,%
+          innertopmargin=-5pt,%
+          innerbottommargin=7pt,%
+          innerleftmargin=2pt,%
+          innerrightmargin=2pt,%
+          splittopskip=0pt,%
+          splitbottomskip=0pt,%
+          linewidth=0pt,%
+          nobreak=true]%
+          {keyeqn2}                   
+                   
+                   
+\newmdenv[backgroundcolor=gray!15,%
+          skipabove=0pt,%
+          skipbelow=5pt,%
+          leftmargin=0pt,%
+          rightmargin=0pt,%
+          innertopmargin=-5pt,%
+          innerbottommargin=7pt,%
+          innerleftmargin=2pt,%
+          innerrightmargin=2pt,%
+          splittopskip=0pt,%
+          splitbottomskip=0pt,%
+          linewidth=0pt,%
+          nobreak=true]%
+          {keyeqn}
+          
+\usepackage{titlesec}          
+\titleformat{\section}
+{\normalfont\fontsize{15}{20}\bfseries}{\thesection}{1em}{}
+
+\newcommand{\ob}[1]{\mkern 2mu \overline{\mkern -2mu #1 \mkern -2mu}\mkern 2mu}
+\newcommand{\wt}[1]{\mkern 2mu \widetilde{\mkern -2mu #1 \mkern -2mu}\mkern 2mu}
+\newcommand{\wh}[1]{\mkern 2mu \widehat{\mkern-2mu#1\mkern-2mu}\mkern 2mu}
+
+\newcommand{\fnemail}[1]{\footnote{Email: \href{mailto:#1}{\nolinkurl{#1}}}}
+
+
+\newcommand{\zq}[1]{{\color[rgb]{.1,.6,.3}{[{ZQ:} #1]}}}
+\newcommand{\cjq}[1]{{\color[rgb]{.1,.6,.3}{[{CJQ:} #1]}}}
+\newcommand{\tyx}[1]{{\color[rgb]{.1,.6,.3}{[{YT:} #1]}}}
+\begin{document}
+
+\title{\Large\textbf{IBP for V++ Massive Bubble\\[2mm]}}
+
+\author{Zhehan Qin$^{\,a,b\,}$\fnemail{qzh21@mails.tsinghua.edu.cn}\\[5mm]
+	$^a\,$\normalsize{\emph{Department of Physics, Tsinghua University, Beijing 100084, China} }\\
+	$^b\,$\normalsize{\emph{Department of Applied Mathematics and Theoretical Physics, University of Cambridge,}}\\\normalsize{\emph{Wilberforce Road, Cambridge, CB3 0WA, UK}}\\
+}
+
+\date{}
+\maketitle
+
+\vspace{20mm}
+
+\begin{abstract}
+In this note we construct IBP relations for the one-loop two-point (bubble) diagram in de Sitter space with both vertices being plus (V++) and internal propagators massive. We follow the structure of the reference note for V+- massive bubble, adding only the modifications required by the $\theta$-function time-ordering. The momentum IBP relations remain unchanged, while time IBP relations acquire tadpole terms from derivatives of $\theta$-functions. We provide the complete IBP system ready for Mathematica implementation.
+	\vspace{10mm}
+\end{abstract}
+
+\newpage
+\tableofcontents
+
+
+\section{Background, goals, and structure}
+The goal is to construct practical reduction relations for the massive V++ de Sitter bubble, including the tadpole families induced by time ordering. Differential operators in external kinematics map integrals within the same families; after reduction to a master basis, these operators induce a first-order linear system for the master-integral vector.
+
+We organize the note as follows. Section~2 fixes conventions and defines the $G^{(12)}$, $G^{(21)}$ and tadpole $R$ families. Section~3 lists the IBP system and the kinematic differential operators. Section~4 records Baikov and dimension-shift relations for the momentum integral. Section~5 summarizes a $d\log$/intersection-theory viewpoint tailored to the present special-function setting.
+
+\section{Basic definitions, notation, and integral families}
+\label{sec:definitions}
+\paragraph{Notations} The metric reads: $\di s^2=a^2(-\di\tau^2+\di \mb x^2)$ with scale factor $a(\tau)=-1/(H\tau)$ and $\tau\in(-\infty,0)$. We set $H\equiv 1$ throughout. We use $\theta_{ij}\equiv\theta(\tau_i-\tau_j)$ and $\theta(0)=1/2$. We work in $D$ spatial dimensions (so the loop momentum integration is $\int\di^D\mb q$); in dimensional regularization one may take $D=3-2\ep$. For simplicity we take all mass parameters equal, $\nu_1=\nu_2=\nu_3=\nu_4\equiv\nu$, and we also specialize to equal external energies $P_1=P_2$.
+
+\paragraph{Hankel building blocks} Following the notation of arXiv:2401.00129v5 (Eqs.~3.11--3.12), we define the rescaled Hankel functions
+\bge
+h_\nu^{(1)}(x) \equiv x^{-\nu}\mathrm H_{\nu}^{(1)}(x),\qquad h_\nu^{(2)}(x) \equiv x^{-\nu}\mathrm H_{\nu^*}^{(2)}(x),\qquad \nu\in\mathbb C,\quad x>0.
+\ede
+They satisfy (Eq.~(3.13) in arXiv:2401.00129v5)
+\begin{equation}
+	\label{eq:hdef}
+	h''(x) + \FR{2\nu+1}{x}h'(x) + h(x) = 0.
+\end{equation}
+The mass parameter is $m^2=9/4-\nu^2$. We also define derivatives
+\bge
+h_{\nu,0}(x)\equiv h_\nu(x),\qquad h_{\nu,n} (x)  \equiv  \FR{\di^n}{\di x^n}h(x),
+\ede
+For the two branches we also write
+\bge
+h^{(1)}_{\nu,n}(x)\equiv \FR{\di^n}{\di x^n}h^{(1)}_\nu(x),\qquad
+h^{(2)}_{\nu,n}(x)\equiv \FR{\di^n}{\di x^n}h^{(2)}_\nu(x).
+\ede
+When the mass label is clear from context, we write $h_n\equiv h_{\nu,n}$ and similarly $h^{(1,2)}_n\equiv h^{(1,2)}_{\nu,n}$.
+
+\paragraph{V++ bulk-to-bulk propagator and time ordering} For a massive scalar on the $+$ branch, the Schwinger--Keldysh propagator contains two time orderings,
+\bge
+G^{++}_\nu(k;\tau_1,\tau_2)\;\propto\;
+h_\nu^{(1)}(-k\tau_1)\,h_\nu^{(2)}(-k\tau_2)\,\theta_{12}
+\;+\;
+h_\nu^{(2)}(-k\tau_1)\,h_\nu^{(1)}(-k\tau_2)\,\theta_{21},
+\ede
+with $\tau_1,\tau_2\in(-\infty,0)$. For the bubble, the product of two $G^{++}$ propagators naturally splits into two contributions proportional to $\theta_{12}$ and $\theta_{21}$ respectively. This motivates treating the two orderings as two integral families related by symmetry.
+
+\paragraph{Two integral families} To clearly distinguish the two time-orderings, we define two integral families with explicit $\theta$-function labels:
+
+\paragraph{Family with $\theta_{12}$}
+\begin{align}
+	G^{(12)}[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] \equiv & \int_{-\infty}^0 \di\tau_1\di\tau_2 \int \FR{\di^D \mb q}{(2\pi)^D}\, e^{-\ii P_1\tau_1 - \ii P_2 \tau_2}\,
+	\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\mb q|^{b_1}|\mb k_s+\mb q|^{b_2}} \nonumber \\
+	& \times h_{n_1}^{(1)}(-q\tau_1)h_{n_2}^{(2)}(-q\tau_2)\nonumber\\
+	& \times h_{n_3}^{(1)}(-|\mb q+\mb k_s|\tau_1)h_{n_4}^{(2)}(-|\mb q+\mb k_s|\tau_2)\,\theta_{12}.
+\end{align}
+
+\paragraph{Family with $\theta_{21}$}
+\begin{align}
+	G^{(21)}[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] \equiv & \int_{-\infty}^0 \di\tau_1\di\tau_2 \int \FR{\di^D \mb q}{(2\pi)^D}\, e^{-\ii P_1\tau_1 - \ii P_2 \tau_2}\,
+	\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{|\mb q|^{b_1}|\mb k_s+\mb q|^{b_2}} \nonumber \\
+	& \times h_{n_1}^{(2)}(-q\tau_1)h_{n_2}^{(1)}(-q\tau_2)\nonumber\\
+	& \times h_{n_3}^{(2)}(-|\mb q+\mb k_s|\tau_1)h_{n_4}^{(1)}(-|\mb q+\mb k_s|\tau_2)\,\theta_{21}.
+\end{align}
+
+\paragraph{Relation between the two families}
+The two families are related by exchanging time variables and external energies:
+\begin{align}
+	G^{(21)}[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}; P_1,P_2] = G^{(12)}[\{n_2,n_1,n_4,n_3\},\{a_2,a_1\},\{b_1,b_2\}; P_2,P_1].
+\end{align}
+
+\paragraph{Complete V++ correlator}
+The physical V++ bubble correlator is the sum:
+\begin{align}
+	\mathcal{V}_{++} = G^{(12)} + G^{(21)}.
+\end{align}
+
+\paragraph{Tadpole families} Time IBP relations involve total derivatives $\int \pd_{\tau_i}[\cdots]=0$. When the integrand contains $\theta_{12}$ or $\theta_{21}$, one generates coincidence terms proportional to $\delta(\tau_1-\tau_2)$, which reduce the two-time integral to a one-time integral. We treat these coincidence contributions as tadpole families $R_1,R_2$, which depend only on $P_0\equiv P_1+P_2$ (and we keep $P_0$ implicit in the notation).
+\begin{align}
+	R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] & \equiv e^{\pi \Im [\nu]}\frac{4i}{\pi}\int_{-\infty}^0 \di\tau \int \FR{\di^D \mb q}{(2\pi)^D}\, e^{-\ii P_0\tau} \frac{(-\tau)^{a}}{|\mb q|^{b_1}|\mb k_s+\mb q|^{b_2}} \nonumber \\
+	                                        & \quad\times h_{n_3}^{(1)}(-|\mb q+\mb k_s|\tau)h_{n_4}^{(2)}(-|\mb q+\mb k_s|\tau),                                                                                                                 \\
+	R_2[\{n_1,n_2\},\{a\},\{b_1,b_2\}] & \equiv e^{\pi \Im [\nu]}\frac{4i}{\pi}\int_{-\infty}^0 \di\tau \int \FR{\di^D \mb q}{(2\pi)^D}\, e^{-\ii P_0\tau} \frac{(-\tau)^{a}}{|\mb q|^{b_1}|\mb k_s+\mb q|^{b_2}} \nonumber \\
+	                                        & \quad\times h_{n_1}^{(1)}(-q\tau)h_{n_2}^{(2)}(-q\tau).
+\end{align}
+
+\paragraph{Direct Tadpole Family}
+According to the Feynman rules, the tadpole diagram is given by the one-time integral of the equal-time propagator. Adopting the regularization $\theta(0)=1/2$, the equal-time V++ propagator is
+\begin{equation}
+G^{++}_\nu(q;\tau,\tau) = \frac{1}{2}\left[h^{(1)}_\nu(-q\tau)h^{(2)}_\nu(-q\tau) + h^{(2)}_\nu(-q\tau)h^{(1)}_\nu(-q\tau)\right] = h^{(1)}_\nu(-q\tau)h^{(2)}_\nu(-q\tau).
+\end{equation}
+We define the direct tadpole family $T$ corresponding to this diagrammatic contribution:
+\begin{align}
+	T[\{n_1,n_2\},\{a\},\{b\}] & \equiv \int_{-\infty}^0 \di\tau \int \FR{\di^D \mb q}{(2\pi)^D}\, e^{-\ii P_0\tau} \frac{(-\tau)^{a}}{|\mb q|^{b}} \nonumber \\
+	                                        & \quad\times h_{n_1}^{(1)}(-q\tau)h_{n_2}^{(2)}(-q\tau).
+\end{align}
+The families $R_1,R_2$ instead arise as remaining terms in time IBP for the bubble: one propagator is contracted using the Wronskian, producing the universal prefactor $e^{\pi \Im [\nu]}\frac{4i}{\pi}$ and an extra $(-k\tau)^{-2\nu-1}$ factor for the contracted line. In the integral-family language this is implemented as shifts of the $\tau$-power and the corresponding $|k|$-power indices (e.g. $a\to a-2\nu-1$ and $b\to b+2\nu+1$), together with the constraint $\delta_{n_i+n_j,1}$ from the contraction formula.
+
+\section{Reduction relations for the one-loop two-point bubble}
+\label{sec:reductions}
+\subsection{Top-sector families \texorpdfstring{$G^{(12)},G^{(21)}$}{G(12), G(21)}}
+\paragraph{Origin of the tadpole (remaining) terms}
+Time IBP relations involve total derivatives $\int \pd_{\tau_i}[\cdots]=0$. With $\theta_{12}$ or $\theta_{21}$ present, derivatives generate coincidence terms proportional to $\delta(\tau_1-\tau_2)$. For Hankel-type integrands, the coincidence terms collapse one time integration using the Wronskian of the $h^{(1,2)}_\nu$ pair, producing one-time tadpole families. In the notation of arXiv:2401.00129v5 (Section~3.7), in the time derivation of   $G_{++}$,  the $\theta$ functions yield a remaining term 
+\bge
+h_{n_1}^{(1)}(-k\tau_i)\,h_{n_2}^{(2)}(-k\tau_i) - h_{n_1}^{(2)}(-k\tau_i)\,h_{n_2}^{(1)}(-k\tau_i)
+= \delta_{n_1+ n_2,1}e^{ \pi \text{Im}[\nu]} \frac{  4 i }{\pi}  (-k\tau_i)^{-2\nu-1} \,  .  \label{eq_propcontract}
+\ede
+which, in our integral-family language, is implemented as a shift of the corresponding $|k|$-power index by $2\nu+1$ and the $\tau$-power index by $-2\nu-1$,  together with the contraction of the two-time integrations by one integral in the remaining family.
+
+In particular, since the $R$ families originate from contracting one propagator in the top sector, the contracted line carries an extra $(-k)^{-2\nu-1}$ factor from the Wronskian. In the Mathematica/Kira implementation we keep the momentum baselines trivial,
+\[
+|q|^{-b_1}\,|\bm k_s+\bm q|^{-b_2},
+\qquad b_{10}=0, \quad b_{20}=-2\nu,
+\]
+and the remaining-term factor is tracked explicitly by the $b$ shifts (e.g. $b_1\to b_1+2\nu+1$) in Eqs.~(\ref{eq:timeIBP_tau1})--(\ref{eq:timeIBP_tau2}).
+
+
+\paragraph{Time IBP with $\theta$-function tadpole terms}
+In the following, $G$ denotes $G^{(12)}+G^{(21)}$. The combination of the two parts can employ the propagator contraction formula, thereby simplifying the calculation. Momentum IBP and equation-of-motion relations apply to the families first. The only new ingredient in V++ (compare to V+-) is the $\theta$ function contributions in the time IBP.
+
+For $\pd_{\tau_1}$:
+\begin{align}
+	0 = & - \ii P_1 G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] - a_1G[\{n_1,n_2,n_3,n_4\},\{a_1-1,a_2\},\{b_1,b_2\}]\nonumber \\
+	    & - G[\{n_1+1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1-1,b_2\}] - G[\{n_1,n_2,n_3+1,n_4\},\{a_1,a_2\},\{b_1,b_2-1\}]\nonumber      \\
+	    & +\delta_{n_1+n_2,1}(-1)^{n_1+1}R_1[\{n_3,n_4\},\{a_1+a_2-2\nu-1\},\{b_1+2\nu+1,b_2\}]\nonumber                \\
+	    & +\delta_{n_3+n_4,1}(-1)^{n_3+1}R_2[\{n_1,n_2\},\{a_1+a_2-2\nu-1\},\{b_1,b_2+2\nu+1\}], \label{eq:timeIBP_tau1}
+\end{align}
+and for $\partial_{\tau_2}$:
+\begin{align}
+	0 = & - \ii P_2 G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] - a_2G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2-1\},\{b_1,b_2\}]\nonumber \\
+	    & - G[\{n_1,n_2+1,n_3,n_4\},\{a_1,a_2\},\{b_1-1,b_2\}] - G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2\},\{b_1,b_2-1\}]\nonumber      \\
+	    & +\delta_{n_1+n_2,1}(-1)^{n_2+1}R_1[\{n_3,n_4\},\{a_1+a_2-2\nu-1\},\{b_1+2\nu+1,b_2\}]\nonumber                \\
+	    & +\delta_{n_3+n_4,1}(-1)^{n_4+1}R_2[\{n_1,n_2\},\{a_1+a_2-2\nu-1\},\{b_1,b_2+2\nu+1\}], \label{eq:timeIBP_tau2}
+\end{align}
+where $\nu$ is the common mass parameter.
+
+The tadpole families $R_1,R_2$ are defined in Section~\ref{sec:definitions}.
+
+\paragraph{Momentum IBP}
+Momentum IBP relations are unchanged compared to the V$+-$ bubble, because $\pd_{\bm q^i}\theta_{ij}=0$. The derivation can be organized in the same chain-rule form as in Section~1.6 of the reference note by introducing
+\begin{align}
+	x_1 \equiv |\bm q|,\qquad x_2 \equiv |\bm q+\bm k_s|,\qquad
+	\mathcal{O}_1 \equiv \bm q^i \pd_{\bm q^i},\qquad
+	\mathcal{O}_2 \equiv (\bm q^i+\bm k_s^i)\pd_{\bm q^i},
+\end{align}
+whose actions on $(x_1,x_2)$ are
+\begin{align}
+	\mathcal{O}_1 x_1 & = x_1, \nonumber\\
+	\mathcal{O}_1 x_2 & = \frac{1}{2}x_2^{-1}(x_1^2 + x_2^2 - k_s^2), \nonumber\\
+	\mathcal{O}_2 x_1 & = \frac{1}{2}x_1^{-1}(x_1^2 + x_2^2 - k_s^2), \nonumber\\
+	\mathcal{O}_2 x_2 & = x_2.
+\end{align}
+Equivalently, for any function $F(x_1,x_2)$ one has the chain rule
+\begin{align}
+	\mathcal{O}_\alpha F = (\mathcal{O}_\alpha x_1)\,\partial_{x_1}F + (\mathcal{O}_\alpha x_2)\,\partial_{x_2}F,\qquad \alpha=1,2.
+\end{align}
+
+From $\int \pd_{\bm q^i}[\bm q^i \cdots ]=0$ one may write an intermediate step in terms of the composite operator acting on the full integrand,
+\begin{align}
+	0 &= \int_{-\infty}^0 \di\tau_1\di\tau_2\int \FR{\di^D \bm q}{(2\pi)^D}\,
+	\Big[D+\mathcal{O}_1\Big] \nonumber\\ 
+	& \Bigg[
+	e^{-\ii P_1\tau_1-\ii P_2\tau_2}
+	\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{x_1^{b_1}x_2^{b_2}}\,
+	h_{n_1}^{(1)}(-x_1\tau_1)h_{n_2}^{(2)}(-x_1\tau_2) \times h_{n_3}^{(1)}(-x_2\tau_1)h_{n_4}^{(2)}(-x_2\tau_2)\Bigg] \nonumber\\
+	& =  \int_{-\infty}^0 \di\tau_1\di\tau_2\int \FR{\di^D \bm q}{(2\pi)^D}\,
+	\Bigg[D+(\mathcal{O}_1 x_1)\partial_{x_1} +(\mathcal{O}_1 x_2)\partial_{x_2}\Bigg] \nonumber\\
+	&\Bigg[
+	e^{-\ii P_1\tau_1-\ii P_2\tau_2}
+	\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{x_1^{b_1}x_2^{b_2}}\,
+	h_{n_1}^{(1)}(-x_1\tau_1)h_{n_2}^{(2)}(-x_1\tau_2)
+	  \times h_{n_3}^{(1)}(-x_2\tau_1)h_{n_4}^{(2)}(-x_2\tau_2)\Bigg]. \label{eq:momIBP_qdot_chainrule}
+\end{align}
+Expanding the derivatives using $\partial_x x^{-b}=-(b/x)x^{-b}$ and $\partial_x h_n(-x\tau)=(-\tau)\,h_{n+1}(-x\tau)$ yields the closed relation in terms of shifted $G$ integrals:
+\begin{align}
+	0 ={}& D\,G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] \nonumber\\
+	&- b_1\,G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] \nonumber \\
+	&- \FR12 b_2\Big(
+	G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] \nonumber\\
+	&\qquad + G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1-2,b_2+2\}] \nonumber\\
+	&\qquad -k_s^2\,G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2+2\}]
+	\Big) \nonumber \\
+	&+G[\{n_1+1,n_2,n_3,n_4\},\{a_1+1,a_2\},\{b_1-1,b_2\}] \nonumber\\
+	&+ G[\{n_1,n_2+1,n_3,n_4\},\{a_1,a_2+1\},\{b_1-1,b_2\}] \nonumber \\
+	&+\FR12 \Big(
+	G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1,b_2-1\}] \nonumber\\
+	&\qquad + G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1+2,b_2+1\}] \nonumber\\
+	&\qquad -k_s^2\,G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1,b_2+1\}]
+	\Big) \nonumber \\
+	&+\FR12\Big(
+	G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1,b_2-1\}] \nonumber\\
+	&\qquad + G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1-2,b_2+1\}] \nonumber\\
+	&\qquad -k_s^2\,G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1,b_2+1\}]
+	\Big),
+\label{eq:momIBP_qdot}
+\end{align}
+where $D$ is the spatial dimension (in dimensional regularization $D=3-2\ep$). The second momentum IBP can be written in the same chain-rule form as
+\begin{align}
+	0 ={}& \int_{-\infty}^0 \di\tau_1\di\tau_2\int \FR{\di^D \bm q}{(2\pi)^D}\,
+	\Big[D+\mathcal{O}_2\Big]\nonumber\\
+	&\Bigg[
+	e^{-\ii P_1\tau_1-\ii P_2\tau_2}
+	\frac{(-\tau_1)^{a_1}(-\tau_2)^{a_2}}{x_1^{b_1}x_2^{b_2}}\,
+	h_{n_1}^{(1)}(-x_1\tau_1)h_{n_2}^{(2)}(-x_1\tau_2) \times h_{n_3}^{(1)}(-x_2\tau_1)h_{n_4}^{(2)}(-x_2\tau_2)\Bigg], \label{eq:momIBP_qk_chainrule}
+\end{align}
+and, after expansion, it gives the symmetric relation with the exchanges
+\begin{align}
+	\{n_1,n_2,n_3,n_4\} &\leftrightarrow \{n_3,n_4,n_1,n_2\}, \nonumber\\
+	\{b_1,b_2\} &\leftrightarrow \{b_2,b_1\}. \nonumber
+\end{align}
+
+\paragraph{Equation of motion relations}
+The Bessel equation \eqref{eq:hdef} yields:
+\begin{align}
+	G[\{2,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] = & - G[\{0,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\nonumber      \\
+	                                               & - (2\nu+1) G[\{1,n_2,n_3,n_4\},\{a_1-1,a_2\},\{b_1+1,b_2\}], \\
+	G[\{n_1,2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] = & - G[\{n_1,0,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\nonumber      \\
+	                                               & - (2\nu+1) G[\{n_1,1,n_3,n_4\},\{a_1,a_2-1\},\{b_1+1,b_2\}], \\
+	G[\{n_1,n_2,2,n_4\},\{a_1,a_2\},\{b_1,b_2\}] = & - G[\{n_1,n_2,0,n_4\},\{a_1,a_2\},\{b_1,b_2\}]\nonumber      \\
+	                                               & - (2\nu+1) G[\{n_1,n_2,1,n_4\},\{a_1-1,a_2\},\{b_1,b_2+1\}], \\
+	G[\{n_1,n_2,n_3,2\},\{a_1,a_2\},\{b_1,b_2\}] = & - G[\{n_1,n_2,n_3,0\},\{a_1,a_2\},\{b_1,b_2\}]\nonumber      \\
+	                                               & - (2\nu+1) G[\{n_1,n_2,n_3,1\},\{a_1,a_2-1\},\{b_1,b_2+1\}],
+\end{align}
+where $\nu$ is the common mass parameter.
+
+\paragraph{Symmetry relations}
+1. \textbf{Propagator exchange}:
+\begin{align}
+	G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] = G[\{n_3,n_4,n_1,n_2\},\{a_1,a_2\},\{b_2,b_1\}].
+\end{align}
+
+2. \textbf{Time exchange with energy swap}:
+\begin{align}
+	G^{(21)}[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}; P_1,P_2] = G^{(12)}[\{n_2,n_1,n_4,n_3\},\{a_2,a_1\},\{b_1,b_2\}; P_2,P_1].
+\end{align}
+With the specialization $P_1=P_2$, this becomes a direct symmetry relation between the two time-orderings at fixed kinematics:
+\begin{align}
+	G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}; P_1,P_1] = G[\{n_2,n_1,n_4,n_3\},\{a_2,a_1\},\{b_1,b_2\}; P_1,P_1].
+\end{align}
+
+\paragraph{Differential operators in kinematics}
+The dependence on external energies is generated by derivatives with respect to $P_1,P_2$:
+\begin{align}
+	\frac{\partial}{\partial P_1}G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\};P_1,P_2] &= i\,G[\{n_1,n_2,n_3,n_4\},\{a_1+1,a_2\},\{b_1,b_2\};P_1,P_2], \label{eq:GdP1}\\
+	\frac{\partial}{\partial P_2}G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\};P_1,P_2] &= i\,G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2+1\},\{b_1,b_2\};P_1,P_2]. \label{eq:GdP2}
+\end{align}
+
+\paragraph{Derivative with respect to $k_s$}
+We use
+\begin{align}
+	\frac{\partial}{\partial k_s}|\bm q+\bm k_s|
+	=\frac{k_s^2+\bm k_s\cdot \bm q}{k_s|\bm q+\bm k_s|}
+	=\frac{k_s^2+|\bm q+\bm k_s|^2-q^2}{2k_s|\bm q+\bm k_s|},
+\end{align}
+which leads to a closed relation within the same $G$ family:
+\begin{align}
+	&\frac{\partial}{\partial k_s}G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] \n\\
+	&=-\frac{b_2}{2k_s}\Big(
+	k_s^2\,G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2+2\}] \nonumber\\
+	&\qquad
+	+G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] \nonumber\\
+	&\qquad
+	-G[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1-2,b_2+2\}]
+	\Big) \nonumber\\
+	&+\frac{1}{2k_s}\Big(
+	k_s^2\,G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1,b_2+1\}] \nonumber\\
+	&\qquad
+	+G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1,b_2-1\}] \nonumber\\
+	&\qquad
+	-G[\{n_1,n_2,n_3+1,n_4\},\{a_1+1,a_2\},\{b_1-2,b_2+1\}]
+	\Big) \nonumber\\
+	&+\frac{1}{2k_s}\Big(
+	k_s^2\,G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1,b_2+1\}] \nonumber\\
+	&\qquad
+	+G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1,b_2-1\}] \nonumber\\
+	&\qquad
+	-G[\{n_1,n_2,n_3,n_4+1\},\{a_1,a_2+1\},\{b_1-2,b_2+1\}]
+	\Big). \label{eq:Gdks}
+\end{align}
+
+\textbf{Scaling relation}:
+\begin{align}
+	\left( k_s \frac{\partial}{\partial k_s} + P_1 \frac{\partial}{\partial P_1} + P_2 \frac{\partial}{\partial P_2} \right) G[\{\bm n\},\{a_1,a_2\},\{b_1,b_2\}] \n\\
+	= (D - b_1 - b_2 - a_1 - a_2 - 2) G[\{\bm n\},\{a_1,a_2\},\{b_1,b_2\}]. \label{eq:Gscaling}
+\end{align}
+
+\subsection{Tadpole families \texorpdfstring{$R_1,R_2$}{R1, R2}}
+\paragraph{Tadpole families $R_1,R_2$}
+The tadpole terms $R_1,R_2$ are single-time integrals generated by the time IBP coincidence terms. They require their own IBP system for reduction.
+
+\paragraph{Kira check: whether $b_1$ can be reduced to $0$}
+todo
+
+
+\paragraph{IBP relations for $R_1$ (and $R_2$ via symmetry)}
+The tadpole family $R_1$ satisfies the following IBP relations. The corresponding relations for $R_2$ follow via the symmetry $\bm q \to -(\bm q+\bm k_s)$, which exchanges $b_1\leftrightarrow b_2$ and relabels Hankel indices appropriately.
+
+\textbf{Time IBP for $R_1$}:
+\begin{align}
+	0 = & -i(P_1+P_2) R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] - a R_1[\{n_3,n_4\},\{a-1\},\{b_1,b_2\}] \nonumber       \\
+	    & - R_1[\{n_3+1,n_4\},\{a\},\{b_1,b_2-1\}] - R_1[\{n_3,n_4+1\},\{a\},\{b_1,b_2-1\}]. \label{eq:R1timeIBP}
+\end{align}
+
+\textbf{Momentum IBP for $R_1$}:
+from $\int \pd_{\bm q^i}[\bm q^i\cdots]=0$,
+\begin{align}
+	0 ={}& \int_{-\infty}^0 \di\tau\int \FR{\di^D \bm q}{(2\pi)^D}\,
+	\Big[D+\mathcal{O}_1\Big]\Bigg[
+	e^{-\ii P_0\tau}\frac{(-\tau)^{a}}{x_1^{b_1}x_2^{b_2}}\,
+	h_{n_3}^{(1)}(-x_2\tau)h_{n_4}^{(2)}(-x_2\tau)\Bigg] \nonumber\\
+	={}& \int_{-\infty}^0 \di\tau\int \FR{\di^D \bm q}{(2\pi)^D}\,
+	\Big[D+(\mathcal{O}_1 x_1)\partial_{x_1}+(\mathcal{O}_1 x_2)\partial_{x_2}\Big]\Bigg[
+	e^{-\ii P_0\tau}\frac{(-\tau)^{a}}{x_1^{b_1}x_2^{b_2}}\,
+	h_{n_3}^{(1)}(-x_2\tau)h_{n_4}^{(2)}(-x_2\tau)\Bigg]. \label{eq:R1momIBP_chainrule}
+\end{align}
+\begin{align}
+	0 = & D R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] - b_1 R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] \nonumber                    \\
+	    & - \FR12 b_2\Big( R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] + R_1[\{n_3,n_4\},\{a\},\{b_1-2,b_2+2\}] \nonumber     \\
+	    & -k_s^2 R_1[\{n_3,n_4\},\{a\},\{b_1,b_2+2\}] \Big) \nonumber                                                \\
+	    & + \FR12 \Big(
+	    R_1[\{n_3+1,n_4\},\{a+1\},\{b_1,b_2-1\}] + R_1[\{n_3+1,n_4\},\{a+1\},\{b_1-2,b_2+1\}] \nonumber\\
+	    &\qquad\qquad\qquad\quad -k_s^2 R_1[\{n_3+1,n_4\},\{a+1\},\{b_1,b_2+1\}]
+	    \Big) \nonumber\\
+	    & + \FR12 \Big(
+	    R_1[\{n_3,n_4+1\},\{a+1\},\{b_1,b_2-1\}] + R_1[\{n_3,n_4+1\},\{a+1\},\{b_1-2,b_2+1\}] \nonumber\\
+	    &\qquad\qquad\qquad\quad -k_s^2 R_1[\{n_3,n_4+1\},\{a+1\},\{b_1,b_2+1\}]
+	    \Big). \label{eq:R1momIBP}
+\end{align}
+
+\textbf{Complementary momentum IBP for $R_1$}:
+from $\int \pd_{\bm q^i}[(\bm q^i+\bm k_s^i)\cdots]=0$,
+\begin{align}
+	0 ={}& \int_{-\infty}^0 \di\tau\int \FR{\di^D \bm q}{(2\pi)^D}\,
+	\Big[D+\mathcal{O}_2\Big]\Bigg[
+	e^{-\ii P_0\tau}\frac{(-\tau)^{a}}{x_1^{b_1}x_2^{b_2}}\,
+	h_{n_3}^{(1)}(-x_2\tau)h_{n_4}^{(2)}(-x_2\tau)\Bigg] \nonumber\\
+	={}& \int_{-\infty}^0 \di\tau\int \FR{\di^D \bm q}{(2\pi)^D}\,
+	\Big[D+(\mathcal{O}_2 x_1)\partial_{x_1}+(\mathcal{O}_2 x_2)\partial_{x_2}\Big]\Bigg[
+	e^{-\ii P_0\tau}\frac{(-\tau)^{a}}{x_1^{b_1}x_2^{b_2}}\,
+	h_{n_3}^{(1)}(-x_2\tau)h_{n_4}^{(2)}(-x_2\tau)\Bigg]. \label{eq:R1momIBP2_chainrule}
+\end{align}
+\begin{align}
+	0 = & D R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] - b_2 R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] \nonumber                    \\
+	    & - \FR12 b_1\Big( R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] + R_1[\{n_3,n_4\},\{a\},\{b_1+2,b_2-2\}] \nonumber     \\
+	    & -k_s^2 R_1[\{n_3,n_4\},\{a\},\{b_1+2,b_2\}] \Big) \nonumber                                                \\
+	    & + R_1[\{n_3+1,n_4\},\{a+1\},\{b_1,b_2-1\}] + R_1[\{n_3,n_4+1\},\{a+1\},\{b_1,b_2-1\}]. \label{eq:R1momIBP2}
+\end{align}
+
+\textbf{Equation of motion for $R_1$}:
+\begin{align}
+	R_1[\{2,n_4\},\{a\},\{b_1,b_2\}] = & - R_1[\{0,n_4\},\{a\},\{b_1,b_2\}] \nonumber                            \\
+	                                   & - (2\nu+1) R_1[\{1,n_4\},\{a-1\},\{b_1,b_2+1\}], \label{eq:R1eom1} \\
+	R_1[\{n_3,2\},\{a\},\{b_1,b_2\}] = & - R_1[\{n_3,0\},\{a\},\{b_1,b_2\}] \nonumber                            \\
+	                                   & - (2\nu+1) R_1[\{n_3,1\},\{a-1\},\{b_1,b_2+1\}]. \label{eq:R1eom2}
+\end{align}
+
+\textbf{Symmetry relations}: $R_1$ inherits symmetry from the bubble:
+\begin{align}
+	 R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] = R_1[\{n_4,n_3\},\{a\},\{b_1,b_2\}] \label{eq:R1sym}. 
+\end{align}	 
+	 More importantly, $R_1$ and $R_2$ are related by loop-momentum shift $\bm q \to -(\bm q+\bm k_s)$:
+\begin{align}
+	R_2[\{n_1,n_2\},\{a\},\{b_1,b_2\}] = R_1[\{n_1,n_2\},\{a\},\{b_2,b_1\}]. \label{eq:R1R2sym}
+\end{align}
+This symmetry implies that one only needs to implement the IBP system for $R_1$; all relations for $R_2$ follow by applying $b_1\leftrightarrow b_2$ and appropriate index relabeling.
+
+These tadpole integrals are simpler than the double-time $G$ integrals because they involve only one time variable $\tau$ and two Hankel functions (vs four in $G$), and can be reduced to master integrals using the above IBP system.
+
+
+
+\paragraph{Differential operators for $R_1$}
+From the definition of $R_1$, we can derive relations by taking derivatives with respect to parameters:
+
+\textbf{Derivative with respect to $P_0$}:
+\begin{align}
+	\frac{\partial}{\partial P_0} R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] = i R_1[\{n_3,n_4\},\{a+1\},\{b_1,b_2\}]. \label{eq:R1dP0}
+\end{align}
+
+\textbf{Derivative with respect to $k_s$}:
+\begin{align}
+	&\frac{\partial}{\partial k_s} R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] \n\\
+	&=-\frac{b_2}{2k_s}\Big(
+	k_s^2\,R_1[\{n_3,n_4\},\{a\},\{b_1,b_2+2\}] \nonumber\\
+	&\qquad
+	+R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] \nonumber\\
+	&\qquad
+	-R_1[\{n_3,n_4\},\{a\},\{b_1-2,b_2+2\}]
+	\Big) \nonumber\\
+	&+\frac{1}{2k_s}\Big(
+	k_s^2\,R_1[\{n_3+1,n_4\},\{a+1\},\{b_1,b_2+1\}] \nonumber\\
+	&\qquad
+	+R_1[\{n_3+1,n_4\},\{a+1\},\{b_1,b_2-1\}] \nonumber\\
+	&\qquad
+	-R_1[\{n_3+1,n_4\},\{a+1\},\{b_1-2,b_2+1\}]
+	\Big) \nonumber\\
+	&+\frac{1}{2k_s}\Big(
+	k_s^2\,R_1[\{n_3,n_4+1\},\{a+1\},\{b_1,b_2+1\}] \nonumber\\
+	&\qquad
+	+R_1[\{n_3,n_4+1\},\{a+1\},\{b_1,b_2-1\}] \nonumber\\
+	&\qquad
+	-R_1[\{n_3,n_4+1\},\{a+1\},\{b_1-2,b_2+1\}]
+	\Big). \label{eq:R1dks}
+\end{align}
+
+\textbf{Scaling relation} (dimensional analysis):
+\begin{align}
+	\left( k_s \frac{\partial}{\partial k_s} + P_0 \frac{\partial}{\partial P_0} \right) R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] = (D - b_1 - b_2 - a - 1) R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}]. \label{eq:R1scaling}
+\end{align}
+This scaling relation will be used to verify the correctness of differential equations.
+
+
+
+
+
+\subsection{Odevity seclection rules for the IBP system}
+There are two useful parity classifications (``Odevity'') for the bubble IBP system:
+\begin{enumerate}
+\item For $\di q$-IBP and $\di \tau$-IBP, the parities of $n_1+n_2+b_1$ and $n_3+n_4+b_2$ are conserved.
+\item For $\di q$-IBP, the parities of $n_1+n_3+a_1$ and $n_2+n_4+a_2$ are conserved.
+\end{enumerate}
+In reduction runs we restrict the IBP system to the even sector of the first classification, i.e.
+\begin{align}
+	n_1+n_2+b_1 \ \text{even},\qquad n_3+n_4+b_2 \ \text{even}. \label{eq:odevity_even_sector}
+\end{align}
+For the tadpole families this implies two independent constraints:
+\begin{itemize}
+\item For $R_1$ (obtained by contracting indices where one is 1 and the other is 0), one must impose $b_1$ even \emph{and} $n_3+n_4+b_2$ even. This contraction produces a term with an odd power (excluding the cancelling $2\nu$ shift), which matches the Odevity of the top sector.
+\item For $R_2$, the loop-momentum shift symmetry \eqref{eq:R1R2sym} exchanges $b_1\leftrightarrow b_2$, so the corresponding restriction is $b_2$ even and $n_1+n_2+b_1$ even.
+\end{itemize}
+This is why Odevity belongs to the IBP chapter: it specifies which integrals are allowed to appear in the closed IBP system that we export to Kira.
+
+
+\subsection{Reduction strategy}
+\begin{enumerate}
+	\item Select a Odevity sub-system of IBP-system. Apply EoM and symmetry to time-IBP and momentum-IBP, Then feed the processed IBP relations to Kira for reduction, since Mathematica is too slow for the reduction step.
+	\item Reduce $R_1,R_2$ first. then, reduce $G$ with the known $R_1,R_2$ in time IBP.
+\end{enumerate}
+
+
+\section{Baikov representation and dimension-shift relations}
+\label{sec:baikov}
+\paragraph{Baikov variables for the one-loop two-point momentum integral}
+Introduce $x_1\equiv|\bm q|$, $x_2\equiv|\bm q+\bm k_s|$ and
+\begin{align}
+	z_1=x_1^2=q^2,\qquad z_2=x_2^2=(q+k_s)^2,\qquad \mK=k_s^2,
+\end{align}
+with Gram determinant
+\begin{align}
+	\mG=\frac{1}{4}\Big(2 z_1 k_s^2+2 z_2 k_s^2-k_s^4-z_1^2-z_2^2+2 z_1 z_2\Big)
+	=\frac{1}{4}\lambda(z_1,z_2,k_s^2),
+\end{align}
+where $\lambda$ is the K\"all\'en function. The one-loop Baikov change of variables gives (for general $d$)
+\begin{align}
+	\di^d q \to C_d\,\mG^{\frac{d-3}{2}}\mK^{-\frac{d-2}{2}}\,\di z_1\,\di z_2,
+	\qquad C_{d} = \frac{\pi^{-1/2}}{\Gamma[(d-1)/2]}.
+\end{align}
+In particular, since $\di z_i=2x_i\,\di x_i$, one has the useful bookkeeping relation
+\begin{align}
+	G[\{\bm{n}\},\{a_1,a_2\},\{b_1+1,b_2+1\}]
+	\sim \cdots \times \frac{\di z_1}{x_1^{b_0+b_1+1}}\frac{\di z_2}{x_2^{b_0+b_2+1}}
+	= \cdots \times 4\,\frac{\di x_1}{x_1^{b_0+b_1}}\frac{\di x_2}{x_2^{b_0+b_2}}.
+\end{align}
+The integration region is determined by $\mG\ge 0$, equivalently the triangle inequalities between $(x_1,x_2,k_s)$.
+
+\paragraph{Dimension shift}
+With generalized Sylvester's determinant identity, one has
+\begin{align}
+	|\partial_{x_{ij}}|_{i,j\leq n_1} |x_{ij}|^\gamma
+	= |x_{ij}|_{i,j> n_1}\left(\prod_{i=0}^{n_1-1} (\gamma+i)\right)|x_{ij}|^{\gamma-1}.
+\end{align}
+For a symmetric matrix $x_{ij}=x_{ji}$ one further has
+\begin{align}
+	&|a_{ij} \partial_{x_{ij}}|_{i,j\leq n_1} |x_{ij}|^\gamma = |x_{ij}|_{i,j> n_1}  \left(\prod_{i=0}^{n_1-1} \left(\gamma+\frac{i}{2}\right)\right)   |x_{ij}|^{\gamma-1}  \n\\
+	&a_{ij}=\frac{1}{2} ~~\text{for}~~i\neq j,  ~~a_{ij}=1 ~~\text{for}~~i=j.
+\end{align}
+Now take
+\begin{align}
+	x_{ij}=q_i\cdotp q_j,\qquad n_1=L,\qquad q_i=l_1,\dots,l_L,p_1,\dots,p_E,
+\end{align}
+where $l_i$ are loop momenta and $p_i$ are external momenta. Then $|x_{ij}|=\mG$ and $|x_{ij}|_{i,j>n_1}=\mK$ are Gram determinants. Writing
+\begin{align}
+	Q=\frac{1}{\prod_i z_i^{a_i}},\qquad \gamma=\frac{d-E-L-1}{2},
+\end{align}
+the identity above leads to a dimension-raising relation in Baikov form:
+\begin{align}
+	C_{\gamma-1}\!\int Q\,\frac{\mG^{\gamma-1}}{\mK^{\gamma-1+L/2}}\prod \di z_i
+	=&~C_{\gamma}\!\int Q\,|a_{ij} \partial_{x_{ij}}|_{i,j\leq L}\,
+	\frac{\mG^\gamma}{\mK^{\gamma+L/2}}\prod \di z_i \n\\
+	=&~(-1)^L C_{\gamma}\!\int Q\,|\overleftarrow{a_{ij} \partial_{x_{ij}}}|_{i,j\leq L}\,
+	\frac{\mG^\gamma}{\mK^{\gamma+L/2}}\prod \di z_i,
+\end{align}
+where the left-hand side corresponds to a $d-2$ dimensional integral while the right-hand side produces a $d$ dimensional one after integrating by parts.
+
+\section{Intersection theory viewpoint and dlog integrands}
+\label{sec:dlog}
+By intersection theory, if a master-integrand basis $\phi_i$ is of $d\log$ form and the twist $u$ satisfies $\di u=(\di\log u)\,u$, then the differential equations for the master integrals $\int \phi_i u$ take a $d\log$ form. Here we use a mild generalization motivated by fibration intersection theory: treat the master objects as $\Phi_i\cdot U$ with both $\Phi_i$ and $U$ viewed as vectors, choose $U$ to satisfy
+\begin{align}
+	\di U = \di\Omega \cdot U,
+\end{align}
+and construct $\Phi_i$ as $d\log$-form integrands. This motivates a canonical-like choice of masters for the de Sitter bubble.
+
+\paragraph{Time-integral block as a first-order system}
+Define the ``tree-level-like'' time integral (no momentum denominators)
+\begin{align}
+	I_{\bm n}(x_1,x_2;P_1,P_2)\equiv & \int_{-\infty}^0 \di\tau_1\di\tau_2\,e^{-\ii P_1\tau_1-\ii P_2\tau_2}\,(-\tau_1)^{a_0}(-\tau_2)^{a_0} \nonumber\\
+	&\times h_{n_1}^{(1)}(-x_1\tau_1)h_{n_2}^{(2)}(-x_1\tau_2)\,h_{n_3}^{(1)}(-x_2\tau_1)h_{n_4}^{(2)}(-x_2\tau_2).
+\end{align}
+For fixed $(\nu,a_0)$, the $I_{\bm n}$ span a finite basis and satisfy a first-order system
+\begin{align}
+	\di I_{\bm m}=(\di\Omega_{\bm m\bm n})\,I_{\bm n},
+\end{align}
+where the one-forms in $\di\Omega$ are built from $\di\log x_1$, $\di\log x_2$ and $\di\log(P_i\pm x_1\pm x_2)$.
+For the two-vertex tree-level-like family entering the bubble, there are $2^4$ time-integral master functions.
+\begin{align}
+	\di\Omega=\di\Omega_{x_1}+\di\Omega_{x_2}+\di\Omega_{ex},
+\end{align}
+where $\di\Omega_{x_i}$ only contains $\di\log x_i$ while $\di\Omega_{ex}$ is composed of $\di\log(P_i\pm x_1\pm x_2)$ with constant coefficients (built from $\nu$ and $a_0$).
+
+\paragraph{Baikov twist and dlog building blocks}
+With $\ep$ the dimensional regulator ($d=3-2\ep$), the one-loop Baikov measure contributes the factor $\mG^{-\ep}\mK^{\ep}$, and one can package the combined twist schematically as a vector
+\begin{align}
+	U = x_1^{-b_0}x_2^{-b_0}\,\mG^{-\ep}\mK^{\ep}\,I_{\bm n},
+\end{align}
+whose differential is again a sum of $d\log$ one-forms,
+\begin{align}
+	\di U=\Big(\di\Omega-b_0(\di\log x_1+\di\log x_2)-\ep(\di\log \mG-\di\log \mK)\Big)\cdot U.
+\end{align}
+In terms of $z_i=x_i^2$, useful $d\log$ building blocks include
+\begin{align}
+	&\di\log z_1=2\di\log x_1,\qquad \di\log z_2=2\di\log x_2,\n\\
+	&\frac{\sqrt{z_2 k_s^2}\,\di z_1}{\mG}
+	= - \di \log \left(\frac{2 \sqrt{z_2 k_s^2}+k_s^2-z_1+z_2}{-2 \sqrt{z_2 k_s^2}+k_s^2-z_1+z_2}\right),
+	\qquad z_1\leftrightarrow z_2.
+\end{align}
+Since $\di\!\int \di x_i/(P_i\pm x_1\pm x_2)$ is of $d\log$ form, one also has the building blocks
+\begin{align}
+	&\partial_{P_j}\Omega_{ex}\,\di x_i = \partial_{P_j}\Omega\,\di x_i, \n\\
+	&\partial_{x_j}\Omega_{ex}\,\di x_i = (\partial_{x_j}\Omega-\partial_{x_j}\Omega_{x_j})\,\di x_i.
+\end{align}
+Using
+\begin{align}
+	G[\{\bm{n}\},\{a_1+1,a_2\},\{b_1,b_2\}]
+	&=\partial_{P_1}G[\{\bm{n}\},\{a_1,a_2\},\{b_1,b_2\}]
+	=\left(\partial_{P_1}\Omega_{\bm n\bm m}\right)\,\n\\
+	&\times G[\{\bm{m}\},\{a_1,a_2\},\{b_1,b_2\}], \n\\
+	G[\{\bm{n}\},\{a_1,a_2\},\{b_1,b_2\}]
+	&=\frac{1}{b_0+b_1-1}\left(\partial_{x_1}\Omega_{\bm n\bm m}\right)\,\n\\
+	&\times G[\{\bm{m}\},\{a_1,a_2\},\{b_1-1,b_2\}],
+\end{align}
+one may view $\partial_{P_j}\Omega\,\di x_i\sim \tau_j\,\di x_i$ and
+$\partial_{x_j}\Omega\,\di x_i\sim \frac{b_0+b_j-1}{x_j}\di x_j$
+as additional $d\log$-type building blocks at the integrand level.
+
+\subsection{Top-sector \texorpdfstring{$d\log$}{dlog} candidates}
+\paragraph{Constructing candidate $d\log$ integrands}
+For notational convenience, we split off common shifts and write
+\begin{align}
+	G[\{\bm n\},\{a_0+a_1,a_0+a_2\},\{b_0+b_1,b_0+b_2\}]\to G[\{\bm n\},\{a_1,a_2\},\{b_1,b_2\}],
+\end{align}
+where $a_i,b_i\in\mathbb Z$ and $(a_0,b_0)$ encode the universal shifts induced by the special-function normalization and prefactors.
+
+Some candidate $d\log$-type integrands in $d=3-2\ep$ are (up to overall constants)
+\begin{align}
+	k_s\,G[\{\bm n\},\{0,0\},\{2,2\};d=3]
+	&\sim \frac{\di x_1\,\di x_2}{x_1 x_2}\,x_1^{-b_0}x_2^{-b_0}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep}, \n\\
+	k_s\,G[\{\bm n\},\{1,0\},\{2,1\};d=3]
+	&\sim \frac{\di x_1}{x_1}\,\tau_1\,\di x_2\,x_1^{-b_0}x_2^{-b_0}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep}, \n\\
+	k_s\,G[\{\bm n\},\{1,1\},\{1,1\};d=3]
+	&\sim \tau_1\,\di x_1\,\tau_2\,\di x_2\,x_1^{-b_0}x_2^{-b_0}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep}\qquad \text{\cjq{wrong, double pole}}.
+\end{align}
+In $d=1-2\ep$, one can also use the Baikov building block $\frac{k_s\sqrt{z_1}\,\di z_2}{\mG}$ to form $d\log$ candidates such as
+\begin{align}
+	G[\{\bm n\},\{0,0\},\{1,0\};d=1]
+	&\sim \frac{\di z_1}{z_1}\,\frac{k_s\sqrt{z_1}\,\di z_2}{\mG}\,
+	z_1^{-b_0/2}z_2^{-b_0/2}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep}, \n\\
+	G[\{\bm n\},\{1,0\},\{0,0\};d=1]
+	&\sim \tau_1\,\di x_1\,\frac{k_s\sqrt{z_1}\,\di z_2}{\mG}\,
+	z_1^{-b_0/2}z_2^{-b_0/2}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep}.
+\end{align}
+In addition, one may also consider candidates generated by $\Omega_{ex}$:
+\begin{align}
+	(\partial_{x_2}\Omega_{ex}\,\di x_1)\,\frac{\di x_2}{x_2}\,
+	x_1^{-b_0}x_2^{-b_0}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep}, \n\\
+	(\partial_{x_2}\Omega_{ex}\,\di x_1)\,\frac{k_s\sqrt{z_1}\,\di z_2}{\mG}\,
+	z_1^{-b_0/2}z_2^{-b_0/2}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep}.
+\end{align}
+
+\subsection{Tadpole-family \texorpdfstring{$d\log$}{dlog} candidates}
+\paragraph{Tadpole families $R_1,R_2$ and $d\log$ candidates}
+The tadpole terms $R_1,R_2$ can be treated similarly at the integrand level, by isolating the one-time ``tree-level-like'' block
+\begin{align}
+	I^{(R)}_{n_3 n_4}(x_2;P_0)\equiv \int_{-\infty}^0 \di\tau\,e^{-\ii P_0\tau}\,(-\tau)^{a_0}\,h_{n_3}^{(1)}(-x_2\tau)h_{n_4}^{(2)}(-x_2\tau).
+\end{align}
+For fixed $(\nu,a_0)$, the $I^{(R)}_{n_3 n_4}$ form a finite basis and satisfy a first-order system
+\begin{align}
+	\di I^{(R)}_{\bm m}=\left(\di\Omega^{(R)}_{\bm m\bm n}\right)\,I^{(R)}_{\bm n},
+\end{align}
+where $\di\Omega^{(R)}$ is built from $\di\log x_2$ and $\di\log(P_0\pm x_2)$. The combined twist can be packaged as
+\begin{align}
+	U^{(R)} = x_1^{-b_0}x_2^{-b_0}\,\mG^{-\ep}\mK^{\ep}\,I^{(R)}_{\bm n}.
+\end{align}
+Some candidate $d\log$-type integrands for $R_1$ in $d=3-2\ep$ are (up to overall constants)
+\begin{align}
+	k_s\,R_1[\{n_3,n_4\},\{0\},\{2,2\};d=3]
+	&\sim \frac{\di x_1\,\di x_2}{x_1 x_2}\,x_1^{-b_0}x_2^{-b_0}\,I^{(R)}_{\bm n}\,\mG^{-\ep}\mK^{\ep}, \n\\
+	k_s\,R_1[\{n_3,n_4\},\{1\},\{2,1\};d=3]
+	&\sim \frac{\di x_1}{x_1}\,\tau\,\di x_2\,x_1^{-b_0}x_2^{-b_0}\,I^{(R)}_{\bm n}\,\mG^{-\ep}\mK^{\ep}.
+\end{align}
+
+In $d=1-2\ep$, one can also use the Baikov building blocks
+$\frac{k_s\sqrt{z_1}\,\di z_2}{\mG}$ and $\frac{k_s\sqrt{z_2}\,\di z_1}{\mG}$ to form additional $d\log$ candidates such as
+\begin{align}
+	R_1[\{n_3,n_4\},\{0\},\{1,0\};d=1]
+	&\sim \frac{\di z_1}{z_1}\,\frac{k_s\sqrt{z_1}\,\di z_2}{\mG}\,
+	z_1^{-b_0/2}z_2^{-b_0/2}\,I^{(R)}_{\bm n}\,\mG^{-\ep}\mK^{\ep}, \n\\
+	R_1[\{n_3,n_4\},\{0\},\{0,1\};d=1]
+	&\sim \frac{\di z_2}{z_2}\,\frac{k_s\sqrt{z_2}\,\di z_1}{\mG}\,
+	z_1^{-b_0/2}z_2^{-b_0/2}\,I^{(R)}_{\bm n}\,\mG^{-\ep}\mK^{\ep}, \n\\
+	R_1[\{n_3,n_4\},\{1\},\{0,0\};d=1]
+	&\sim \tau\,\di x_1\,\frac{k_s\sqrt{z_1}\,\di z_2}{\mG}\,
+	z_1^{-b_0/2}z_2^{-b_0/2}\,I^{(R)}_{\bm n}\,\mG^{-\ep}\mK^{\ep}, \n\\
+	R_1[\{n_3,n_4\},\{1\},\{0,0\};d=1]
+	&\sim \tau\,\di x_2\,\frac{k_s\sqrt{z_2}\,\di z_1}{\mG}\,
+	z_1^{-b_0/2}z_2^{-b_0/2}\,I^{(R)}_{\bm n}\,\mG^{-\ep}\mK^{\ep}.
+\end{align}
+
+\paragraph{Raising $d=1$ back to $d=3$}
+For the Baikov measure one has
+\begin{align}
+	\di^d q \to C_d\,\mG^{\frac{d-3}{2}}\mK^{-\frac{d-2}{2}}\,\di z_1\,\di z_2.
+\end{align}
+In particular, for $d=1-2\ep$ and $d=3-2\ep$,
+\begin{align}
+	C_{1-2\ep}\,\mG^{-\ep-1}\mK^{\ep+1/2}
+	= \partial_{q^2}\!\left[C_{3-2\ep}\,\mK^{-1/2+\ep}\mG^{-\ep}\right],
+\end{align}
+where $\partial_{q^2}\equiv\partial_{z_1}+\partial_{z_2}$ and we used $\partial_{q^2}\mG=\mK$ together with $\Gamma(1-\ep)=-\ep\,\Gamma(-\ep)$.
+
+Therefore, for
+\begin{align}
+	G[\{\bm n\},\{a_1,a_2\},\{b_1,b_2\};d=1]
+	=&~\di z_1\,\di z_2\,z_1^{-(b_0+b_1)/2}z_2^{-(b_0+b_2)/2}\,I_{\bm n}\,\n\\
+	&\times (-\tau_1)^{a_1}(-\tau_2)^{a_2}\,C_{1-2\ep}\,\mG^{-\ep-1}\mK^{\ep+1/2},
+\end{align}
+integration by parts gives
+\begin{align}
+	G[\{\bm n\},\{a_1,a_2\},\{b_1,b_2\};d=1]
+	=&~\di z_1\,\di z_2\,\Bigg[\left(\frac{b_0+b_1}{2z_1}+\frac{b_0+b_2}{2z_2}\right)I_{\bm n}
+	-\left(\partial_{z_1}+\partial_{z_2}\right)I_{\bm n}\Bigg] \n\\
+	&\times (-\tau_1)^{a_1}(-\tau_2)^{a_2}\,z_1^{-(b_0+b_1)/2}z_2^{-(b_0+b_2)/2}\,
+	C_{3-2\ep}\,\mG^{-\ep}\mK^{-1/2+\ep}.
+\end{align}
+Equivalently, in $(x_1,x_2)$ variables with $\partial_{q^2}=\frac{1}{2x_1}\partial_{x_1}+\frac{1}{2x_2}\partial_{x_2}$,
+\begin{align}
+	G[\{\bm n\},\{a_1,a_2\},\{b_1,b_2\};d=1]
+	=&~2\,\di x_1\,\di x_2\,\Bigg[\left(\frac{b_0+b_1}{x_1^2}+\frac{b_0+b_2}{x_2^2}\right)I_{\bm n}
+	-\left(\frac{1}{x_1}\partial_{x_1}+\frac{1}{x_2}\partial_{x_2}\right)I_{\bm n}\Bigg] \n\\
+	&\times (-\tau_1)^{a_1}(-\tau_2)^{a_2}\,x_1^{-(b_0+b_1-1)}x_2^{-(b_0+b_2-1)}\,
+	C_{3-2\ep}\,\mG^{-\ep}\mK^{-1/2+\ep}.
+\end{align}
+In particular, for the $d=1$ candidates above,
+\begin{align}
+	G[\{\bm n\},\{0,0\},\{1,0\};d=1]
+	&\sim \di z_1\,\di z_2\,z_1^{-b_0/2-1/2}z_2^{-b_0/2}\,I_{\bm n}\,\mG^{-\ep-1}\mK^{\ep+1/2} \n\\
+	&=2\,\di x_1\,\di x_2\,\Bigg[\left(\frac{b_{0}+1}{x_1^2}+\frac{b_{0}}{x_2^2}\right)I_{\bm n}
+	-\left(\frac{1}{x_1}\partial_{x_1}+\frac{1}{x_2}\partial_{x_2}\right)I_{\bm n}\Bigg]\n\\
+	&\times x_1^{-b_0}x_2^{-b_0+1}\,\mG^{-\ep}\mK^{-1/2+\ep}, \n\\
+	G[\{\bm n\},\{1,0\},\{0,0\};d=1]
+	&=2\,\di x_1\,\di x_2\,\Bigg[b_0\left(\frac{1}{x_1^2}+\frac{1}{x_2^2}\right)I_{\bm n}
+	-\left(\frac{1}{x_1}\partial_{x_1}+\frac{1}{x_2}\partial_{x_2}\right)I_{\bm n}\Bigg]\n\\
+	&\times (-\tau_1)\,x_1^{-b_0+1}x_2^{-b_0+1}\,\mG^{-\ep}\mK^{-1/2+\ep}.
+\end{align}
+Moreover,
+\begin{align*}
+	&(\partial_{x_2}\Omega_{ex}\,\di x_1)\,\frac{\di x_2}{x_2}\,x_1^{-b_0}x_2^{-b_0}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep} \n\\
+	&= (\partial_{x_2}\Omega-\partial_{x_2}\Omega_{x_2})\,\di x_1\,\frac{\di x_2}{x_2}\,x_1^{-b_0}x_2^{-b_0}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep} \n\\
+	&= \di x_1\,\di x_2\,(\partial_{x_2}I_{\bm n})\,x_1^{-b_0}x_2^{-b_0-1}\,\mG^{-\ep}\mK^{\ep} 
+	- \di x_1\,\di x_2\,(\partial_{x_2}\Omega_{x_2})\,x_1^{-b_0}x_2^{-b_0-1}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep} \n\\
+	&= \di x_1\,(\di I_{\bm n})\,x_1^{-b_0}x_2^{-b_0-1}\,\mG^{-\ep}\mK^{\ep} 
+	- \di x_1\,\di x_2\,(\partial_{x_2}\Omega_{x_2})\,x_1^{-b_0}x_2^{-b_0-1}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep} \n\\
+	&= -\di x_1\,I_{\bm n}\,\di\!\left( x_1^{-b_0}x_2^{-b_0-1}\,\mG^{-\ep}\mK^{\ep} \right) 
+	- \di x_1\,\di x_2\,(\partial_{x_2}\Omega_{x_2})\,x_1^{-b_0}x_2^{-b_0-1}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep} \n\\
+	&= \left(\frac{b_0+1}{x_2}-\partial_{x_2}\Omega_{x_2}\right)\,k_s\,x_1^{-b_0}x_2^{-b_0-1}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep-1/2}\,\di x_1\,\di x_2.
+\end{align*}
+and similarly
+\begin{align*}
+	&(\partial_{x_2}\Omega_{ex}\,\di x_1)\,\frac{k_s\sqrt{z_1}\,\di z_2}{\mG}\,z_1^{-b_0/2}z_2^{-b_0/2}\,I_{\bm n}\,\mG^{-\ep}\mK^{\ep} \n\\
+	&= \left(\frac{b_0-1}{x_2}-\partial_{x_2}\Omega_{x_2}\right)\,x_1^{-b_0+1}x_2^{-b_0+1}\,I_{\bm n}\,\mG^{-\ep-1}\mK^{\ep+1/2}\,\di x_1\,\di x_2.
+\end{align*}
+
+The practical goal is to pick a master basis for the full de Sitter bubble (including the special-function time dependence) such that the induced differential system in external kinematics is as close as possible to a $d\log$ form.
+
+\section{Differential equations for the tadpole master integrals}
+\label{sec:deR1}
+\subsection{Master-integral definitions}
+The Kira implementation uses shifted indices
+\begin{align}
+	(-\tau)^{a_0+a},\qquad |q|^{-b_1},\qquad |\bm q+\bm k_s|^{-b_2},
+\end{align}
+with
+\begin{align}
+	a_0=2\delta_a+2\nu,\qquad b_{10}=0,\qquad b_{20}=-2\nu,\qquad D=3-2\ep.
+\end{align}
+In this convention the tadpole family is
+\begin{align}
+	R_1[\{n_3,n_4\},\{a\},\{b_1,b_2\}] \equiv &~e^{\pi \Im [\nu]}\frac{4i}{\pi}\int_{-\infty}^0 \di\tau \int \FR{\di^D \mb q}{(2\pi)^D}\, e^{-\ii P_0\tau}\nonumber\\
+	&\times
+	\frac{(-\tau)^{a_0+a}}{|q|^{b_{10}+b_1}\,|\bm q+\bm k_s|^{b_{20}+b_2}}
+	h_{n_3}^{(1)}(-|\bm q+\bm k_s|\tau)h_{n_4}^{(2)}(-|\bm q+\bm k_s|\tau).
+\end{align}
+
+
+% 文档结束
+\end{document}
