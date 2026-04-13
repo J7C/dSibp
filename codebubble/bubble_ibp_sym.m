@@ -84,7 +84,7 @@ Return[test];
 (* \:5947\:5076\:6027\:7b5b\:9009 *)
 (* Top Sector: n1+n2+b1 \:4e3a\:5076\:6570, \:4e14 n3+n4+b2 \:4e3a\:5076\:6570 *)
 (* R1 Sector: b1 \:4e3a\:5076\:6570, \:4e14 n3+n4+b2 \:4e3a\:5076\:6570 *)
-(* \:9700\:5728symmetry\:4e4b\:540e\:4f7f\:7528 *)
+(* \:9700\:5728symmetry R2->R1 \:4e4b\:540e\:4f7f\:7528 *)
 reppowerselection = {
   G[{n1_, n2_, n3_, n4_}, {a1_, a2_}, {b1_, b2_}] /; (OddQ[n1 + n2 + b1] || OddQ[n3 + n4 + b2]) :> 0,
   R1[{n3_, n4_}, {a_}, {b1_, b2_}] /; (OddQ[b1] || OddQ[n3 + n4 + b2]) :> 0
@@ -118,19 +118,19 @@ int00G = G[{n1, n2, n3, n4}, {a1, a2}, {b1, b2}];
 int00R1 = R1[{n3, n4}, {a}, {b1, b2}];
 
 repaddab0G = {a1 -> a1 + a10, a2 -> a2 + a20, b1 -> b1 + b10, b2 -> b2 + b20};
-repaddab0R1 = {a -> a + a0R (*a0R->a10+a20-2nu*), b1 -> b1 + b10, b2 -> b2 + b20};
+repaddab0R1 = {a -> a + a0R , b1 -> b1 + b10R, b2 -> b2 + b20R};
 
 repab020[expr_] := expr /. {
   G[c1_, c2_, c3_] :> (G[c1, c2, c3] /. {a10 -> 0, a20 -> 0, a0 -> 0, b10 -> 0, b20 -> 0}),
-  R1[c1_, c2_, c3_] :> (R1[c1, c2, c3] /. {a10 -> 0, a20 -> 0, a0R -> 0, b10 -> 0, b20 -> 0})(*bubble dtau-IBP\:4e2d R1\:91cc\:6307\:6807\:4f1a\:51fa\:73b0a10 a20  \:6545\:8981\:52a0\:4e0a*),
-  R2[c1_, c2_, c3_] :> (R2[c1, c2, c3] /. {a10 -> 0, a20 -> 0, a0R -> 0, b10 -> 0, b20 -> 0})
+  R1[c1_, c2_, c3_] :> (R1[c1, c2, c3] /. {a10 -> 0, a20 -> 0, a0R -> 0, b10 -> 0, b20 -> 0 , b10R->0, b20R->0 } )(*bubble dtau-IBP\:4e2d R1\:91cc\:6307\:6807\:4f1a\:51fa\:73b0a10 a20  \:6545\:8981\:52a0\:4e0a*),
+  R2[c1_, c2_, c3_] :> (R2[c1, c2, c3] /. {a10 -> 0, a20 -> 0, a0R -> 0, b10 -> 0, b20 -> 0 , b10R->0, b20R->0 } )
 };
 
 
 (* Kira \:4fa7\:91c7\:7528\:7684\:53c2\:6570\:66ff\:6362 *)
 (* \:6ce8\:610f\:ff1aTop Sector P1=P2=P0, R1 Sector P0R1 = 2 P0 *)
-repvar = {P1 -> -I k0, P2 -> -I k0, P0R1 -> -2 I k0, a10 -> a0, a20 -> a0, b10 -> b0, b20 -> b0};
-reppara2N = {a0 -> da +2 nu, a0R -> 2 da +2 nu, b0 -> -2 nu, d -> 3 - 2 ep, ks -> 1};
+repvar = {P1 -> -I k0, P2 -> -I k0, P0R1 -> -2 I k0, a10 -> a0, a20 -> a0, b10 -> b0, b20 -> b0 ,a0R-> 2a0 - 2nu, b10R-> b0+2nu, b20R-> b0};
+reppara2N = {a0 -> da + 2 nu,  b0 -> -2 nu,  d -> 3 - 2 ep, ks -> 1};
 
 
 (* ::Section:: *)
@@ -142,7 +142,7 @@ int000R1 = int00R1 /. repaddab0R1
 
 IBPset00G = Table[ibp[int000G, i], {i, 4}];
 IBPset0G = Table[
-  Table[IBPset00G[[i]], {n1, 0, 1}, {n2, 0, 1}, {n3, 0, 1}, {n4, 0, 1}] // repab020 // Flatten // id  // DeleteDuplicates
+  Table[IBPset00G[[i]], {n1, 0, 1}, {n2, 0, 1}, {n3, 0, 1}, {n4, 0, 1}]  // Flatten // id // repab020  // DeleteDuplicates
   , {i, 4}
 ] /. {
   R1[c1_, c2_, c3_] :> (R1[c1, c2, c3] /. nu -> 0),
@@ -151,7 +151,7 @@ IBPset0G = Table[
 
 IBPset00R1 = Table[ibp[int000R1, i], {i, 3}];
 IBPset0R1 = Table[
-  Table[IBPset00R1[[i]], {n3, 0, 1}, {n4, 0, 1}] // repab020 // Flatten // id  // DeleteDuplicates
+  Table[IBPset00R1[[i]], {n3, 0, 1}, {n4, 0, 1}] // Flatten // id // repab020  // DeleteDuplicates
   , {i, 3}
 ]//Simplify;
 
@@ -159,8 +159,11 @@ IBPset0R1 = Table[
 IBPset0G/._G->1//Simplify//Cases[#,_R1,Infinity]&//DeleteDuplicates  (*\:6d4b\:8bd5bubble dtau-IBP\:4e2d\:7684R1\:6307\:6807\:662f\:5426\:6b63\:5e38*)
 
 
-IBPset0G[[1,7]]/.{a1->0,a2->0,b1->3,b2->3}/. repvar /. reppara2N//Simplify//symmetry
-%/.reppowerselection
+test=IBPset0R1[[2,1]]/.{a->0,b1->0,b2->0}/.repvar(* /. reppara2N*)(*//Simplify*)(*//symmetry*)
+%/.reppowerselection;
+test - (d R1[{0,0},{0},{0,0}] - b0 R1[{0,0},{0},{0,0}]  -  1/2 b0(R1[{0,0},{0},{0,0}]+R1[{0,0},{0},{-2,+2}]-ks^2 R1[{0,0},{0},{0,2}] )  
++ 1/2(R1[{1,0},{1},{-2,1}] + R1[{1,0},{1},{0,-1}] -ks^2R1[{1,0},{1},{0,1}]   )   )//Simplify
+test=.
 
 
 (* ::Chapter:: *)
