@@ -159,13 +159,6 @@ IBPset0R1 = Table[
 IBPset0G/._G->1//Simplify//Cases[#,_R1,Infinity]&//DeleteDuplicates  (*\:6d4b\:8bd5bubble dtau-IBP\:4e2d\:7684R1\:6307\:6807\:662f\:5426\:6b63\:5e38*)
 
 
-test=IBPset0R1[[2,1]]/.{a->0,b1->0,b2->0}/.repvar(* /. reppara2N*)(*//Simplify*)(*//symmetry*)
-%/.reppowerselection;
-test - (d R1[{0,0},{0},{0,0}] - b0 R1[{0,0},{0},{0,0}]  -  1/2 b0(R1[{0,0},{0},{0,0}]+R1[{0,0},{0},{-2,+2}]-ks^2 R1[{0,0},{0},{0,2}] )  
-+ 1/2(R1[{1,0},{1},{-2,1}] + R1[{1,0},{1},{0,-1}] -ks^2R1[{1,0},{1},{0,1}]   )   )//Simplify
-test=.
-
-
 (* ::Chapter:: *)
 (*IBP Generation & Export*)
 
@@ -175,7 +168,8 @@ test=.
 
 
 (* Top Sector Ranges *)
-aMin = -2; aMax = 3; bMin = 0; bMax = 4;
+(*aMin = -2; aMax = 3; bMin = 0; bMax = 4;*)
+aMin = -1; aMax = 2; bMin = 1; bMax = 3;
 
 (* R1 Sector Ranges (Matched or Expanded) *)
 aR1Min = -4; aR1Max = 8; bR1Min = -4; bR1Max = 8;
@@ -265,7 +259,7 @@ vec3Da0t = MIsR1 /. {a -> 0, b1 -> 2, b2 -> 1};
 OmegaInfinityRef = -(Omegax2Ref + OmegaPlusRef + OmegaMinusRef)/.a0->a0R//Simplify;
 
 vec3Da1Corr = vec3Da1 + (I/P0R1) * OmegaP0Ref . (MIsR1 /. {a -> 0, b1 -> 2, b2 -> 1}) // Simplify;
-vec3Da0tCorr = (2/P0R1) * (((b20 - 1) IdentityMatrix[Length[MIsR1]] - OmegaInfinityRef) . vec3Da0t) // Simplify;
+vec3Da0tCorr = (2/P0R1) * (((b20R - 1) IdentityMatrix[Length[MIsR1]] - OmegaInfinityRef) . vec3Da0t) // Simplify;
 
 basis3DR1Note = Join[
   ks * vec3Da0,
@@ -353,11 +347,14 @@ DEks0 = (dks[MIdlogNote] // id // symmetry);
 (*Formatting Variables & Target for Kira*)
 
 
+{IBPsetP,DEk00,DEks0}// Cases[#, _R1|_G|_dlog, Infinity] & // DeleteDuplicates//Complement[#,varsetAll]&(*\:68c0\:6d4b\:5fae\:5206\:65b9\:7a0b\:504f\:5bfc\:51fa\:73b0\:7684\:79ef\:5206\:662f\:5426\:90fd\:5728\:7ea6\:5316\:8303\:56f4\:5185\:4e86*)
+
+
 IBPsetdlogbasis =Table[dlog[i] - MIdlogKira[[i]], {i,Length[MIdlogKira]}]//Factor;
 (*IBPsetdlogbasis ={}; *) (*-----------\:4e0d\:52a0\:5165dlog\:57fa\:6d4b\:8bd5\:ff0c\:8981\:52a0\:5165\:65f6\:6ce8\:91ca\:6b64\:884c----------*)
 IBPsetP = Join[IBPsetdlogbasis, IBPsetP0];
 
-varsetP = Join[IBPsetP(*, {DEk00, DEks0}*)] // Cases[#, _R1|_G|_dlog, Infinity] & // DeleteDuplicates;
+varsetP = IBPsetP // Cases[#, _R1|_G|_dlog, Infinity] & // DeleteDuplicates;
 (* Sorting rule for varsetP (integral ordering for Kira):
    Priority 0 (first): dlog basis integrals G["dlog", i], sorted by i.
    Priority 1 (remaining): all non-dlog integrals, sorted by:
@@ -511,4 +508,4 @@ Print["Export done. Workspace ready at: ", kiraworkspace];
 (*test*)
 
 
-Tuserweight[37]/.repkira2GR
+Tuserweight[23]/.repkira2GR
