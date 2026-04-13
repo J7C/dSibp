@@ -45,7 +45,7 @@ ibp[expr_G, 4] := d expr - expr[[3, 2]] expr - 1/2 expr[[3, 1]] (expr + listcal[
 
 
 (* R1 Sector \:4e09\:6761 IBP\:ff1a\:65f6\:95f4\:3001\:52a8\:91cf\:3001\:4e92\:8865\:52a8\:91cf *)
-ibp[expr_R1, 1] := -I P0R1 (-1)^Vpm  expr - expr[[2, 1]] listcal[expr, 2, 1, -1] - listcal[listcal[expr, 1, 1, 1], 3, 2, -1] - listcal[listcal[expr, 1, 2, 1], 3, 2, -1]
+ibp[expr_R1, 1] := -I (-1)^Vpm P0R1  expr - expr[[2, 1]] listcal[expr, 2, 1, -1] - listcal[listcal[expr, 1, 1, 1], 3, 2, -1] - listcal[listcal[expr, 1, 2, 1], 3, 2, -1]
 ibp[expr_R1, 2] := d expr - expr[[3, 1]] expr - 1/2 expr[[3, 2]] (expr + listcal[listcal[expr, 3, 1, -2], 3, 2, 2] - ks^2 listcal[expr, 3, 2, 2]) + 1/2 (listcal[listcal[listcal[expr, 1, 1, 1], 2, 1, 1], 3, 2, -1] + listcal[listcal[listcal[listcal[expr, 1, 1, 1], 2, 1, 1], 3, 1, -2], 3, 2, 1] - ks^2 listcal[listcal[listcal[expr, 1, 1, 1], 2, 1, 1], 3, 2, 1]) + 1/2 (listcal[listcal[listcal[expr, 1, 2, 1], 2, 1, 1], 3, 2, -1] + listcal[listcal[listcal[listcal[expr, 1, 2, 1], 2, 1, 1], 3, 1, -2], 3, 2, 1] - ks^2 listcal[listcal[listcal[expr, 1, 2, 1], 2, 1, 1], 3, 2, 1])
 ibp[expr_R1, 3] := d expr - expr[[3, 2]] expr - 1/2 expr[[3, 1]] (expr + listcal[listcal[expr, 3, 1, 2], 3, 2, -2] - ks^2 listcal[expr, 3, 1, 2]) + listcal[listcal[listcal[expr, 1, 1, 1], 2, 1, 1], 3, 2, -1] + listcal[listcal[listcal[expr, 1, 2, 1], 2, 1, 1], 3, 2, -1]
 
@@ -84,13 +84,14 @@ Return[test];
 (* \:5947\:5076\:6027\:7b5b\:9009 *)
 (* Top Sector: n1+n2+b1 \:4e3a\:5076\:6570, \:4e14 n3+n4+b2 \:4e3a\:5076\:6570 *)
 (* R1 Sector: b1 \:4e3a\:5076\:6570, \:4e14 n3+n4+b2 \:4e3a\:5076\:6570 *)
+(* \:9700\:5728symmetry\:4e4b\:540e\:4f7f\:7528 *)
 reppowerselection = {
   G[{n1_, n2_, n3_, n4_}, {a1_, a2_}, {b1_, b2_}] /; (OddQ[n1 + n2 + b1] || OddQ[n3 + n4 + b2]) :> 0,
   R1[{n3_, n4_}, {a_}, {b1_, b2_}] /; (OddQ[b1] || OddQ[n3 + n4 + b2]) :> 0
 };
 
 
-(* 1D\[RightArrow]3D \:5347\:7ef4\:6620\:5c04----------\:5bf9\:79ef\:5206\:6307\:6807\:4e2da0 b0\:5df2\:88abshift\:6389\:ff08\:5269\:4e0b\:5269\:4e0b\:6574\:6570\:ff09\:7684\:79ef\:5206\:4f7f\:7528\:ff01\:ff01\:ff01 *)
+(* 1D\[RightArrow]3D \:5347\:7ef4\:6620\:5c04----------\:5bf9\:79ef\:5206\:6307\:6807\:4e2da0 b0\:5df2\:88abshift\:6389\:ff08\:5269\:4e0b\:5269\:4e0b\:6574\:6570\:ff09\:7684\:79ef\:5206\:4f7f\:7528\:ff01\:ff01\:ff01 \:53ea\:7528\:5230dlog\:6784\:9020\:4e2d*)
 repdimplus2[expr_] := Module[{res},
   res = expr /. {
     G[c1_, c2_, c3_] :> (
@@ -117,11 +118,11 @@ int00G = G[{n1, n2, n3, n4}, {a1, a2}, {b1, b2}];
 int00R1 = R1[{n3, n4}, {a}, {b1, b2}];
 
 repaddab0G = {a1 -> a1 + a10, a2 -> a2 + a20, b1 -> b1 + b10, b2 -> b2 + b20};
-repaddab0R1 = {a -> a + a0R, b1 -> b1 + b10, b2 -> b2 + b20};
+repaddab0R1 = {a -> a + a0R (*a0R->a10+a20-2nu*), b1 -> b1 + b10, b2 -> b2 + b20};
 
 repab020[expr_] := expr /. {
   G[c1_, c2_, c3_] :> (G[c1, c2, c3] /. {a10 -> 0, a20 -> 0, a0 -> 0, b10 -> 0, b20 -> 0}),
-  R1[c1_, c2_, c3_] :> (R1[c1, c2, c3] /. {a10 -> 0, a20 -> 0, a0R -> 0, b10 -> 0, b20 -> 0}),
+  R1[c1_, c2_, c3_] :> (R1[c1, c2, c3] /. {a10 -> 0, a20 -> 0, a0R -> 0, b10 -> 0, b20 -> 0})(*bubble dtau-IBP\:4e2d R1\:91cc\:6307\:6807\:4f1a\:51fa\:73b0a10 a20  \:6545\:8981\:52a0\:4e0a*),
   R2[c1_, c2_, c3_] :> (R2[c1, c2, c3] /. {a10 -> 0, a20 -> 0, a0R -> 0, b10 -> 0, b20 -> 0})
 };
 
@@ -155,15 +156,11 @@ IBPset0R1 = Table[
 ]//Simplify;
 
 
-IBPset0G/._G->1//Simplify//Cases[#,_R1,Infinity]&//DeleteDuplicates
+IBPset0G/._G->1//Simplify//Cases[#,_R1,Infinity]&//DeleteDuplicates  (*\:6d4b\:8bd5bubble dtau-IBP\:4e2d\:7684R1\:6307\:6807\:662f\:5426\:6b63\:5e38*)
 
 
-test=IBPset0G[[4]]/.{G[c1_,c2_,c3_]->G[Total[c2]+Total[c3]-a1-a2-b1-b2],R1[c1_,c2_,c3_]->R1[Total[c2]+Total[c3]-a1-a2-b1-b2]}//Simplify;
-test1=Table[test//Coefficient[#,G[i]]&,{i,{-2,-1,0,1,2}}];
-test1//Cases[#,_G,Infinity]&//DeleteDuplicates
-test1/.repvar(*/.reppara2N*)//Simplify//MatrixForm
-test=.;test1=.;
-\:9700\:8981\:5c0f\:5fc3\:68c0\:9a8c (-k tau)^{-2 nu-1}
+IBPset0G[[1,7]]/.{a1->0,a2->0,b1->3,b2->3}/. repvar /. reppara2N//Simplify//symmetry
+%/.reppowerselection
 
 
 (* ::Chapter:: *)
@@ -178,7 +175,7 @@ test=.;test1=.;
 aMin = -2; aMax = 3; bMin = 0; bMax = 4;
 
 (* R1 Sector Ranges (Matched or Expanded) *)
-aR1Min = -4; aR1Max = 6; bR1Min = -4; bR1Max = 6;
+aR1Min = -4; aR1Max = 8; bR1Min = -4; bR1Max = 8;
 
 
 Print["Generating IBP equations..."];
@@ -209,7 +206,7 @@ AbsoluteTiming[
 IBPsetPG = ReplaceAll[IBPset1G, reppowerselection] // Expand // DeleteDuplicates // Complement[#, {0}] &;
 IBPsetPR1 = ReplaceAll[IBPset1R1, reppowerselection] // Expand // DeleteDuplicates // Complement[#, {0}] &;
 (* --------select the part you want to reduce---------------*)
-IBPsetP0 = Join[IBPsetPG, IBPsetPR1] // DeleteDuplicates;
+IBPsetP0 = Join[IBPsetPG, IBPsetPR1] (*// DeleteDuplicates*);
 ]
 Print["Selected Top Sector (G) Equation Count: ", Length[IBPsetPG]];
 Print["Selected R1 Sector Equation Count: ", Length[IBPsetPR1]];
@@ -219,7 +216,7 @@ varsetAll = IBPsetP0 // Cases[#, _R1 | _G, Infinity] & // DeleteDuplicates;
 Print["Final Integral Count: ", Length[varsetAll]];
 
 
-(* ::Section::Closed:: *)
+(* ::Section:: *)
 (*Constructing Master Integrals (MIs) & dlog Basis*)
 
 
@@ -262,12 +259,12 @@ MIdlogTopNote = Join[basis3DTopNote, basis1D3DTopNote] /. reppowerselection // C
 vec3Da0 = MIsR1 /. {a -> 0, b1 -> 2, b2 -> 2};
 vec3Da1 = MIsR1 /. {a -> 1, b1 -> 2, b2 -> 1};
 vec3Da0t = MIsR1 /. {a -> 0, b1 -> 2, b2 -> 1};
-OmegaInfinityRef = -(Omegax2Ref + OmegaPlusRef + OmegaMinusRef)//Simplify;
+OmegaInfinityRef = -(Omegax2Ref + OmegaPlusRef + OmegaMinusRef)/.a0->a0R//Simplify;
 
 vec3Da1Corr = vec3Da1 + (I/P0R1) * OmegaP0Ref . (MIsR1 /. {a -> 0, b1 -> 2, b2 -> 1}) // Simplify;
 vec3Da0tCorr = (2/P0R1) * (((b20 - 1) IdentityMatrix[Length[MIsR1]] - OmegaInfinityRef) . vec3Da0t) // Simplify;
 
-basis3DNote = Join[
+basis3DR1Note = Join[
   ks * vec3Da0,
   (-I) * ks * vec3Da0tCorr,
   ks * vec3Da1Corr
@@ -279,18 +276,23 @@ vec1Da100 = MIsR1 /. {a -> 1, b1 -> 0, b2 -> 0};
 vec1Da000 = MIsR1 /. {a -> 0, b1 -> 0, b2 -> 0};
 vec1Da100Corr = vec1Da100 + (I/P0R1) * OmegaP0Ref . vec1Da000;
 
-basis1DNote = Join[
+basis1DR1Note = Join[
   vec1Da010,
   vec1Da001,
   vec1Da100Corr
 ] // Simplify;
 
-basis1D3DNote = (repdimplus2 /@ basis1DNote) // Simplify;
-MIdlogR1Note = Join[basis3DNote, basis1D3DNote] /. reppowerselection // Complement[#, {0}] & // symmetry // DeleteDuplicates // Simplify;
+basis1D3DR1Note = (repdimplus2 /@ basis1DR1Note) // Simplify;
+MIdlogR1Note = Join[basis3DR1Note, basis1D3DR1Note] /. reppowerselection // Complement[#, {0}] & // symmetry // DeleteDuplicates // Simplify;
 
 (* Combine Top and R1 Note basis *)
 MIdlogNote = Join[MIdlogTopNote, MIdlogR1Note];
 MIdlogKira = (MIdlogNote /. repvar /. reppara2N) // Simplify;
+
+
+MIdlogR1Note/. repvar /. reppara2N//Simplify
+%//Length
+MIsR1
 
 
 (* ::Section::Closed:: *)
@@ -348,17 +350,11 @@ DEks0 = (dks[MIdlogNote] // id // symmetry);
 (*Formatting Variables & Target for Kira*)
 
 
-(*\:68c0\:9a8c\:5fae\:5206\:65b9\:7a0b\:4e2d\:51fa\:73b0\:7684\:79ef\:5206\:662f\:5426\:5df2\:7ecf\:5305\:542b\:5728IBP\:6307\:6807\:8303\:56f4\:5185*)
-test=(*{DEk00, DEks0}*)MIdlogKira// Cases[#, _R1 | _G, Infinity] & // DeleteDuplicates;
-test/.G[c1_,c2_,c3_]->G[Total[c2],Total[c3]]/.R1[c1_,c2_,c3_]->R1[Total[c2],Total[c3]]//DeleteDuplicates
-Complement[test,varsetAll]
-test=.
-
-
-IBPsetdlogbasis =(*{}*)Table[G["dlog", i] - MIdlogKira[[i]], {i, Length[MIdlogKira]}];
+IBPsetdlogbasis =Table[dlog[i] - MIdlogKira[[i]], {i,Length[MIdlogKira]}]//Factor;
+(*IBPsetdlogbasis ={}; *) (*-----------\:4e0d\:52a0\:5165dlog\:57fa\:6d4b\:8bd5\:ff0c\:8981\:52a0\:5165\:65f6\:6ce8\:91ca\:6b64\:884c----------*)
 IBPsetP = Join[IBPsetdlogbasis, IBPsetP0];
 
-varsetP = Join[IBPsetP, {DEk00, DEks0}] // Cases[#, _R1 | _G, Infinity] & // DeleteDuplicates;
+varsetP = Join[IBPsetP(*, {DEk00, DEks0}*)] // Cases[#, _R1|_G|_dlog, Infinity] & // DeleteDuplicates;
 (* Sorting rule for varsetP (integral ordering for Kira):
    Priority 0 (first): dlog basis integrals G["dlog", i], sorted by i.
    Priority 1 (remaining): all non-dlog integrals, sorted by:
@@ -370,8 +366,8 @@ varsetP = Join[IBPsetP, {DEk00, DEks0}] // Cases[#, _R1 | _G, Infinity] & // Del
      (f) Finally:   discrete Hankel labels (n1,n2,n3,n4 for G;  n3,n4,0,0 for R1)
 *)
 varsetP = SortBy[varsetP, Which[
-    MatchQ[#, G["dlog", _Integer]],
-      {0, #[[2]], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
+    MatchQ[#, dlog[_Integer]],
+      {0, #[[1]], 0, 0, 0, 0, 0, 0, 0, 0, 0, 0},
     MatchQ[#, G[_,_,_]],
       With[{n1=#[[1,1]], n2=#[[1,2]], n3=#[[1,3]], n4=#[[1,4]],
             a1=#[[2,1]], a2=#[[2,2]], b1=#[[3,1]], b2=#[[3,2]]},
@@ -391,9 +387,6 @@ repkira2GR = Table[Tuserweight[i] -> varsetP[[i]], {i, Length[varsetP]}];
 repGR2num = Table[varsetP[[i]] -> Tuserweight[i], {i, Length[varsetP]}];
 
 
-repGR2num
-
-
 (* ::Section:: *)
 (*Exporting Kira Workspace*)
 
@@ -411,7 +404,7 @@ ctokb[IBPset0_, varset0_] := Module[{string, stream, intsettemp, indexset},
   stream = OpenWrite["./" <> kiraworkspace <> "/userSystem/ibp.kira"];
   Do[
     string = "";
-    intsettemp = IBPset0[[i]] // Cases[#, _R1 | _G, Infinity] & // DeleteDuplicates;
+    intsettemp = IBPset0[[i]] // Cases[#, _R1 | _G | _dlog, Infinity] & // DeleteDuplicates;
     indexset = Table[intsettemp[[j]] /. repGR2num /. Tuserweight[c_] -> c, {j, Length[intsettemp]}] // Flatten;
     Do[
       string = StringJoin[string,
@@ -430,9 +423,8 @@ ctokb[IBPset0_, varset0_] := Module[{string, stream, intsettemp, indexset},
 (*ctokb[IBPsetP, varsetP];*)
 
  (*--- Numeric test run: uncomment the block below AND comment the line above ---*)
-repNumericTestKira = {nu -> 17/7, ep -> 1/13, k0 -> 5/23};
+repNumericTestKira = {nu -> 17/7, ep -> 1/13, k0 -> 5/23 ,da->0};
 IBPsetPKira = IBPsetP /. repNumericTestKira;
-repGR2num = Table[(varsetP[[i]] /. repNumericTestKira) -> Tuserweight[i], {i, Length[varsetP]}];
 ctokb[IBPsetPKira, varsetP];
 
 (* Append dummy equation: (N+1)*(ccc) \[LongDash] only needed when ALL coefficients are numeric.
@@ -516,4 +508,4 @@ Print["Export done. Workspace ready at: ", kiraworkspace];
 (*test*)
 
 
-Tuserweight[16]/.repkira2GR
+Tuserweight[37]/.repkira2GR
