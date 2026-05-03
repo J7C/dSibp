@@ -43,6 +43,25 @@
 - **奇偶性筛选**: 仅保留 $b_1$ 为偶且 $n_3+n_4+b_2$ 为偶的积分
 - **维度约定**: 所有导出到 Kira 的候选基底与关系在脚本内完成升维与替换，确保以 $D=3-2\epsilon$ 运行
 
-### 2.3 Massless 1-Loop 2-Point
+### 2.3 Bubble 图主积分顺序约定（MIstau）
+- **定义（paper Eq B^{(12)}）**：
+  $$B^{(12)}[\{n_1,n_2,n_3,n_4\},\{a_1,a_2\},\{b_1,b_2\}] \sim h_{n_1}^{(1)}(-q\tau_1)h_{n_2}^{(2)}(-q\tau_2) \times h_{n_3}^{(1)}(-|\boldsymbol{k}_s+\boldsymbol{q}|\tau_1)h_{n_4}^{(2)}(-|\boldsymbol{k}_s+\boldsymbol{q}|\tau_2)$$
+- **顶点 1（$\tau_1$）**：$\{n_1,n_3\}$；**顶点 2（$\tau_2$）**：$\{n_2,n_4\}$
+- **二进制编码**：每个顶点的状态由 2-bit 二进制数编码：
+  - bit1（MSB，$x_1$ 侧）→ 第一条腿的 Hankel 指标
+  - bit0（LSB，$x_2$ 侧）→ 第二条腿的 Hankel 指标
+- **Kronecker 积顺序**：`Omegapp = test1pp ⊗ I₄ + I₄ ⊗ test2pp`
+  - 行/列索引 = $(i_1-1)\times4 + i_2$（$i_1$ 为外指标，变慢；$i_2$ 为内指标，变快）
+  - $i_1$ → 顶点 1 状态 → $\{n_1,n_3\}$；$i_2$ → 顶点 2 状态 → $\{n_2,n_4\}$
+- **MIstau 中 G 积分指标顺序**：
+  $$G[\{n_1,n_2,n_3,n_4\}] = G[\{\text{idx2bin}[[i_1,1]], \text{idx2bin}[[i_2,1]], \text{idx2bin}[[i_1,2]], \text{idx2bin}[[i_2,2]]\}]$$
+  （注：不是简单地对 `n1,n2,n3,n4` 做 Table 遍历，而是先取两个顶点的 bit1 再取 bit0。）
+
+### 2.4 R1 子扇区约定
+- **a0R / b10R / b20R 映射**（`bubble_ibp_sym.m` 中定义）：
+  $$a_{0R} \to 2a_0 - 2\nu,\quad b_{10R} \to b_0 + 2\nu,\quad b_{20R} \to b_0$$
+- **R2→R1 对称性（Eq 43）**：$\;R_2[\{n_1,n_2\},\{a\},\{b_1,b_2\}] \to R_1[\{n_1,n_2\},\{a\},\{b_2,b_1\}]$
+
+### 2.5 Massless 1-Loop 2-Point
 - **Location**: `project_context/README_IBP.md` (Archived content).
 - **Physics**: Corresponds to $\nu=3/2$ in massive notation.
